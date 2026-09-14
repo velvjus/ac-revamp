@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RakanSales — Partner Registration (Redesign)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  * { font-family: 'Inter', sans-serif; }
+  body { background:#F9FAFB; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  .scr { display:none; }
+  .scr.on { display:block; }
+  .fade-in { animation: fadeIn .25s ease; }
+  @keyframes fadeIn { from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+  input:focus { outline:none; border-color:#23B750; box-shadow:0 0 0 3px rgba(35,183,80,0.12); }
+  .seg-btn.active { background:#111827; color:#fff; }
+  .seg-btn { transition: all .15s ease; }
+  .type-card { transition: all .15s ease; cursor:pointer; }
+  .type-card.selected { border-color:#23B750; box-shadow:0 0 0 3px rgba(35,183,80,0.12); background:#F0FDF4; }
+  .step-line { background:#E5E7EB; }
+  .step-line.done { background:#23B750; }
+  .step-dot { transition: all .2s ease; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<div class="min-h-screen flex">
+
+  <!-- LEFT: FORM PANEL -->
+  <div class="w-full lg:w-[46%] flex flex-col px-8 sm:px-14 py-10">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-2 mb-10">
+      <div class="w-8 h-8 rounded-lg bg-[#23B750] flex items-center justify-center">
+        <i data-lucide="message-square" class="w-4.5 h-4.5 text-white" style="width:18px;height:18px;"></i>
+      </div>
+      <span class="text-lg font-bold text-gray-900">RakanSales</span>
+    </div>
+
+    <div class="max-w-md mx-auto w-full flex-1 flex flex-col">
+
+      <!-- ===================== EXISTING-VS-NEW SEGMENT ===================== -->
+      <div class="flex p-1 bg-gray-100 rounded-xl mb-8 w-full">
+        <button id="segNew" onclick="setMode('new')" class="seg-btn active flex-1 text-sm font-semibold py-2 rounded-lg">New partner</button>
+        <button id="segExisting" onclick="setMode('existing')" class="seg-btn flex-1 text-sm font-semibold py-2 rounded-lg text-gray-500">I already use RakanSales</button>
+      </div>
+
+      <!-- ===================== NEW PARTNER FLOW ===================== -->
+      <div id="flowNew">
+
+        <h1 class="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">Partner registration</h1>
+        <p class="text-sm text-gray-500 mb-8 leading-relaxed">Earn money by referring businesses to our CRM platform — no experience needed.</p>
+
+        <!-- Stepper -->
+        <div class="flex items-center gap-3 mb-9">
+          <div class="flex items-center gap-2">
+            <div id="dot1" class="step-dot w-7 h-7 rounded-full bg-[#23B750] text-white flex items-center justify-center text-xs font-bold">1</div>
+            <span id="lbl1" class="text-sm font-semibold text-gray-900">Partner Type</span>
+          </div>
+          <div id="line1" class="step-line w-8 h-0.5 rounded-full"></div>
+          <div class="flex items-center gap-2">
+            <div id="dot2" class="step-dot w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-bold">2</div>
+            <span id="lbl2" class="text-sm font-semibold text-gray-400">Your Details</span>
+          </div>
+        </div>
+
+        <!-- STEP 1: Partner type -->
+        <div id="step1" class="scr on fade-in">
+          <p class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">You're joining as</p>
+          <div class="space-y-3 mb-8">
+            <div onclick="selectType('referral', this)" class="type-card selected border-2 border-[#23B750] bg-[#F0FDF4] rounded-2xl p-4 flex items-center gap-4">
+              <div class="w-11 h-11 rounded-xl bg-[#23B750] flex items-center justify-center shrink-0">
+                <i data-lucide="share-2" class="w-5 h-5 text-white"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-0.5">
+                  <span class="font-bold text-sm text-gray-900">Referral partner</span>
+                  <span class="text-[10px] font-bold uppercase tracking-wide bg-[#23B750] text-white px-2 py-0.5 rounded-full">Start here</span>
+                </div>
+                <p class="text-xs text-gray-500">Share your link. We close the deal. <span class="font-semibold text-gray-700">RM300–500 per signup, flat fee.</span></p>
+              </div>
+              <div class="w-5 h-5 rounded-full border-2 border-[#23B750] flex items-center justify-center shrink-0">
+                <div class="w-2.5 h-2.5 rounded-full bg-[#23B750]"></div>
+              </div>
+            </div>
+
+            <div onclick="selectType('sales', this)" class="type-card border-2 border-gray-200 rounded-2xl p-4 flex items-center gap-4 opacity-60">
+              <div class="w-11 h-11 rounded-xl bg-gray-200 flex items-center justify-center shrink-0">
+                <i data-lucide="lock" class="w-5 h-5 text-gray-500"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-0.5">
+                  <span class="font-bold text-sm text-gray-900">Sales partner</span>
+                  <span class="text-[10px] font-semibold text-gray-500">Unlocks after 5 closed referrals</span>
+                </div>
+                <p class="text-xs text-gray-500">You pitch and close. <span class="font-semibold text-gray-700">10–25% of MRR, recurring for 12 months.</span></p>
+              </div>
+            </div>
+          </div>
+          <button onclick="goStep(2)" class="w-full bg-[#23B750] hover:bg-[#1A943E] text-white font-semibold text-sm py-3 rounded-xl transition">
+            Continue
+          </button>
+        </div>
+
+        <!-- STEP 2: Your details -->
+        <div id="step2" class="scr fade-in">
+          <p class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">Set up your login</p>
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="text-xs font-semibold text-gray-700 mb-1.5 block">Full name <span class="text-red-500">*</span></label>
+              <input type="text" placeholder="Enter your full name" class="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm">
+            </div>
+            <div>
+              <label class="text-xs font-semibold text-gray-700 mb-1.5 block">Company <span class="text-gray-400 font-normal">(optional)</span></label>
+              <input type="text" placeholder="Enter your company name" class="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="text-xs font-semibold text-gray-700 mb-1.5 block">Email address <span class="text-red-500">*</span></label>
+            <input type="email" placeholder="Enter your email address" class="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm">
+          </div>
+          <div class="mb-5">
+            <label class="text-xs font-semibold text-gray-700 mb-1.5 block">WhatsApp number <span class="text-red-500">*</span></label>
+            <input type="text" placeholder="Enter your WhatsApp number" class="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm">
+          </div>
+          <div class="grid grid-cols-2 gap-4 mb-5">
+            <div>
+              <label class="text-xs font-semibold text-gray-700 mb-1.5 block">Password <span class="text-red-500">*</span></label>
+              <input type="password" placeholder="Enter your password" class="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm">
+            </div>
+            <div>
+              <label class="text-xs font-semibold text-gray-700 mb-1.5 block">Confirm <span class="text-red-500">*</span></label>
+              <input type="password" placeholder="Re-enter your password" class="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm">
+            </div>
+          </div>
+
+          <label class="flex items-start gap-3 mb-5 cursor-pointer">
+            <input type="checkbox" class="mt-1 w-4 h-4 rounded border-gray-300 text-[#23B750] focus:ring-[#23B750]">
+            <span class="text-xs text-gray-600 leading-relaxed">I confirm the businesses I refer are active businesses that could genuinely benefit from a CRM — not random or uninterested contacts.</span>
+          </label>
+
+          <p class="text-xs text-gray-400 text-center mb-6">By registering you agree to our <a href="#" class="text-[#23B750] font-semibold hover:underline">Partner Agreement</a> and <a href="#" class="text-[#23B750] font-semibold hover:underline">Privacy Policy</a>.</p>
+
+          <div class="flex gap-3">
+            <button onclick="goStep(1)" class="px-5 h-11 rounded-xl border border-gray-200 text-sm font-semibold text-gray-600 hover:bg-gray-50">Back</button>
+            <button onclick="finishReg()" class="flex-1 bg-[#23B750] hover:bg-[#1A943E] text-white font-semibold text-sm rounded-xl transition">Create partner account</button>
+          </div>
+        </div>
+
+        <p class="text-center text-sm text-gray-500 mt-8">Already a partner? <a href="#" class="text-[#23B750] font-semibold hover:underline">Sign in</a></p>
+      </div>
+
+      <!-- ===================== EXISTING ACCOUNT FLOW ===================== -->
+      <div id="flowExisting" class="scr fade-in">
+        <h1 class="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">Link your account</h1>
+        <p class="text-sm text-gray-500 mb-8 leading-relaxed">Already a RakanSales CRM customer? Use the same email — we'll link your partner earnings to your existing login, no new password needed.</p>
+
+        <div class="border border-[#23B750]/30 bg-[#F0FDF4] rounded-2xl p-4 flex items-start gap-3 mb-8">
+          <i data-lucide="link-2" class="w-5 h-5 text-[#23B750] shrink-0 mt-0.5"></i>
+          <p class="text-xs text-gray-700 leading-relaxed">One login for both. Your CRM dashboard and partner earnings dashboard will share the same email and password.</p>
+        </div>
+
+        <div class="mb-6">
+          <label class="text-xs font-semibold text-gray-700 mb-1.5 block">CRM account email <span class="text-red-500">*</span></label>
+          <input id="existingEmail" type="email" placeholder="Enter your CRM account email" class="w-full h-11 px-3 rounded-lg border border-gray-200 text-sm">
+          <p id="matchNote" class="text-xs text-gray-400 mt-2 hidden flex items-center gap-1.5"></p>
+        </div>
+
+        <button onclick="checkAccount()" class="w-full bg-[#23B750] hover:bg-[#1A943E] text-white font-semibold text-sm py-3 rounded-xl transition mb-3">
+          Find my account &amp; continue
+        </button>
+        <p class="text-center text-xs text-gray-400">You'll pick your partner type next — no need to re-enter your details.</p>
+
+        <p class="text-center text-sm text-gray-500 mt-8">Not a customer yet? <button onclick="setMode('new')" class="text-[#23B750] font-semibold hover:underline">Register as a new partner</button></p>
+      </div>
+
+      <!-- ===================== EXISTING ACCOUNT — MATCHED ===================== -->
+      <div id="flowMatched" class="scr fade-in">
+        <div class="w-14 h-14 rounded-2xl bg-[#F0FDF4] flex items-center justify-center mb-6">
+          <i data-lucide="check-circle-2" class="w-7 h-7 text-[#23B750]"></i>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">Account found</h1>
+        <p class="text-sm text-gray-500 mb-8 leading-relaxed">We matched <span class="font-semibold text-gray-700" id="matchedEmail">you@company.com</span> to an active RakanSales CRM account. Just pick how you'd like to earn — everything else carries over.</p>
+
+        <p class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">You're joining as</p>
+        <div class="space-y-3 mb-8">
+          <div class="border-2 border-[#23B750] bg-[#F0FDF4] rounded-2xl p-4 flex items-center gap-4">
+            <div class="w-11 h-11 rounded-xl bg-[#23B750] flex items-center justify-center shrink-0">
+              <i data-lucide="share-2" class="w-5 h-5 text-white"></i>
+            </div>
+            <div class="flex-1">
+              <span class="font-bold text-sm text-gray-900 block mb-0.5">Referral partner</span>
+              <p class="text-xs text-gray-500">Share your link. RM300–500 per signup, flat fee.</p>
+            </div>
+            <div class="w-5 h-5 rounded-full border-2 border-[#23B750] flex items-center justify-center shrink-0">
+              <div class="w-2.5 h-2.5 rounded-full bg-[#23B750]"></div>
+            </div>
+          </div>
+        </div>
+
+        <button class="w-full bg-[#23B750] hover:bg-[#1A943E] text-white font-semibold text-sm py-3 rounded-xl transition">
+          Activate partner dashboard
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT: BRAND PANEL -->
+  <div class="hidden lg:flex w-[54%] bg-[#F0FDF4] relative overflow-hidden items-center justify-center px-16">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-[#23B750]/10 rounded-full -translate-y-1/3 translate-x-1/4"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-[#62D816]/10 rounded-full translate-y-1/3 -translate-x-1/4"></div>
+
+    <div class="relative z-10 max-w-md">
+      <h2 class="text-5xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-6">Grow Together,<br/>Earn Together.</h2>
+      <p class="text-gray-500 text-sm mb-12 leading-relaxed max-w-sm">Every business you bring to RakanSales earns you commission — for referrals and for full sales, side by side in one dashboard. Wherever you're based.</p>
+
+      <!-- Single clean device + earnings card, no scattered avatars -->
+      <div class="relative">
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-4 w-60 absolute -top-8 -right-6 z-20">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-2.5">Earnings this month</p>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl font-extrabold text-gray-900 mono">$4,820</span>
+            <span class="text-xs font-bold text-[#23B750] bg-[#23B750]/10 px-2 py-0.5 rounded-full">+28%</span>
+          </div>
+          <div class="flex items-center gap-1.5 pt-2.5 border-t border-gray-100">
+            <span class="text-[9px] font-bold text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">MYR</span>
+            <span class="text-[9px] font-bold text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">SGD</span>
+            <span class="text-[9px] font-bold text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">IDR</span>
+            <span class="text-[9px] font-bold text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">PHP</span>
+            <span class="text-[9px] text-gray-400 ml-0.5">paid in your currency</span>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-[2rem] p-2.5 w-64 shadow-xl mx-auto">
+          <div class="bg-white rounded-[1.6rem] overflow-hidden">
+            <div class="px-4 pt-4 pb-2">
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-bold text-sm text-gray-900">Referrals</span>
+                <i data-lucide="search" class="w-3.5 h-3.5 text-gray-400"></i>
+              </div>
+              <div class="flex gap-1.5 mb-3">
+                <span class="text-[10px] font-semibold bg-gray-900 text-white px-2 py-1 rounded-full">All</span>
+                <span class="text-[10px] font-semibold text-gray-500 bg-gray-100 px-2 py-1 rounded-full">Pending · 4</span>
+              </div>
+            </div>
+            <div class="divide-y divide-gray-100">
+              <div class="flex items-center gap-2.5 px-4 py-2.5">
+                <div class="w-7 h-7 rounded-full bg-[#23B750]/15 flex items-center justify-center text-[10px] font-bold text-[#23B750]">MT</div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs font-semibold text-gray-800 truncate">Mei Ting Boutique</p>
+                  <p class="text-[10px] text-gray-400">Signed up · 5m ago</p>
+                </div>
+                <span class="text-[9px] font-bold uppercase text-[#23B750] bg-[#23B750]/10 px-1.5 py-0.5 rounded-full">Paid</span>
+              </div>
+              <div class="flex items-center gap-2.5 px-4 py-2.5">
+                <div class="w-7 h-7 rounded-full bg-amber-400/20 flex items-center justify-center text-[10px] font-bold text-amber-600">CW</div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs font-semibold text-gray-800 truncate">Chong Wei Trading</p>
+                  <p class="text-[10px] text-gray-400">Demo booked · 2h ago</p>
+                </div>
+                <span class="text-[9px] font-bold uppercase text-amber-600 bg-amber-500/10 px-1.5 py-0.5 rounded-full">Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  lucide.createIcons();
+
+  function setMode(mode){
+    document.getElementById('flowNew').classList.toggle('scr', mode!=='new');
+    document.getElementById('flowNew').classList.toggle('on', mode==='new');
+    document.getElementById('flowExisting').classList.toggle('scr', true);
+    document.getElementById('flowExisting').classList.toggle('on', mode==='existing');
+    document.getElementById('flowMatched').classList.remove('on');
+
+    document.getElementById('segNew').classList.toggle('active', mode==='new');
+    document.getElementById('segExisting').classList.toggle('active', mode==='existing');
+    document.getElementById('segNew').classList.toggle('text-gray-500', mode!=='new');
+    document.getElementById('segExisting').classList.toggle('text-gray-500', mode!=='existing');
+  }
+
+  function selectType(type, el){
+    document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected','border-[#23B750]','bg-[#F0FDF4]'));
+    document.querySelectorAll('.type-card').forEach(c => { c.classList.add('border-gray-200'); c.classList.remove('border-2'); c.classList.add('border-2'); });
+    el.classList.add('selected');
+  }
+
+  function goStep(n){
+    [1,2].forEach(i=>{
+      document.getElementById('step'+i).classList.remove('on');
+      const dot = document.getElementById('dot'+i);
+      const lbl = document.getElementById('lbl'+i);
+      if(i < n){ dot.className='step-dot w-7 h-7 rounded-full bg-[#23B750] text-white flex items-center justify-center text-xs font-bold'; dot.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>'; lbl.className='text-sm font-semibold text-gray-900'; }
+      else if(i === n){ dot.className='step-dot w-7 h-7 rounded-full bg-[#23B750] text-white flex items-center justify-center text-xs font-bold'; dot.textContent=i; lbl.className='text-sm font-semibold text-gray-900'; }
+      else { dot.className='step-dot w-7 h-7 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-bold'; dot.textContent=i; lbl.className='text-sm font-semibold text-gray-400'; }
+    });
+    document.getElementById('line1').classList.toggle('done', n>1);
+    document.getElementById('step'+n).classList.add('on');
+  }
+
+  function finishReg(){
+    alert('Prototype only — this would submit the partner application.');
+  }
+
+  function checkAccount(){
+    const email = document.getElementById('existingEmail').value || 'you@company.com';
+    document.getElementById('matchedEmail').textContent = email;
+    document.getElementById('flowExisting').classList.remove('on');
+    document.getElementById('flowMatched').classList.add('on');
+    lucide.createIcons();
+  }
+</script>
+
+</body>
+</html>

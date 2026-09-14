@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto-City Brands Showcase Carousel : Westfield London Inspiration</title>
+  
+  <link rel="stylesheet" href="../css/brand-tokens.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/brands-carousel.css">
+  <style>
+    body {
+      background: var(--bg-canvas);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       Auto-City Brands Showcase Carousel Section
+       Design Reference: Westfield London Brand Directory Carousel
+       Position: Immediately succeeding the Editorial Quote Statement Section
+       ======================================================================== -->
+  <section class="brands-carousel-section" id="brandsShowcase" aria-label="Marquee Brands at Auto-City">
+    
+    <!-- Optical Full-Height Pure White Progressive Blur & Fade Curtains (100% at edge -> 0% inward, zero cuts) -->
+    <div class="brands-edge-curtain curtain-left" aria-hidden="true">
+      <div class="curtain-blur-layer blur-step-1"></div>
+      <div class="curtain-blur-layer blur-step-2"></div>
+      <div class="curtain-blur-layer blur-step-3"></div>
+      <div class="curtain-blur-layer blur-step-4"></div>
+      <div class="curtain-fade-layer"></div>
+    </div>
+    <div class="brands-edge-curtain curtain-right" aria-hidden="true">
+      <div class="curtain-blur-layer blur-step-1"></div>
+      <div class="curtain-blur-layer blur-step-2"></div>
+      <div class="curtain-blur-layer blur-step-3"></div>
+      <div class="curtain-blur-layer blur-step-4"></div>
+      <div class="curtain-fade-layer"></div>
+    </div>
+
+    <!-- Section Header (Clean single-color headline, no eyebrow pill) -->
+    <div class="brands-header-wrap">
+      <h2 class="brands-section-title">
+        World-Class Brands at Auto-City
+      </h2>
+      <p class="brands-section-desc">
+        Explore premier automotive marques, signature alfresco dining destinations, and vibrant lifestyle retailers situated across Auto-City.
+      </p>
+    </div>
+
+    <!-- Continuous Moving Carousel Viewport (Overflow Visible) -->
+    <div class="brands-carousel-stage" aria-label="Auto-City Brands Carousel">
+
+      <!-- Marquee Scrolling Track (Set A + Set B for Seamless Infinite Loop) -->
+      <div class="brands-carousel-track" role="region" aria-live="off">
+        
+        <!-- ==================== SET A ==================== -->
+        <!-- Card 1: PORSCHE -->
+        <a href="#guide" class="brand-card" aria-label="Porsche at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/porsche.jpg" alt="Porsche showroom and sports cars" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">PORSCHE</h3>
+          </div>
+        </a>
+
+        <!-- Card 2: BMW -->
+        <a href="#guide" class="brand-card" aria-label="BMW Auto Bavaria at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/bmw.jpg" alt="BMW 4S Centre and vehicles" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">BMW</h3>
+          </div>
+        </a>
+
+        <!-- Card 3: MERCEDES-BENZ -->
+        <a href="#guide" class="brand-card" aria-label="Mercedes-Benz at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/mercedes.jpg" alt="Mercedes-Benz showroom" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">MERCEDES-BENZ</h3>
+          </div>
+        </a>
+
+        <!-- Card 4: STARBUCKS RESERVE -->
+        <a href="#guide" class="brand-card" aria-label="Starbucks Reserve at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/starbucks.jpg" alt="Starbucks Reserve artisanal coffee" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">STARBUCKS</h3>
+          </div>
+        </a>
+
+        <!-- Card 5: HAIDILAO -->
+        <a href="#guide" class="brand-card" aria-label="Haidilao Hot Pot at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/haidilao.jpg" alt="Haidilao Hot Pot cuisine" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">HAIDILAO</h3>
+          </div>
+        </a>
+
+        <!-- Card 6: THE COFFEE BEAN -->
+        <a href="#guide" class="brand-card" aria-label="The Coffee Bean and Tea Leaf at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/coffeebean.jpg" alt="The Coffee Bean and Tea Leaf" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">COFFEE BEAN</h3>
+          </div>
+        </a>
+
+        <!-- Card 7: BYD -->
+        <a href="#guide" class="brand-card" aria-label="BYD Electric Vehicles at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/byd.jpg" alt="BYD electric vehicles showroom" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">BYD</h3>
+          </div>
+        </a>
+
+        <!-- Card 8: GOLDEN TRIANGLE -->
+        <a href="#guide" class="brand-card" aria-label="Golden Triangle Indochine Dining at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/goldentriangle.jpg" alt="Golden Triangle Indochine dining" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">GOLDEN TRIANGLE</h3>
+          </div>
+        </a>
+
+        <!-- Card 9: TAO CUISINE -->
+        <a href="#guide" class="brand-card" aria-label="Tao Authentic Asian Cuisine at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/taocuisine.jpg" alt="Tao Authentic Asian Cuisine" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">TAO CUISINE</h3>
+          </div>
+        </a>
+
+        <!-- Card 10: SECRET RECIPE -->
+        <a href="#guide" class="brand-card" aria-label="Secret Recipe at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/secretrecipe.jpg" alt="Secret Recipe gourmet cakes" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">SECRET RECIPE</h3>
+          </div>
+        </a>
+
+        <!-- Card 11: SUBWAY -->
+        <a href="#guide" class="brand-card" aria-label="Subway at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/subway.jpg" alt="Subway fresh sandwiches" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">SUBWAY</h3>
+          </div>
+        </a>
+
+        <!-- Card 12: HARLEY-DAVIDSON -->
+        <a href="#guide" class="brand-card" aria-label="Harley-Davidson at Auto-City">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/harleydavidson.jpg" alt="Harley-Davidson motorcycles" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay" aria-hidden="true"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">HARLEY-DAVIDSON</h3>
+          </div>
+        </a>
+
+        <!-- ==================== SET B (Duplicate for seamless continuous loop) ==================== -->
+        <!-- Card 1: PORSCHE -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/porsche.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">PORSCHE</h3>
+          </div>
+        </a>
+
+        <!-- Card 2: BMW -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/bmw.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">BMW</h3>
+          </div>
+        </a>
+
+        <!-- Card 3: MERCEDES-BENZ -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/mercedes.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">MERCEDES-BENZ</h3>
+          </div>
+        </a>
+
+        <!-- Card 4: STARBUCKS RESERVE -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/starbucks.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">STARBUCKS</h3>
+          </div>
+        </a>
+
+        <!-- Card 5: HAIDILAO -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/haidilao.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">HAIDILAO</h3>
+          </div>
+        </a>
+
+        <!-- Card 6: THE COFFEE BEAN -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/coffeebean.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">COFFEE BEAN</h3>
+          </div>
+        </a>
+
+        <!-- Card 7: BYD -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/byd.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">BYD</h3>
+          </div>
+        </a>
+
+        <!-- Card 8: GOLDEN TRIANGLE -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/goldentriangle.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">GOLDEN TRIANGLE</h3>
+          </div>
+        </a>
+
+        <!-- Card 9: TAO CUISINE -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/taocuisine.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">TAO CUISINE</h3>
+          </div>
+        </a>
+
+        <!-- Card 10: SECRET RECIPE -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/secretrecipe.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">SECRET RECIPE</h3>
+          </div>
+        </a>
+
+        <!-- Card 11: SUBWAY -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/subway.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">SUBWAY</h3>
+          </div>
+        </a>
+
+        <!-- Card 12: HARLEY-DAVIDSON -->
+        <a href="#guide" class="brand-card" aria-hidden="true" tabindex="-1">
+          <div class="brand-card-img-wrap">
+            <img src="../assets/images/brands/harleydavidson.jpg" alt="" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-overlay"></div>
+          <div class="brand-card-content">
+            <h3 class="brand-card-title">HARLEY-DAVIDSON</h3>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Centered Bottom Action: "Browse Directory" Button (Signature Red) -->
+    <div class="brands-action-wrap">
+      <a href="#guide" class="browse-directory-btn" id="browseDirectoryBtn" aria-label="Browse full Auto-City directory">
+        <span>Browse Directory</span>
+        <span class="browse-directory-btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      </a>
+    </div>
+
+  </section>
+
+  <script src="../js/brands-carousel.js"></script>
+</body>
+</html>

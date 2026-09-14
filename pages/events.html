@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events & Promotions : Auto-City Penang</title>
+
+  <!-- Preload Core Display Fonts -->
+  <link rel="preload" href="../fonts/CreatoDisplay-Medium.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../fonts/CreatoDisplay-Bold.woff" as="font" type="font/woff" crossorigin>
+
+  <!-- Single Source of Truth Brand Tokens & Typography -->
+  <link rel="stylesheet" href="../css/brand-tokens.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/events-page.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+  <script>
+    (function() {
+      const stored = localStorage.getItem('auto-city-theme');
+      const theme = stored || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Floating 3-Island Header (Habitline Framer Contraction & Level AI Megamenu) -->
+<!-- ========================================================================
+       1. Floating Pill Island Navigation (Habitline Framer Reference)
+       Reduced 12px/8px Modern Radii · Dynamic Inward-Closing Scroll Effect
+       ======================================================================== -->
+  <header class="island-header-wrapper" id="islandHeader">
+    <div class="island-header-inner">
+      
+      <!-- Island 1: Left Brand Pill (Compact Logo, Zero Subtags) -->
+      <div class="island-col island-col-left">
+        <a href="home.html" class="island-pill island-brand-pill" aria-label="Auto-City Home">
+          <img src="../Graphic/AutoCityLogo NEW.svg" alt="Auto-City" class="island-brand-logo">
+        </a>
+      </div>
+
+      <!-- Island 2: Center Navigation Menu Pill (Strict Single Line Row) -->
+      <div class="island-col island-col-center">
+        <nav class="island-pill island-nav-pill" aria-label="Primary Navigation">
+          <ul class="island-nav-list">
+            <li class="island-nav-item"><a href="home.html#attractions" class="island-nav-link" data-megamenu-target="things-to-do">Things to Do</a></li>
+            <li class="island-nav-item"><a href="home.html#about" class="island-nav-link" data-megamenu-target="about-us">About Us</a></li>
+            <li class="island-nav-item"><a href="home.html#explore" class="island-nav-link" data-megamenu-target="explore">Explore Auto-City</a></li>
+            <li class="island-nav-item"><a href="events.html" class="island-nav-link active" data-megamenu-target="events">Events & Promotions</a></li>
+            <li class="island-nav-item island-nav-kebab-item">
+              <button type="button" class="island-kebab-btn" id="islandKebabBtn" aria-label="More options" aria-expanded="false" data-megamenu-target="more" title="More options">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="12" cy="5" r="2"></circle>
+                  <circle cx="12" cy="12" r="2"></circle>
+                  <circle cx="12" cy="19" r="2"></circle>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Island 3: Right Action Pill (Squircle Map Icon + Primary CTA) -->
+      <div class="island-col island-col-right">
+        <div class="island-pill island-action-pill">
+          <a href="home.html#guide" class="island-squircle-btn" title="Explore District Map" aria-label="District Map">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+              <line x1="8" y1="2" x2="8" y2="18"></line>
+              <line x1="16" y1="6" x2="16" y2="22"></line>
+            </svg>
+          </a>
+          <a href="home.html#tickets" class="island-cta-btn">
+            <span>Plan Your Visit</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <!-- Mobile/Tablet Toggle Button (40px Squircle) -->
+          <button type="button" class="island-mobile-toggle-btn" id="islandMobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+                <!-- Desktop Megamenu Floating Architecture (Light Mode · Equal Size · High-End Editorial Style) -->
+    <div class="island-megamenu-wrapper" id="islandMegamenu" aria-hidden="true">
+      <div class="island-megamenu-card">
+
+        <!-- Panel 1: Things to Do (Equal 920px Width · Light Mode · Generous Whitespace) -->
+        <div class="island-megamenu-panel" data-megamenu-panel="things-to-do">
+          <div class="level-panel-header">
+            <h3 class="level-panel-title">
+              For thrilling adventures
+              <span class="level-panel-subtitle">and unforgettable family moments</span>
+            </h3>
+          </div>
+          <div class="level-split-layout">
+            <div class="level-columns-wrap level-cols-2">
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Attractions & Rides</h4>
+                <ul class="level-links-list">
+                  <li><a href="home.html#attractions" class="level-nav-link">Starlight Ferris Wheel</a></li>
+                  <li><a href="home.html#attractions" class="level-nav-link">Go-Kart Twin Raceway</a></li>
+                  <li><a href="home.html#attractions" class="level-nav-link">Thunder Roller Coaster</a></li>
+                  <li><a href="home.html#attractions" class="level-nav-link">Hurricane Sky Swings</a></li>
+                  <li><a href="home.html#attractions" class="level-nav-link">Kidz Play Sanctuary</a></li>
+                </ul>
+              </div>
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Immersive & Access</h4>
+                <ul class="level-links-list">
+                  <li><a href="home.html#attractions" class="level-nav-link">VR Adventure Dome</a></li>
+                  <li><a href="home.html#attractions" class="level-nav-link">Next-Gen Arcade Arena</a></li>
+                  <li><a href="home.html#attractions" class="level-nav-link">Carnival Prize Stalls</a></li>
+                  <li><a href="home.html#tickets" class="level-nav-link">All-Access Day Pass</a></li>
+                  <li><a href="home.html#tickets" class="level-nav-link">Express Fast-Track Entry</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right-Side Featured Warm Ivory Card -->
+            <div class="level-feature-card">
+              <div class="level-card-art">
+                <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 110C10 50 55 10 130 10C205 10 250 50 250 110" stroke="#e2ded4" stroke-width="1.2"/>
+                  <path d="M45 110C45 70 80 40 130 40C180 40 215 70 215 110" stroke="#e2ded4" stroke-width="1.2"/>
+                  <circle cx="130" cy="40" r="4" fill="#e10021"/>
+                  <circle cx="75" cy="70" r="3.5" fill="#1d4ed8"/>
+                  <circle cx="185" cy="70" r="3.5" fill="#10b981"/>
+                </svg>
+              </div>
+              <div class="level-card-body">
+                <span class="level-card-eyebrow">Featured Pass</span>
+                <h4 class="level-card-title">All-Access Day Pass</h4>
+                <p class="level-card-desc">Unlimited entry across 20+ signature rides, express entry gates, and complimentary parking validation.</p>
+              </div>
+              <div class="level-card-footer">
+                <a href="home.html#tickets" class="level-btn">
+                  <span>Book pass</span>
+                  <span class="level-btn-badge">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: About Us (Equal 920px Width · Light Mode · Generous Whitespace) -->
+        <div class="island-megamenu-panel" data-megamenu-panel="about-us">
+          <div class="level-panel-header">
+            <h3 class="level-panel-title">
+              Pioneering Northern Malaysia's
+              <span class="level-panel-subtitle">lifestyle and automotive capital</span>
+            </h3>
+          </div>
+          <div class="level-split-layout">
+            <div class="level-columns-wrap level-cols-2">
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Our Heritage</h4>
+                <ul class="level-links-list">
+                  <li><a href="home.html#about" class="level-nav-link">30-Year Heritage & Masterplan</a></li>
+                  <li><a href="home.html#about" class="level-nav-link">Green Hub & Solar Canopy</a></li>
+                  <li><a href="home.html#about" class="level-nav-link">Leadership & Visionary Team</a></li>
+                  <li><a href="home.html#about" class="level-nav-link">Community & Environmental CSR</a></li>
+                </ul>
+              </div>
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Ecosystem</h4>
+                <ul class="level-links-list">
+                  <li><a href="home.html#about" class="level-nav-link">National & Tourism Accolades</a></li>
+                  <li><a href="home.html#about" class="level-nav-link">150+ Tenant Brand Directory</a></li>
+                  <li><a href="brand-guidelines.html" class="level-nav-link">Living Design System & Tokens</a></li>
+                  <li><a href="home.html#about" class="level-nav-link">Media Kit & Press Assets</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right-Side Featured Warm Ivory Card -->
+            <div class="level-feature-card">
+              <div class="level-card-art">
+                <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="130" cy="55" rx="100" ry="45" stroke="#e2ded4" stroke-width="1.2"/>
+                  <ellipse cx="130" cy="55" rx="60" ry="28" stroke="#e2ded4" stroke-width="1.2"/>
+                  <circle cx="130" cy="27" r="4" fill="#e10021"/>
+                  <circle cx="190" cy="55" r="3.5" fill="#1d4ed8"/>
+                </svg>
+              </div>
+              <div class="level-card-body">
+                <span class="level-card-eyebrow">At A Glance</span>
+                <h4 class="level-card-title">100 Acres of Celebration</h4>
+                <p class="level-card-desc">Home to 150+ premier marquees, culinary boulevards, carnival grounds, and 30 years of cultural heritage.</p>
+              </div>
+              <div class="level-card-footer">
+                <a href="home.html#about" class="level-btn">
+                  <span>Our story</span>
+                  <span class="level-btn-badge">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: Explore Auto-City (Equal 920px Width · Light Mode · 4 Wide Precinct Columns) -->
+        <div class="island-megamenu-panel" data-megamenu-panel="explore">
+          <div class="level-panel-header">
+            <h3 class="level-panel-title">
+              Four distinct precincts
+              <span class="level-panel-subtitle">spanning 100 open-air acres in Juru</span>
+            </h3>
+          </div>
+          <div class="level-columns-wrap level-cols-4">
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Automotive</h4>
+              <div class="level-solutions-list">
+                <a href="#automotive" class="level-solution-item">
+                  <span class="level-solution-title">Premier Dealerships</span>
+                  <span class="level-solution-desc">BMW, Mercedes, Porsche & Honda 4S</span>
+                </a>
+                <a href="#automotive" class="level-solution-item">
+                  <span class="level-solution-title">EV Supercharge Plaza</span>
+                  <span class="level-solution-desc">350kW DC fast charging stations</span>
+                </a>
+                <a href="#automotive" class="level-solution-item">
+                  <span class="level-solution-title">Car Care & Detailing</span>
+                  <span class="level-solution-desc">Ceramic coating, tuning & parts</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Gastronomy</h4>
+              <div class="level-solutions-list">
+                <a href="#dining" class="level-solution-item">
+                  <span class="level-solution-title">Dining Boulevard</span>
+                  <span class="level-solution-desc">40+ international restaurants & bistros</span>
+                </a>
+                <a href="#dining" class="level-solution-item">
+                  <span class="level-solution-title">Heritage Hawker Walk</span>
+                  <span class="level-solution-desc">Authentic Penang street delicacies</span>
+                </a>
+                <a href="#dining" class="level-solution-item">
+                  <span class="level-solution-title">Late-Night Cafes</span>
+                  <span class="level-solution-desc">Artisanal coffee, desserts & lounges</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Recreation</h4>
+              <div class="level-solutions-list">
+                <a href="home.html#attractions" class="level-solution-item">
+                  <span class="level-solution-title">Carnival Grounds</span>
+                  <span class="level-solution-desc">Ferris wheel, twin raceway & VR</span>
+                </a>
+                <a href="home.html#attractions" class="level-solution-item">
+                  <span class="level-solution-title">Central Amphitheater</span>
+                  <span class="level-solution-desc">Concert stage, busking & screenings</span>
+                </a>
+                <a href="home.html#attractions" class="level-solution-item">
+                  <span class="level-solution-title">Weekend Maker Market</span>
+                  <span class="level-solution-desc">Artisan pop-ups & creative bazaar</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Commercial</h4>
+              <div class="level-solutions-list">
+                <a href="home.html#guide" class="level-solution-item">
+                  <span class="level-solution-title">Retail & Banking</span>
+                  <span class="level-solution-desc">Convenience hubs, pharmacy & ATMs</span>
+                </a>
+                <a href="home.html#guide" class="level-solution-item">
+                  <span class="level-solution-title">Grand Arena Grounds</span>
+                  <span class="level-solution-desc">Corporate exhibitions & roadshows</span>
+                </a>
+                <a href="home.html#guide" class="level-solution-item">
+                  <span class="level-solution-title">Management Suites</span>
+                  <span class="level-solution-desc">Enterprise leasing & headquarters</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4: Events & Promotions (Equal 920px Width · Light Mode · Split Event Schedule + Card) -->
+        <div class="island-megamenu-panel" data-megamenu-panel="events">
+          <div class="level-panel-header level-panel-header-flex">
+            <h3 class="level-panel-title">
+              Live gatherings and festivals
+              <span class="level-panel-subtitle">curated for every weekend and season</span>
+            </h3>
+            <a href="events.html" class="level-panel-viewall-btn" title="View all events & promotions">
+              <span>All Events & Promotions</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+          <div class="level-split-layout">
+            <div class="level-columns-wrap level-cols-2">
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Upcoming Gatherings</h4>
+                <div class="level-solutions-list">
+                  <a href="events.html#gatherings" class="level-solution-item">
+                    <span class="level-solution-title">Supercar Saturday Gathering</span>
+                    <span class="level-solution-desc">Every Sat · 6:00 PM · Central Boulevard</span>
+                  </a>
+                  <a href="events.html#gatherings" class="level-solution-item">
+                    <span class="level-solution-title">Sunset Carnival 2026</span>
+                    <span class="level-solution-desc">Oct 24–26 · Drone light shows & food bazaar</span>
+                  </a>
+                  <a href="events.html#gatherings" class="level-solution-item">
+                    <span class="level-solution-title">Boulevard Busking & Maker Walk</span>
+                    <span class="level-solution-desc">Every weekend · 5:00 PM · Amphitheater</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Current Promotions</h4>
+                <div class="level-solutions-list">
+                  <a href="events.html#promotions" class="level-solution-item">
+                    <span class="level-solution-title">RM20 Dining Rebate Voucher</span>
+                    <span class="level-solution-desc">Spend RM100 across 40+ restaurants</span>
+                  </a>
+                  <a href="events.html#promotions" class="level-solution-item">
+                    <span class="level-solution-title">Go-Kart Student Special</span>
+                    <span class="level-solution-desc">20% off twin raceway sessions on weekdays</span>
+                  </a>
+                  <a href="events.html#promotions" class="level-solution-item">
+                    <span class="level-solution-title">Family Carnival Bundle</span>
+                    <span class="level-solution-desc">Save 25% on 4 or more ride passes</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right-Side Featured Warm Ivory Card -->
+            <div class="level-feature-card">
+              <div class="level-card-art">
+                <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 90Q130 10 250 90" stroke="#e2ded4" stroke-width="1.2"/>
+                  <path d="M30 100Q130 30 230 100" stroke="#e2ded4" stroke-width="1.2"/>
+                  <circle cx="130" cy="45" r="4" fill="#e10021"/>
+                  <circle cx="70" cy="70" r="3.5" fill="#f59e0b"/>
+                </svg>
+              </div>
+              <div class="level-card-body">
+                <span class="level-card-eyebrow">Exclusive Rebate</span>
+                <h4 class="level-card-title">RM20 Dining Voucher</h4>
+                <p class="level-card-desc">Spend RM100 at any participating dining venue this month and receive an instant RM20 rebate voucher.</p>
+              </div>
+              <div class="level-card-footer">
+                <a href="events.html#promotions" class="level-btn">
+                  <span>Claim voucher</span>
+                  <span class="level-btn-badge">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div><!-- Panel 6: More Options (Equal 920px Width · Light Mode · Search Bar & 3-Column Directory) -->
+        <div class="island-megamenu-panel" data-megamenu-panel="more">
+          <!-- Integrated High-End Search Bar -->
+          <div class="level-search-section">
+            <div class="level-search-input-wrap">
+              <svg class="level-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="search" id="megamenuSearchInput" class="level-search-input" placeholder="Search attractions, dining, showrooms, services..." autocomplete="off">
+              <span class="level-search-shortcut">ESC</span>
+            </div>
+            <!-- Clean Inline Suggested Links -->
+            <div class="level-search-quick">
+              <span class="level-search-quick-label">Suggested:</span>
+              <a href="home.html#attractions" class="level-quick-link" data-search-term="Ferris Wheel">Ferris Wheel</a>
+              <a href="#dining" class="level-quick-link" data-search-term="Dining">Dining Boulevard</a>
+              <a href="#automotive" class="level-quick-link" data-search-term="BMW">BMW 4S</a>
+              <a href="home.html#guide" class="level-quick-link" data-search-term="EV">EV Superchargers</a>
+              <a href="home.html#tickets" class="level-quick-link" data-search-term="Pass">Day Passes</a>
+            </div>
+          </div>
+
+          <div class="level-search-divider"></div>
+
+          <!-- 3 Clean Architectural Columns Across 920px -->
+          <div class="level-columns-wrap level-cols-3">
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Commercial & Leasing</h4>
+              <ul class="level-links-list">
+                <li><a href="home.html#guide" class="level-nav-link">Retail & F&B Shop Lots</a></li>
+                <li><a href="home.html#guide" class="level-nav-link">Highway LED Digital Billboards</a></li>
+                <li><a href="home.html#guide" class="level-nav-link">Event Grounds & Arena Hire</a></li>
+                <li><a href="home.html#guide" class="level-nav-link">Pop-Up Kiosk Opportunities</a></li>
+              </ul>
+            </div>
+
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Corporate & Press</h4>
+              <ul class="level-links-list">
+                <li><a href="home.html#about" class="level-nav-link">Management Office (Exit 160)</a></li>
+                <li><a href="home.html#about" class="level-nav-link">Media Kit & Press Assets</a></li>
+                <li><a href="home.html#about" class="level-nav-link">Careers & Opportunities</a></li>
+                <li><a href="brand-guidelines.html" class="level-nav-link">Living Design System</a></li>
+              </ul>
+            </div>
+
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Guest Concierge</h4>
+              <ul class="level-links-list">
+                <li><a href="home.html#guide" class="level-nav-link">Hotline: +604-5011 222</a></li>
+                <li><a href="home.html#guide" class="level-nav-link">Lost & Found Service Desk</a></li>
+                <li><a href="home.html#guide" class="level-nav-link">Wheelchair & Stroller Loan</a></li>
+                <li><a href="home.html#guide" class="level-nav-link">Security & Emergency Desk</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile/Tablet Backdrop Overlay (Habitline framer-d6ma15 blur effect) -->
+  <div class="island-dropdown-overlay" id="islandMobileOverlay" aria-hidden="true"></div>
+
+  <!-- Mobile/Tablet Dropdown Menu Card (Habitline Animated Dropdown) -->
+  <div class="island-dropdown-card" id="islandMobileCard" aria-hidden="true">
+    <a href="home.html#attractions" class="island-dropdown-link active">
+      <span>Things to Do</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+    <a href="home.html#about" class="island-dropdown-link">
+      <span>About Us</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+    <a href="home.html#explore" class="island-dropdown-link">
+      <span>Explore Auto-City</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+    <a href="#events" class="island-dropdown-link">
+      <span>Events & Promotions</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+    <a href="home.html#guide" class="island-dropdown-link">
+      <span>Plan Your Visit</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+    <div style="padding-top: 8px; border-top: 1px solid #f2f2f2; margin-top: 4px; display: flex; flex-direction: column; gap: 6px;">
+      <a href="home.html#tickets" class="island-cta-btn" style="width: 100%; justify-content: center; height: 44px;">
+        <span>Plan Your Visit</span>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- 1. Hero Section -->
+  <section class="events-page-hero">
+    <div class="events-hero-inner">
+      <div class="events-hero-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="10"></circle>
+        </svg>
+        The Northern Calendar · Auto-City Juru
+      </div>
+      <h1 class="events-hero-title">
+        Live Gatherings, Festivals <span>& Offers</span>
+      </h1>
+      <p class="events-hero-lead">
+        Where Northern Malaysia gathers to celebrate. Discover upcoming supercar assemblies, weekend night carnivals, live acoustic boulevard sessions, and exclusive seasonal dining rebates.
+      </p>
+
+      <!-- Quick Stats Strip -->
+      <div class="events-metrics-row">
+        <div class="events-metric-item">
+          <span class="events-metric-val">150+</span>
+          <span class="events-metric-lbl">Annual Gatherings & Meets</span>
+        </div>
+        <div class="events-metric-item">
+          <span class="events-metric-val">RM500K+</span>
+          <span class="events-metric-lbl">Community Rebates & Perks</span>
+        </div>
+        <div class="events-metric-item">
+          <span class="events-metric-val">2.5M+</span>
+          <span class="events-metric-lbl">Annual District Visitors</span>
+        </div>
+        <div class="events-metric-item">
+          <span class="events-metric-val">40+</span>
+          <span class="events-metric-lbl">Participating Dining Hubs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Sticky Category Filter & Search Dock -->
+  <nav class="events-filter-bar" aria-label="Event category filters">
+    <div class="events-filter-inner">
+      <div class="events-category-tabs" id="categoryTabs">
+        <button type="button" class="events-cat-btn active" data-filter="all">All (10)</button>
+        <button type="button" class="events-cat-btn" data-filter="automotive">Automotive Meets</button>
+        <button type="button" class="events-cat-btn" data-filter="festivals">Festivals & Carnivals</button>
+        <button type="button" class="events-cat-btn" data-filter="culinary">Culinary & Nightlife</button>
+        <button type="button" class="events-cat-btn" data-filter="promotions">Promotions & Vouchers</button>
+      </div>
+      <div class="events-search-box">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="eventSearchInput" placeholder="Filter events or deals..." aria-label="Filter events or deals">
+      </div>
+    </div>
+  </nav>
+
+  <!-- 3. Upcoming Gatherings & Festivals Grid -->
+  <section class="events-content-section" id="gatherings">
+    <div class="events-container">
+      <div class="events-section-title-wrap">
+        <span class="events-section-tag">Curated Calendar</span>
+        <h2 class="events-section-heading">Upcoming Gatherings & Festivals</h2>
+        <p class="events-section-subline">Experience Penang's premier open-air lifestyle spectacles, automotive rallies, and cultural celebrations.</p>
+      </div>
+
+      <div class="events-cards-grid" id="eventsGrid">
+
+        <!-- Card 1: Supercar Saturday Gathering -->
+        <article class="event-card" data-category="automotive">
+          <div class="event-card-media">
+            <img src="../assets/images/events/premium-car-exhibition.jpg" alt="Supercar Saturday Gathering" loading="lazy">
+            <span class="event-card-badge">Automotive</span>
+            <span class="event-card-date-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Every Sat · 6:00 PM
+            </span>
+          </div>
+          <div class="event-card-body">
+            <div class="event-card-meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Central Boulevard</span>
+              <span>• Free Admission</span>
+            </div>
+            <h3 class="event-card-title">Supercar Saturday Gathering</h3>
+            <p class="event-card-desc">Northern Malaysia's weekly showcase of exotic supercars, modified GTs, and vintage legends with live DJ acoustic sets.</p>
+            <div class="event-card-footer">
+              <span style="font-size: 13px; font-weight: 600; color: #10b981;">Open to Public</span>
+              <button type="button" class="event-btn-rsvp" onclick="alert('RSVP confirmed for Supercar Saturday Gathering!')">
+                <span>RSVP Spot</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Sunset Carnival 2026 -->
+        <article class="event-card" data-category="festivals">
+          <div class="event-card-media">
+            <img src="../assets/images/events/event-4-carnival-nights.jpg" alt="Sunset Carnival 2026" loading="lazy">
+            <span class="event-card-badge">Festivals</span>
+            <span class="event-card-date-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Oct 24–26 · 5:00 PM
+            </span>
+          </div>
+          <div class="event-card-body">
+            <div class="event-card-meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Outdoor Event Lawn</span>
+              <span>• Wristband Passes</span>
+            </div>
+            <h3 class="event-card-title">Sunset Carnival & Drone Light Spectacular</h3>
+            <p class="event-card-desc">Three nights of drone choreography, 40+ street food bazaars, Ferris Wheel fireworks displays, and carnival games.</p>
+            <div class="event-card-footer">
+              <span style="font-size: 13px; font-weight: 600; color: #f59e0b;">Limited Passes</span>
+              <button type="button" class="event-btn-rsvp" onclick="alert('Pass reservation link opened!')">
+                <span>Book Pass</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Food & Music Fest -->
+        <article class="event-card" data-category="culinary">
+          <div class="event-card-media">
+            <img src="../assets/images/events/event-3-food-music.jpg" alt="Auto-City Food & Music Fest" loading="lazy">
+            <span class="event-card-badge">Culinary</span>
+            <span class="event-card-date-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Nov 14–16 · Weekend
+            </span>
+          </div>
+          <div class="event-card-body">
+            <div class="event-card-meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Dining Boulevard</span>
+              <span>• Free Entry</span>
+            </div>
+            <h3 class="event-card-title">Auto-City Food & Music Fest</h3>
+            <p class="event-card-desc">Savor over 60 artisan street food stalls, craft beverages, and non-stop live musical performances on the amphitheater stage.</p>
+            <div class="event-card-footer">
+              <span style="font-size: 13px; font-weight: 600; color: #10b981;">Free Entry</span>
+              <button type="button" class="event-btn-rsvp" onclick="alert('Added to your calendar!')">
+                <span>Add to Calendar</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Starlight Lantern Festival -->
+        <article class="event-card" data-category="festivals">
+          <div class="event-card-media">
+            <img src="../assets/images/events/event-2-lantern-fest.jpg" alt="Starlight Lantern Festival" loading="lazy">
+            <span class="event-card-badge">Festivals</span>
+            <span class="event-card-date-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Seasonal · 7:00 PM
+            </span>
+          </div>
+          <div class="event-card-body">
+            <div class="event-card-meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Canal Boardwalk</span>
+              <span>• Family Friendly</span>
+            </div>
+            <h3 class="event-card-title">Starlight Lantern Celebration</h3>
+            <p class="event-card-desc">An enchanting visual installation of over 1,000 illuminated lanterns along the Juru riverside walkway with riddle challenges.</p>
+            <div class="event-card-footer">
+              <span style="font-size: 13px; font-weight: 600; color: #10b981;">Free Admission</span>
+              <button type="button" class="event-btn-rsvp" onclick="alert('RSVP confirmed for Lantern Festival!')">
+                <span>View Highlights</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Northern Dance Championship -->
+        <article class="event-card" data-category="festivals">
+          <div class="event-card-media">
+            <img src="../assets/images/events/dance-championship.jpg" alt="Northern Dance Championship" loading="lazy">
+            <span class="event-card-badge">Festivals</span>
+            <span class="event-card-date-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Dec 06 · 4:00 PM
+            </span>
+          </div>
+          <div class="event-card-body">
+            <div class="event-card-meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Amphitheater Stage</span>
+              <span>• Free Seating</span>
+            </div>
+            <h3 class="event-card-title">Northern Street Dance Battle</h3>
+            <p class="event-card-desc">Top street dance crews and B-boys from across ASEAN compete in high-energy choreography, cyphers, and beat-making.</p>
+            <div class="event-card-footer">
+              <span style="font-size: 13px; font-weight: 600; color: #10b981;">Open Entry</span>
+              <button type="button" class="event-btn-rsvp" onclick="alert('Seat reminder set!')">
+                <span>Reserve Seat</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6: Pet Carnival & Costume Parade -->
+        <article class="event-card" data-category="festivals">
+          <div class="event-card-media">
+            <img src="../assets/images/events/pet-carnival-fashion-show.jpg" alt="Pet Carnival & Costume Parade" loading="lazy">
+            <span class="event-card-badge">Festivals</span>
+            <span class="event-card-date-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Every 2nd Sun · 9:00 AM
+            </span>
+          </div>
+          <div class="event-card-body">
+            <div class="event-card-meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Community Green</span>
+              <span>• Pet Friendly</span>
+            </div>
+            <h3 class="event-card-title">Pet Carnival & Fashion Walk</h3>
+            <p class="event-card-desc">Bring your furry companions for agility courses, costume fashion competitions, free veterinary checkups, and adoption drives.</p>
+            <div class="event-card-footer">
+              <span style="font-size: 13px; font-weight: 600; color: #10b981;">Free Registration</span>
+              <button type="button" class="event-btn-rsvp" onclick="alert('Pet registration modal!')">
+                <span>Register Pet</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Active Promotions & Vouchers Section -->
+  <section class="promotions-section" id="promotions">
+    <div class="events-container">
+      <div class="events-section-title-wrap">
+        <span class="events-section-tag">Exclusive District Offers</span>
+        <h2 class="events-section-heading">Active Promotions & Vouchers</h2>
+        <p class="events-section-subline">Instant digital savings across dining, thrill rides, family bundles, and EV charging at Auto-City.</p>
+      </div>
+
+      <div class="promos-grid" id="promosGrid">
+
+        <!-- Promo 1: RM20 Dining Rebate -->
+        <article class="promo-card" data-category="promotions">
+          <div>
+            <div class="promo-tag-row">
+              <span class="promo-discount-badge">RM20 REBATE</span>
+              <span class="promo-validity">Valid thru Oct 31, 2026</span>
+            </div>
+            <h3 class="promo-title">RM20 Dining Rebate Voucher</h3>
+            <p class="promo-desc">Spend a minimum of RM100 in a single receipt across any of our 40+ participating bistros, cafes, or seafood pavilions and receive RM20 off instantly.</p>
+          </div>
+          <div class="promo-code-bar">
+            <span class="promo-code-text">AUTODINE20</span>
+            <button type="button" class="promo-copy-btn" onclick="copyCode(this, 'AUTODINE20')">Copy Code</button>
+          </div>
+        </article>
+
+        <!-- Promo 2: Go-Kart Student Special -->
+        <article class="promo-card" data-category="promotions">
+          <div>
+            <div class="promo-tag-row">
+              <span class="promo-discount-badge">20% OFF</span>
+              <span class="promo-validity">Mon–Thu · 2:00 PM – 7:00 PM</span>
+            </div>
+            <h3 class="promo-title">Go-Kart Twin Raceway Student Special</h3>
+            <p class="promo-desc">Flash your valid student ID card at the ticketing counter to enjoy 20% off high-speed twin raceway sessions and helmet rentals on weekdays.</p>
+          </div>
+          <div class="promo-code-bar">
+            <span class="promo-code-text">KARTSTUDENT</span>
+            <button type="button" class="promo-copy-btn" onclick="copyCode(this, 'KARTSTUDENT')">Copy Code</button>
+          </div>
+        </article>
+
+        <!-- Promo 3: Family Carnival Bundle -->
+        <article class="promo-card" data-category="promotions">
+          <div>
+            <div class="promo-tag-row">
+              <span class="promo-discount-badge">25% SAVINGS</span>
+              <span class="promo-validity">All Weekend Passes</span>
+            </div>
+            <h3 class="promo-title">Family Carnival 4-Pass Bundle</h3>
+            <p class="promo-desc">Purchase 4 or more unlimited ride passes for the Starlight Ferris Wheel, Mini Zoo, and Carousel and receive an automatic 25% bundle deduction.</p>
+          </div>
+          <div class="promo-code-bar">
+            <span class="promo-code-text">FAMILYFUN25</span>
+            <button type="button" class="promo-copy-btn" onclick="copyCode(this, 'FAMILYFUN25')">Copy Code</button>
+          </div>
+        </article>
+
+        <!-- Promo 4: EV Charging Perk -->
+        <article class="promo-card" data-category="promotions">
+          <div>
+            <div class="promo-tag-row">
+              <span class="promo-discount-badge">FREE COFFEE</span>
+              <span class="promo-validity">Daily · 350kW DC Hub</span>
+            </div>
+            <h3 class="promo-title">EV Supercharge & Sip Perk</h3>
+            <p class="promo-desc">Plug into any Auto-City 350kW DC fast charger for 30 minutes and claim a complimentary artisanal latte or cold brew at Boulevard Roasters.</p>
+          </div>
+          <div class="promo-code-bar">
+            <span class="promo-code-text">GREENDRIVE</span>
+            <button type="button" class="promo-copy-btn" onclick="copyCode(this, 'GREENDRIVE')">Copy Code</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Weekly Happenings Section -->
+  <section class="weekly-section">
+    <div class="events-container">
+      <div class="events-section-title-wrap">
+        <span class="events-section-tag">Recurring Schedule</span>
+        <h2 class="events-section-heading">Every Week at Auto-City</h2>
+        <p class="events-section-subline">Regular community traditions designed to keep Northern Malaysia lively, healthy, and connected.</p>
+      </div>
+
+      <div class="weekly-grid">
+        <div class="weekly-col">
+          <span class="weekly-day-pill">Tuesdays & Thursdays</span>
+          <h3 class="weekly-title">Sunset Run & Fitness Club</h3>
+          <div class="weekly-time">6:30 PM · Amphitheater Lawn</div>
+          <p class="weekly-desc">Free 5KM scenic riverfront community run led by certified running pacers, followed by cool-down stretching.</p>
+        </div>
+
+        <div class="weekly-col">
+          <span class="weekly-day-pill">Every Friday</span>
+          <h3 class="weekly-title">Acoustic Boulevard Busking</h3>
+          <div class="weekly-time">7:00 PM – 11:00 PM · Dining Strip</div>
+          <p class="weekly-desc">Local indie singer-songwriters and jazz duos performing live under the fairy-lit dining walkway.</p>
+        </div>
+
+        <div class="weekly-col">
+          <span class="weekly-day-pill">Every Saturday</span>
+          <h3 class="weekly-title">Supercar & Tuner Showcase</h3>
+          <div class="weekly-time">6:00 PM – 10:30 PM · Main Plaza</div>
+          <p class="weekly-desc">Car enthusiasts assemble to exhibit rare exotics, vintage Japanese classics, and EV supercars.</p>
+        </div>
+
+        <div class="weekly-col">
+          <span class="weekly-day-pill">Every Sunday</span>
+          <h3 class="weekly-title">Artisan Weekend Bazaar</h3>
+          <div class="weekly-time">11:00 AM – 9:00 PM · Canopy Walk</div>
+          <p class="weekly-desc">Handcrafted jewelry, organic local produce, homemade pastries, and live pottery workshops.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Host Your Event Banner -->
+  <div class="host-banner-wrap">
+    <div class="events-container">
+      <div class="host-banner-card">
+        <div class="host-banner-text">
+          <h3>Host Your Next Event at Auto-City</h3>
+          <p>Looking for the ideal venue for automotive launches, corporate festivals, cultural expos, or night concerts? Auto-City offers 100,000+ sq.ft of multi-purpose indoor & outdoor spaces with full electrical infrastructure, sound rigging, and 2,500 parking bays.</p>
+        </div>
+        <a href="mailto:events@autocity.com.my?subject=Event%20Venue%20Inquiry" class="host-banner-cta-btn">
+          <span>Inquire Event Space</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Footer -->
+<footer class="ac-footer-section" id="siteFooter" role="contentinfo" aria-label="Auto-City Site Footer">
+    <div class="ac-footer-shell">
+
+      <!-- ── 1. Top Content Grid ── -->
+      <div class="ac-footer-grid">
+
+        <!-- Column 1: Brand, Tagline & Social Handles -->
+        <div class="ac-footer-brand-col">
+          <a href="../pages/home.html" class="ac-footer-logo-link" aria-label="Auto-City Homepage">
+            <img src="../Graphic/AutoCityLogo NEW.svg" alt="Auto-City Logo" class="ac-footer-logo-img" width="187" height="38">
+          </a>
+
+          <p class="ac-footer-tagline">
+            Penang's premier 1-stop automotive, dining, and lifestyle tourism destination on the Juru riverfront.
+          </p>
+
+          <!-- Social Icons Row (Matching Orchid's horizontal icon row) -->
+          <div class="ac-footer-socials" aria-label="Follow Auto-City Social Channels">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/company/autocitypenang" target="_blank" rel="noopener noreferrer" class="ac-social-btn" aria-label="LinkedIn" title="Auto-City on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/autocitypenang" target="_blank" rel="noopener noreferrer" class="ac-social-btn" aria-label="Facebook" title="Auto-City on Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+
+            <!-- X / Twitter -->
+            <a href="https://x.com/autocitypenang" target="_blank" rel="noopener noreferrer" class="ac-social-btn" aria-label="X (Twitter)" title="Auto-City on X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@autocitypenang" target="_blank" rel="noopener noreferrer" class="ac-social-btn" aria-label="YouTube" title="Auto-City on YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"></polygon>
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/autocity_penang" target="_blank" rel="noopener noreferrer" class="ac-social-btn" aria-label="Instagram" title="Auto-City on Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@autocitypenang" target="_blank" rel="noopener noreferrer" class="ac-social-btn" aria-label="TikTok" title="Auto-City on TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.59-1.01V15c0 1.91-.6 3.84-1.85 5.28-1.43 1.67-3.6 2.62-5.78 2.5-2.48-.12-4.78-1.55-5.96-3.73-1.19-2.18-1.09-4.94.27-7.03 1.34-2.07 3.75-3.32 6.22-3.15.11 0 .22.01.33.02v4.06c-.57-.12-1.18-.08-1.72.13-1.12.42-1.92 1.48-2.04 2.68-.14 1.32.55 2.63 1.72 3.25.96.52 2.15.48 3.09-.1.88-.54 1.41-1.52 1.41-2.55V.02h-1.55z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Attractions (Matches Orchid's Product Column) -->
+        <div class="ac-footer-nav-col">
+          <h4 class="ac-footer-heading">Attractions</h4>
+          <ul class="ac-footer-links">
+            <li><a href="../pages/home.html#panel-lavenda" class="ac-footer-link">Lavenda Fun Park</a></li>
+            <li><a href="../pages/home.html#panel-nadi" class="ac-footer-link">Nadi Glamping Suites</a></li>
+            <li><a href="../pages/home.html#activitiesParallaxSection" class="ac-footer-link">Alpaca &amp; Friends Mini Zoo</a></li>
+            <li><a href="../pages/home.html#activitiesParallaxSection" class="ac-footer-link">Penang River Cruise</a></li>
+            <li><a href="../pages/home.html#events" class="ac-footer-link">Illuminated Fun Fair</a></li>
+            <li><a href="../pages/home.html#activitiesParallaxSection" class="ac-footer-link">Pickleball Arena</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Precincts & Spaces (Matches Orchid's Use Cases Column) -->
+        <div class="ac-footer-nav-col">
+          <h4 class="ac-footer-heading">Precincts &amp; Spaces</h4>
+          <ul class="ac-footer-links">
+            <li><a href="../pages/home.html#automotive" class="ac-footer-link">Automotive 3S/4S Hub</a></li>
+            <li><a href="../pages/home.html#panel-events" class="ac-footer-link">Concept Hall (800 Pax)</a></li>
+            <li><a href="../pages/home.html#panel-hubbiz" class="ac-footer-link">Hubbiz Office Suites</a></li>
+            <li><a href="../pages/home.html#dining" class="ac-footer-link">Dining &amp; Retail Enclave</a></li>
+            <li><a href="../pages/home.html#appDownload" class="ac-footer-link">Auto-City Mobile App</a></li>
+            <li><a href="#commercial" class="ac-footer-link">Advertising &amp; Leasing</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Official Endorsements & Accreditations (Matches Orchid's 3x2 Grid) -->
+        <div class="ac-footer-badges-col">
+          <div class="ac-badges-grid" role="region" aria-label="Official Accreditations & Endorsements">
+
+            <!-- Badge 1: Tourism Malaysia (Malaysia Truly Asia) — Wikimedia Commons -->
+            <div class="ac-badge-item" title="Tourism Malaysia — Malaysia Truly Asia (Official Partner)">
+              <img src="../Graphic/badges/malaysia-truly-asia.svg" alt="Tourism Malaysia — Malaysia Truly Asia" class="ac-brand-badge-img" width="115" height="38" loading="lazy">
+            </div>
+
+            <!-- Badge 2: Penang State Government Endorsement — Wikimedia Commons -->
+            <div class="ac-badge-item" title="Penang State Government — Endorsed Tourist Destination">
+              <img src="../Graphic/badges/coat-of-arms-penang.svg" alt="Penang State Government Endorsed Destination" class="ac-brand-badge-img" width="44" height="46" loading="lazy">
+            </div>
+
+            <!-- Badge 3: Penang Global Tourism (PGT) — Official State Bureau (mypenang.gov.my) -->
+            <div class="ac-badge-item" title="Penang Global Tourism (PGT) — Official State Tourism Bureau">
+              <img src="../Graphic/badges/pgt-logo-black.png" alt="Penang Global Tourism (PGT)" class="ac-brand-badge-img" width="88" height="40" loading="lazy">
+            </div>
+
+            <!-- Badge 4: Tripadvisor — Wikimedia Commons -->
+            <div class="ac-badge-item" title="Tripadvisor — Recommended Destination">
+              <img src="../Graphic/badges/tripadvisor-stacked.svg" alt="Tripadvisor Recommended" class="ac-brand-badge-img" width="80" height="42" loading="lazy">
+            </div>
+
+            <!-- Badge 5: Halal Malaysia (JAKIM) — Official Government Portal (halal.gov.my) -->
+            <div class="ac-badge-item" title="Halal Malaysia Official Certification (JAKIM MS 1500)">
+              <img src="../Graphic/badges/halal-malaysia-official.png" alt="Halal Malaysia Certified" class="ac-brand-badge-img" width="44" height="44" loading="lazy">
+            </div>
+
+            <!-- Badge 6: Majlis Bandaraya Seberang Perai (MBSP) — Wikimedia Commons -->
+            <div class="ac-badge-item" title="Majlis Bandaraya Seberang Perai (MBSP) — Municipal Council Endorsement">
+              <img src="../Graphic/badges/mbsp-seberang-perai.png" alt="Majlis Bandaraya Seberang Perai" class="ac-brand-badge-img" width="44" height="44" loading="lazy">
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── 2. Subtle Hairline Divider ── -->
+      <div class="ac-footer-divider" aria-hidden="true"></div>
+
+      <!-- ── 3. Bottom Legal Bar ── -->
+      <div class="ac-footer-bottom">
+        <div class="ac-footer-copyright">
+          &copy; 2026 All Rights Reserved, Auto-City.
+        </div>
+
+        <nav class="ac-footer-legal" aria-label="Legal and Privacy Links">
+          <a href="#terms" class="ac-legal-link">Terms of Service</a>
+          <span class="ac-legal-sep" aria-hidden="true">&bull;</span>
+          <a href="#privacy" class="ac-legal-link">Privacy Policy</a>
+          <span class="ac-legal-sep" aria-hidden="true">&bull;</span>
+          <a href="#cookies" class="ac-legal-link">Cookie Policy</a>
+          <span class="ac-legal-sep" aria-hidden="true">&bull;</span>
+          <a href="#sitemap" class="ac-legal-link">Sitemap</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script>
+    // Category Filter Navigation
+    const catButtons = document.querySelectorAll('.events-cat-btn');
+    const eventCards = document.querySelectorAll('#eventsGrid .event-card');
+    const promoCards = document.querySelectorAll('#promosGrid .promo-card');
+    const searchInput = document.getElementById('eventSearchInput');
+
+    function applyFilter(filterVal, searchQuery = '') {
+      const query = searchQuery.toLowerCase().trim();
+
+      // Gatherings filtering
+      eventCards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        const text = card.textContent.toLowerCase();
+        const matchesCat = (filterVal === 'all' || filterVal === cardCat);
+        const matchesSearch = (!query || text.includes(query));
+
+        if (matchesCat && matchesSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Promotions filtering
+      promoCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const matchesCat = (filterVal === 'all' || filterVal === 'promotions');
+        const matchesSearch = (!query || text.includes(query));
+
+        if (matchesCat && matchesSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    catButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filterVal = btn.getAttribute('data-filter');
+        applyFilter(filterVal, searchInput.value);
+
+        // Smooth scroll to relevant section if promotions clicked
+        if (filterVal === 'promotions') {
+          document.getElementById('promotions').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const activeBtn = document.querySelector('.events-cat-btn.active');
+        const filterVal = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+        applyFilter(filterVal, e.target.value);
+      });
+    }
+
+    // Voucher Copy Interaction
+    function copyCode(btn, code) {
+      navigator.clipboard.writeText(code).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied! ✓';
+        btn.style.background = '#10b981';
+        btn.style.color = '#ffffff';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 2000);
+      }).catch(() => {
+        alert('Voucher Code: ' + code);
+      });
+    }
+  </script>
+</body>
+</html>

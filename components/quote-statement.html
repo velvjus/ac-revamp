@@ -1,0 +1,68 @@
+<!-- ========================================================================
+     Auto-City Editorial Quote Section Component (Strict 3 Lines Only)
+     Direct Match to https://habitline-wbs.framer.website/ (Tailored to Auto-City)
+     ======================================================================== -->
+<section class="quote-statement-section" id="quoteStatement" aria-label="Auto-City Brand Statement">
+  <div class="quote-statement-inner">
+
+    <!-- Main Typographic Headline with Inline Pill Capsules (Direct Text Masking) -->
+    <h2 class="quote-statement-title" id="quoteStatementTitle">
+      <span class="quote-line">
+        Where great drives 
+        <span class="quote-inline-pill-wheel" id="quoteWheelPill" title="Click to steer!" aria-label="Auto-City sports steering wheel badge">
+          <img src="../assets/images/quote-steering-wheel.svg" alt="Steering wheel" class="quote-pill-icon quote-wheel-icon">
+        </span>
+        connect with
+      </span>
+      <span class="quote-line">
+        open-air dining, culinary flavors,
+      </span>
+      <span class="quote-line">
+        and vibrant 
+        <span class="quote-inline-pill-anchor">
+          <span class="quote-confetti-stage" id="quoteConfettiStage" aria-hidden="true"></span>
+          <span class="quote-inline-pill-weather quote-inline-pill-spark" id="quoteWeatherPill" title="Click to celebrate!" aria-label="Celebration spark illustration capsule">
+            <img src="../assets/images/quote-celebration-spark.svg" alt="Celebration energy" class="quote-pill-icon">
+          </span>
+        </span>
+        night celebrations.
+      </span>
+    </h2>
+
+    <!-- Experience AutoCity Video Trigger Button -->
+    <div class="quote-cta-wrap">
+      <button type="button" class="quote-experience-btn" id="openExperienceVideoBtn" aria-haspopup="dialog" aria-controls="experienceVideoModal" aria-label="Experience AutoCity Video">
+        <span class="quote-experience-btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
+          </svg>
+        </span>
+        <span class="quote-experience-btn-text">Experience AutoCity</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Experience Auto-City Video Pop-up Modal -->
+  <div class="experience-video-modal" id="experienceVideoModal" role="dialog" aria-modal="true" aria-label="Experience Auto-City" aria-hidden="true">
+    <div class="experience-video-backdrop" id="experienceVideoBackdrop" title="Click to close video"></div>
+    <div class="experience-video-container">
+      <button type="button" class="experience-video-close-btn" id="closeExperienceVideoBtn" aria-label="Close video modal" title="Close video (Esc)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="experience-video-frame-wrap">
+        <iframe
+          id="experienceVideoIframe"
+          src=""
+          title="Experience AutoCity Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>

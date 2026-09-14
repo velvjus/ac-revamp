@@ -1,0 +1,471 @@
+/* ==========================================================================
+   AUTO-CITY BRANDS SHOWCASE CAROUSEL (Westfield London Inspiration)
+   --------------------------------------------------------------------------
+   - Seamless infinite looping marquee that continuously scrolls (no hover stop)
+   - Optical Edge: Progressive gradient blur (100% blur at edge -> 0% inward)
+     combined with pure white luminous fade and ZERO top/bottom cuts
+   - Stage: Overflow visible so cards and content are never cut off
+   - Full-bleed editorial graphic cards with 6px corner radius and NO shadows
+   - Vibrant, bright card images (NOT dim) with clean, high-contrast typography
+   - Centered refined typography with zero text shadow
+   - Tightly spaced signature Auto-City Red "Browse Directory" button
+   ========================================================================== */
+
+.brands-carousel-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(3rem, 5vw, 4.25rem) 0 clamp(3.25rem, 5vw, 4.5rem) 0;
+  background: #ffffff;
+  color: var(--text-primary);
+  /* Clip horizontal overflow at viewport edges to prevent browser horizontal scrollbars */
+  overflow-x: clip;
+  overflow-y: visible;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+[data-theme="dark"] .brands-carousel-section {
+  background: var(--bg-canvas);
+}
+
+/* Section Header (Clean single solid title color, no eyebrow pill) */
+.brands-header-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0 auto clamp(1.5rem, 2.5vw, 2.25rem) auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.brands-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
+  font-weight: var(--font-weight-display, 700);
+  line-height: 1.15;
+  letter-spacing: var(--letter-spacing-display, -0.025em);
+  color: var(--text-primary);
+  margin: 0 0 0.65rem 0;
+}
+
+.brands-section-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.15vw, 1.05rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   PROGRESSIVE GRADIENT BLUR + PURE WHITE FADE CURTAINS
+   Full Section Height (top: 0; bottom: 0;) - Zero Top/Bottom Cuts
+   Stepped blur slices: 100% blur at extreme edge, smoothly decreasing to 0%
+   ========================================================================== */
+.brands-edge-curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(100px, 12vw, 200px);
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.brands-edge-curtain.curtain-left {
+  left: 0;
+}
+
+.brands-edge-curtain.curtain-right {
+  right: 0;
+}
+
+/* Progressive Blur Step Layers */
+.curtain-blur-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Step 1: Base gentle blur across wide zone */
+.curtain-blur-layer.blur-step-1 {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+.curtain-left .blur-step-1 {
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 50%, transparent 100%);
+  mask-image: linear-gradient(to right, black 0%, black 50%, transparent 100%);
+}
+.curtain-right .blur-step-1 {
+  -webkit-mask-image: linear-gradient(to left, black 0%, black 50%, transparent 100%);
+  mask-image: linear-gradient(to left, black 0%, black 50%, transparent 100%);
+}
+
+/* Step 2: Medium blur */
+.curtain-blur-layer.blur-step-2 {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.curtain-left .blur-step-2 {
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 35%, transparent 75%);
+  mask-image: linear-gradient(to right, black 0%, black 35%, transparent 75%);
+}
+.curtain-right .blur-step-2 {
+  -webkit-mask-image: linear-gradient(to left, black 0%, black 35%, transparent 75%);
+  mask-image: linear-gradient(to left, black 0%, black 35%, transparent 75%);
+}
+
+/* Step 3: Strong blur */
+.curtain-blur-layer.blur-step-3 {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.curtain-left .blur-step-3 {
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 20%, transparent 55%);
+  mask-image: linear-gradient(to right, black 0%, black 20%, transparent 55%);
+}
+.curtain-right .blur-step-3 {
+  -webkit-mask-image: linear-gradient(to left, black 0%, black 20%, transparent 55%);
+  mask-image: linear-gradient(to left, black 0%, black 20%, transparent 55%);
+}
+
+/* Step 4: Maximum 100% blur at the extreme outer boundary */
+.curtain-blur-layer.blur-step-4 {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.curtain-left .blur-step-4 {
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 10%, transparent 35%);
+  mask-image: linear-gradient(to right, black 0%, black 10%, transparent 35%);
+}
+.curtain-right .blur-step-4 {
+  -webkit-mask-image: linear-gradient(to left, black 0%, black 10%, transparent 35%);
+  mask-image: linear-gradient(to left, black 0%, black 10%, transparent 35%);
+}
+
+/* Progressive Pure White Fade Layer - starts 100% at the very edge and immediately fades smoothly inward */
+.curtain-fade-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.curtain-left .curtain-fade-layer {
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.85) 15%,
+    rgba(255, 255, 255, 0.55) 35%,
+    rgba(255, 255, 255, 0.25) 60%,
+    rgba(255, 255, 255, 0.08) 80%,
+    transparent 100%
+  );
+}
+
+.curtain-right .curtain-fade-layer {
+  background: linear-gradient(
+    to left,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.85) 15%,
+    rgba(255, 255, 255, 0.55) 35%,
+    rgba(255, 255, 255, 0.25) 60%,
+    rgba(255, 255, 255, 0.08) 80%,
+    transparent 100%
+  );
+}
+
+/* Dark mode fallback for fade layer */
+[data-theme="dark"] .curtain-left .curtain-fade-layer {
+  background: linear-gradient(
+    to right,
+    var(--bg-canvas) 0%,
+    rgba(6, 18, 38, 0.85) 15%,
+    rgba(6, 18, 38, 0.55) 35%,
+    rgba(6, 18, 38, 0.25) 60%,
+    rgba(6, 18, 38, 0.08) 80%,
+    transparent 100%
+  );
+}
+
+[data-theme="dark"] .curtain-right .curtain-fade-layer {
+  background: linear-gradient(
+    to left,
+    var(--bg-canvas) 0%,
+    rgba(6, 18, 38, 0.85) 15%,
+    rgba(6, 18, 38, 0.55) 35%,
+    rgba(6, 18, 38, 0.25) 60%,
+    rgba(6, 18, 38, 0.08) 80%,
+    transparent 100%
+  );
+}
+
+/* ==========================================================================
+   CAROUSEL VIEWPORT: OVERFLOW VISIBLE (Zero Cutoff)
+   ========================================================================== */
+.brands-carousel-stage {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  padding: 0.75rem 0 0.25rem 0;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   CONTINUOUS MOVING CAROUSEL TRACK (Never stops on hover)
+   ========================================================================== */
+.brands-carousel-track {
+  display: flex;
+  gap: 1.15rem;
+  width: max-content;
+  will-change: transform;
+  animation: brandsLoopScroll 52s linear infinite;
+  padding: 0.5rem 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@keyframes brandsLoopScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* ==========================================================================
+   FULL-GRAPHIC BRAND CARD
+   Direct match to Westfield London reference layout:
+   - Tall portrait aspect ratio
+   - Full photo background - bright, vibrant, NOT dim
+   - 6px corner radius
+   - ZERO SHADOWS (no drop shadows, no edge shadows)
+   - Brand name strictly middle aligned, refined size, zero text shadow
+   ========================================================================== */
+.brand-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(230px, 17vw, 280px);
+  height: clamp(420px, 32vw, 510px);
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #0d1322;
+  box-shadow: none !important;
+  border: none !important;
+  text-decoration: none;
+  display: block;
+  outline: none;
+  transform: translateZ(0);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-card:focus-visible {
+  outline: 2px solid var(--color-accent-red);
+  outline-offset: 2px;
+}
+
+/* Card Image (Bright, vivid, NOT dim) */
+.brand-card-img-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.brand-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Un-dimmed: 100% natural brightness and rich contrast */
+  filter: brightness(1.02) contrast(1.02);
+  transform: scale(1.01);
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.5s ease;
+}
+
+/* Delicate, natural overlay - NOT dim, just enough for crisp white text */
+.brand-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.05) 75%
+  ),
+  linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.04) 0%,
+    rgba(0, 0, 0, 0.14) 45%,
+    rgba(0, 0, 0, 0.32) 100%
+  );
+  transition: background 0.4s ease;
+  z-index: 1;
+}
+
+/* Dead-Center Brand Name Typographic Lockup (Middle Aligned) */
+.brand-card-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.brand-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.3vw, 1.38rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-shadow: none !important;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              letter-spacing 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover Interactions: subtle lift, image zoom, zero shadows */
+.brand-card:hover {
+  transform: translateY(-4px);
+  box-shadow: none !important;
+}
+
+.brand-card:hover .brand-card-img {
+  transform: scale(1.06);
+  filter: brightness(1.06) contrast(1.04);
+}
+
+.brand-card:hover .brand-card-overlay {
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.28) 0%,
+    rgba(0, 0, 0, 0.08) 75%
+  ),
+  linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.06) 0%,
+    rgba(0, 0, 0, 0.18) 45%,
+    rgba(0, 0, 0, 0.38) 100%
+  );
+}
+
+.brand-card:hover .brand-card-title {
+  letter-spacing: 0.095em;
+  text-shadow: none !important;
+}
+
+/* ==========================================================================
+   BOTTOM ACTION / "BROWSE DIRECTORY" BUTTON (Tightly below cards)
+   ========================================================================== */
+.brands-action-wrap {
+  position: relative;
+  z-index: 20;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.browse-directory-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 2.25rem;
+  background: var(--color-accent-red, #e10021);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: var(--radius-btn, 9999px);
+  border: 1px solid transparent;
+  transition: background-color var(--transition-fast),
+              transform 0.25s var(--ease-spring);
+  cursor: pointer;
+}
+
+.browse-directory-btn:hover {
+  background: var(--color-accent-red-hover, #c5001d);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.browse-directory-btn:active {
+  transform: translateY(0);
+}
+
+.browse-directory-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.browse-directory-btn-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.browse-directory-btn:hover .browse-directory-btn-icon {
+  transform: translateX(4px);
+}
+
+/* Accessibility / Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .brands-carousel-track {
+    animation: none;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .brand-card,
+  .brand-card-img,
+  .brand-card-title {
+    transition: none !important;
+  }
+}
+
+/* Mobile & Tablet Refinements */
+@media (max-width: 768px) {
+  .brands-edge-curtain {
+    width: 80px;
+  }
+
+  .brand-card {
+    width: 210px;
+    height: 360px;
+    border-radius: 5px;
+  }
+
+  .brand-card-title {
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brands-action-wrap {
+    margin-top: 0.85rem;
+  }
+
+  .browse-directory-btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+    padding: 0.85rem 1.65rem;
+  }
+}

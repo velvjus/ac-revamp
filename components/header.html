@@ -1,0 +1,439 @@
+<!-- ========================================================================
+       1. Floating Pill Island Navigation (Habitline Framer Reference)
+       Reduced 12px/8px Modern Radii · Dynamic Inward-Closing Scroll Effect
+       ======================================================================== -->
+  <header class="island-header-wrapper" id="islandHeader">
+    <div class="island-header-inner">
+      
+      <!-- Island 1: Left Brand Pill (Compact Logo, Zero Subtags) -->
+      <div class="island-col island-col-left">
+        <a href="home.html" class="island-pill island-brand-pill" aria-label="Auto-City Home">
+          <img src="../Graphic/AutoCityLogo NEW.svg" alt="Auto-City" class="island-brand-logo">
+        </a>
+      </div>
+
+      <!-- Island 2: Center Navigation Menu Pill (Strict Single Line Row) -->
+      <div class="island-col island-col-center">
+        <nav class="island-pill island-nav-pill" aria-label="Primary Navigation">
+          <ul class="island-nav-list">
+            <li class="island-nav-item"><a href="#attractions" class="island-nav-link active" data-megamenu-target="things-to-do">Things to Do</a></li>
+            <li class="island-nav-item"><a href="#about" class="island-nav-link" data-megamenu-target="about-us">About Us</a></li>
+            <li class="island-nav-item"><a href="#explore" class="island-nav-link" data-megamenu-target="explore">Explore Auto-City</a></li>
+            <li class="island-nav-item"><a href="events.html" class="island-nav-link" data-megamenu-target="events">Events & Promotions</a></li>
+            <li class="island-nav-item island-nav-kebab-item">
+              <button type="button" class="island-kebab-btn" id="islandKebabBtn" aria-label="More options" aria-expanded="false" data-megamenu-target="more" title="More options">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="12" cy="5" r="2"></circle>
+                  <circle cx="12" cy="12" r="2"></circle>
+                  <circle cx="12" cy="19" r="2"></circle>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Island 3: Right Action Pill (Squircle Map Icon + Primary CTA) -->
+      <div class="island-col island-col-right">
+        <div class="island-pill island-action-pill">
+          <a href="#guide" class="island-squircle-btn" title="Explore District Map" aria-label="District Map">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+              <line x1="8" y1="2" x2="8" y2="18"></line>
+              <line x1="16" y1="6" x2="16" y2="22"></line>
+            </svg>
+          </a>
+          <a href="#tickets" class="island-cta-btn">
+            <span>Plan Your Visit</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <!-- Mobile/Tablet Toggle Button (40px Squircle) -->
+          <button type="button" class="island-mobile-toggle-btn" id="islandMobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+                <!-- Desktop Megamenu Floating Architecture (Light Mode · Equal Size · High-End Editorial Style) -->
+    <div class="island-megamenu-wrapper" id="islandMegamenu" aria-hidden="true">
+      <div class="island-megamenu-card">
+
+        <!-- Panel 1: Things to Do (Equal 920px Width · Light Mode · Generous Whitespace) -->
+        <div class="island-megamenu-panel" data-megamenu-panel="things-to-do">
+          <div class="level-panel-header">
+            <h3 class="level-panel-title">
+              For thrilling adventures
+              <span class="level-panel-subtitle">and unforgettable family moments</span>
+            </h3>
+          </div>
+          <div class="level-split-layout">
+            <div class="level-columns-wrap level-cols-2">
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Attractions & Rides</h4>
+                <ul class="level-links-list">
+                  <li><a href="#attractions" class="level-nav-link">Starlight Ferris Wheel</a></li>
+                  <li><a href="#attractions" class="level-nav-link">Go-Kart Twin Raceway</a></li>
+                  <li><a href="#attractions" class="level-nav-link">Thunder Roller Coaster</a></li>
+                  <li><a href="#attractions" class="level-nav-link">Hurricane Sky Swings</a></li>
+                  <li><a href="#attractions" class="level-nav-link">Kidz Play Sanctuary</a></li>
+                </ul>
+              </div>
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Immersive & Access</h4>
+                <ul class="level-links-list">
+                  <li><a href="#attractions" class="level-nav-link">VR Adventure Dome</a></li>
+                  <li><a href="#attractions" class="level-nav-link">Next-Gen Arcade Arena</a></li>
+                  <li><a href="#attractions" class="level-nav-link">Carnival Prize Stalls</a></li>
+                  <li><a href="#tickets" class="level-nav-link">All-Access Day Pass</a></li>
+                  <li><a href="#tickets" class="level-nav-link">Express Fast-Track Entry</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right-Side Featured Warm Ivory Card -->
+            <div class="level-feature-card">
+              <div class="level-card-art">
+                <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 110C10 50 55 10 130 10C205 10 250 50 250 110" stroke="#e2ded4" stroke-width="1.2"/>
+                  <path d="M45 110C45 70 80 40 130 40C180 40 215 70 215 110" stroke="#e2ded4" stroke-width="1.2"/>
+                  <circle cx="130" cy="40" r="4" fill="#e10021"/>
+                  <circle cx="75" cy="70" r="3.5" fill="#1d4ed8"/>
+                  <circle cx="185" cy="70" r="3.5" fill="#10b981"/>
+                </svg>
+              </div>
+              <div class="level-card-body">
+                <span class="level-card-eyebrow">Featured Pass</span>
+                <h4 class="level-card-title">All-Access Day Pass</h4>
+                <p class="level-card-desc">Unlimited entry across 20+ signature rides, express entry gates, and complimentary parking validation.</p>
+              </div>
+              <div class="level-card-footer">
+                <a href="#tickets" class="level-btn">
+                  <span>Book pass</span>
+                  <span class="level-btn-badge">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: About Us (Equal 920px Width · Light Mode · Generous Whitespace) -->
+        <div class="island-megamenu-panel" data-megamenu-panel="about-us">
+          <div class="level-panel-header">
+            <h3 class="level-panel-title">
+              Pioneering Northern Malaysia's
+              <span class="level-panel-subtitle">lifestyle and automotive capital</span>
+            </h3>
+          </div>
+          <div class="level-split-layout">
+            <div class="level-columns-wrap level-cols-2">
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Our Heritage</h4>
+                <ul class="level-links-list">
+                  <li><a href="#about" class="level-nav-link">30-Year Heritage & Masterplan</a></li>
+                  <li><a href="#about" class="level-nav-link">Green Hub & Solar Canopy</a></li>
+                  <li><a href="#about" class="level-nav-link">Leadership & Visionary Team</a></li>
+                  <li><a href="#about" class="level-nav-link">Community & Environmental CSR</a></li>
+                </ul>
+              </div>
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Ecosystem</h4>
+                <ul class="level-links-list">
+                  <li><a href="#about" class="level-nav-link">National & Tourism Accolades</a></li>
+                  <li><a href="#about" class="level-nav-link">150+ Tenant Brand Directory</a></li>
+                  <li><a href="brand-guidelines.html" class="level-nav-link">Living Design System & Tokens</a></li>
+                  <li><a href="#about" class="level-nav-link">Media Kit & Press Assets</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right-Side Featured Warm Ivory Card -->
+            <div class="level-feature-card">
+              <div class="level-card-art">
+                <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="130" cy="55" rx="100" ry="45" stroke="#e2ded4" stroke-width="1.2"/>
+                  <ellipse cx="130" cy="55" rx="60" ry="28" stroke="#e2ded4" stroke-width="1.2"/>
+                  <circle cx="130" cy="27" r="4" fill="#e10021"/>
+                  <circle cx="190" cy="55" r="3.5" fill="#1d4ed8"/>
+                </svg>
+              </div>
+              <div class="level-card-body">
+                <span class="level-card-eyebrow">At A Glance</span>
+                <h4 class="level-card-title">100 Acres of Celebration</h4>
+                <p class="level-card-desc">Home to 150+ premier marquees, culinary boulevards, carnival grounds, and 30 years of cultural heritage.</p>
+              </div>
+              <div class="level-card-footer">
+                <a href="#about" class="level-btn">
+                  <span>Our story</span>
+                  <span class="level-btn-badge">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: Explore Auto-City (Equal 920px Width · Light Mode · 4 Wide Precinct Columns) -->
+        <div class="island-megamenu-panel" data-megamenu-panel="explore">
+          <div class="level-panel-header">
+            <h3 class="level-panel-title">
+              Four distinct precincts
+              <span class="level-panel-subtitle">spanning 100 open-air acres in Juru</span>
+            </h3>
+          </div>
+          <div class="level-columns-wrap level-cols-4">
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Automotive</h4>
+              <div class="level-solutions-list">
+                <a href="#automotive" class="level-solution-item">
+                  <span class="level-solution-title">Premier Dealerships</span>
+                  <span class="level-solution-desc">BMW, Mercedes, Porsche & Honda 4S</span>
+                </a>
+                <a href="#automotive" class="level-solution-item">
+                  <span class="level-solution-title">EV Supercharge Plaza</span>
+                  <span class="level-solution-desc">350kW DC fast charging stations</span>
+                </a>
+                <a href="#automotive" class="level-solution-item">
+                  <span class="level-solution-title">Car Care & Detailing</span>
+                  <span class="level-solution-desc">Ceramic coating, tuning & parts</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Gastronomy</h4>
+              <div class="level-solutions-list">
+                <a href="#dining" class="level-solution-item">
+                  <span class="level-solution-title">Dining Boulevard</span>
+                  <span class="level-solution-desc">40+ international restaurants & bistros</span>
+                </a>
+                <a href="#dining" class="level-solution-item">
+                  <span class="level-solution-title">Heritage Hawker Walk</span>
+                  <span class="level-solution-desc">Authentic Penang street delicacies</span>
+                </a>
+                <a href="#dining" class="level-solution-item">
+                  <span class="level-solution-title">Late-Night Cafes</span>
+                  <span class="level-solution-desc">Artisanal coffee, desserts & lounges</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Recreation</h4>
+              <div class="level-solutions-list">
+                <a href="#attractions" class="level-solution-item">
+                  <span class="level-solution-title">Carnival Grounds</span>
+                  <span class="level-solution-desc">Ferris wheel, twin raceway & VR</span>
+                </a>
+                <a href="#attractions" class="level-solution-item">
+                  <span class="level-solution-title">Central Amphitheater</span>
+                  <span class="level-solution-desc">Concert stage, busking & screenings</span>
+                </a>
+                <a href="#attractions" class="level-solution-item">
+                  <span class="level-solution-title">Weekend Maker Market</span>
+                  <span class="level-solution-desc">Artisan pop-ups & creative bazaar</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Commercial</h4>
+              <div class="level-solutions-list">
+                <a href="#guide" class="level-solution-item">
+                  <span class="level-solution-title">Retail & Banking</span>
+                  <span class="level-solution-desc">Convenience hubs, pharmacy & ATMs</span>
+                </a>
+                <a href="#guide" class="level-solution-item">
+                  <span class="level-solution-title">Grand Arena Grounds</span>
+                  <span class="level-solution-desc">Corporate exhibitions & roadshows</span>
+                </a>
+                <a href="#guide" class="level-solution-item">
+                  <span class="level-solution-title">Management Suites</span>
+                  <span class="level-solution-desc">Enterprise leasing & headquarters</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4: Events & Promotions (Equal 920px Width · Light Mode · Split Event Schedule + Card) -->
+        <div class="island-megamenu-panel" data-megamenu-panel="events">
+          <div class="level-panel-header level-panel-header-flex">
+            <h3 class="level-panel-title">
+              Live gatherings and festivals
+              <span class="level-panel-subtitle">curated for every weekend and season</span>
+            </h3>
+            <a href="events.html" class="level-panel-viewall-btn" title="View all events & promotions">
+              <span>All Events & Promotions</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+          <div class="level-split-layout">
+            <div class="level-columns-wrap level-cols-2">
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Upcoming Gatherings</h4>
+                <div class="level-solutions-list">
+                  <a href="events.html#gatherings" class="level-solution-item">
+                    <span class="level-solution-title">Supercar Saturday Gathering</span>
+                    <span class="level-solution-desc">Every Sat · 6:00 PM · Central Boulevard</span>
+                  </a>
+                  <a href="events.html#gatherings" class="level-solution-item">
+                    <span class="level-solution-title">Sunset Carnival 2026</span>
+                    <span class="level-solution-desc">Oct 24–26 · Drone light shows & food bazaar</span>
+                  </a>
+                  <a href="events.html#gatherings" class="level-solution-item">
+                    <span class="level-solution-title">Boulevard Busking & Maker Walk</span>
+                    <span class="level-solution-desc">Every weekend · 5:00 PM · Amphitheater</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="level-nav-col">
+                <h4 class="level-col-header">Current Promotions</h4>
+                <div class="level-solutions-list">
+                  <a href="events.html#promotions" class="level-solution-item">
+                    <span class="level-solution-title">RM20 Dining Rebate Voucher</span>
+                    <span class="level-solution-desc">Spend RM100 across 40+ restaurants</span>
+                  </a>
+                  <a href="events.html#promotions" class="level-solution-item">
+                    <span class="level-solution-title">Go-Kart Student Special</span>
+                    <span class="level-solution-desc">20% off twin raceway sessions on weekdays</span>
+                  </a>
+                  <a href="events.html#promotions" class="level-solution-item">
+                    <span class="level-solution-title">Family Carnival Bundle</span>
+                    <span class="level-solution-desc">Save 25% on 4 or more ride passes</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right-Side Featured Warm Ivory Card -->
+            <div class="level-feature-card">
+              <div class="level-card-art">
+                <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 90Q130 10 250 90" stroke="#e2ded4" stroke-width="1.2"/>
+                  <path d="M30 100Q130 30 230 100" stroke="#e2ded4" stroke-width="1.2"/>
+                  <circle cx="130" cy="45" r="4" fill="#e10021"/>
+                  <circle cx="70" cy="70" r="3.5" fill="#f59e0b"/>
+                </svg>
+              </div>
+              <div class="level-card-body">
+                <span class="level-card-eyebrow">Exclusive Rebate</span>
+                <h4 class="level-card-title">RM20 Dining Voucher</h4>
+                <p class="level-card-desc">Spend RM100 at any participating dining venue this month and receive an instant RM20 rebate voucher.</p>
+              </div>
+              <div class="level-card-footer">
+                <a href="events.html#promotions" class="level-btn">
+                  <span>Claim voucher</span>
+                  <span class="level-btn-badge">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div><!-- Panel 6: More Options (Equal 920px Width · Light Mode · Search Bar & 3-Column Directory) -->
+        <div class="island-megamenu-panel" data-megamenu-panel="more">
+          <!-- Integrated High-End Search Bar -->
+          <div class="level-search-section">
+            <div class="level-search-input-wrap">
+              <svg class="level-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="search" id="megamenuSearchInput" class="level-search-input" placeholder="Search attractions, dining, showrooms, services..." autocomplete="off">
+              <span class="level-search-shortcut">ESC</span>
+            </div>
+            <!-- Clean Inline Suggested Links -->
+            <div class="level-search-quick">
+              <span class="level-search-quick-label">Suggested:</span>
+              <a href="#attractions" class="level-quick-link" data-search-term="Ferris Wheel">Ferris Wheel</a>
+              <a href="#dining" class="level-quick-link" data-search-term="Dining">Dining Boulevard</a>
+              <a href="#automotive" class="level-quick-link" data-search-term="BMW">BMW 4S</a>
+              <a href="#guide" class="level-quick-link" data-search-term="EV">EV Superchargers</a>
+              <a href="#tickets" class="level-quick-link" data-search-term="Pass">Day Passes</a>
+            </div>
+          </div>
+
+          <div class="level-search-divider"></div>
+
+          <!-- 3 Clean Architectural Columns Across 920px -->
+          <div class="level-columns-wrap level-cols-3">
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Commercial & Leasing</h4>
+              <ul class="level-links-list">
+                <li><a href="#guide" class="level-nav-link">Retail & F&B Shop Lots</a></li>
+                <li><a href="#guide" class="level-nav-link">Highway LED Digital Billboards</a></li>
+                <li><a href="#guide" class="level-nav-link">Event Grounds & Arena Hire</a></li>
+                <li><a href="#guide" class="level-nav-link">Pop-Up Kiosk Opportunities</a></li>
+              </ul>
+            </div>
+
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Corporate & Press</h4>
+              <ul class="level-links-list">
+                <li><a href="#about" class="level-nav-link">Management Office (Exit 160)</a></li>
+                <li><a href="#about" class="level-nav-link">Media Kit & Press Assets</a></li>
+                <li><a href="#about" class="level-nav-link">Careers & Opportunities</a></li>
+                <li><a href="brand-guidelines.html" class="level-nav-link">Living Design System</a></li>
+              </ul>
+            </div>
+
+            <div class="level-nav-col">
+              <h4 class="level-col-header">Guest Concierge</h4>
+              <ul class="level-links-list">
+                <li><a href="#guide" class="level-nav-link">Hotline: +604-5011 222</a></li>
+                <li><a href="#guide" class="level-nav-link">Lost & Found Service Desk</a></li>
+                <li><a href="#guide" class="level-nav-link">Wheelchair & Stroller Loan</a></li>
+                <li><a href="#guide" class="level-nav-link">Security & Emergency Desk</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile/Tablet Backdrop Overlay (Habitline framer-d6ma15 blur effect) -->
+  <div class="island-dropdown-overlay" id="islandMobileOverlay" aria-hidden="true"></div>
+
+  <!-- Mobile/Tablet Dropdown Menu Card (Habitline Animated Dropdown) -->
+  <div class="island-dropdown-card" id="islandMobileCard" aria-hidden="true">
+    <a href="#attractions" class="island-dropdown-link active">
+      <span>Things to Do</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+    <a href="#about" class="island-dropdown-link">
+      <span>About Us</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+    <a href="#explore" class="island-dropdown-link">
+      <span>Explore Auto-City</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+    <a href="#events" class="island-dropdown-link">
+      <span>Events & Promotions</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+    <a href="#guide" class="island-dropdown-link">
+      <span>Plan Your Visit</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+    <div style="padding-top: 8px; border-top: 1px solid #f2f2f2; margin-top: 4px; display: flex; flex-direction: column; gap: 6px;">
+      <a href="#tickets" class="island-cta-btn" style="width: 100%; justify-content: center; height: 44px;">
+        <span>Plan Your Visit</span>
+      </a>
+    </div>
+  </div>
