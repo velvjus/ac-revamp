@@ -2,6 +2,12 @@
 
 A high-fidelity front-end revamp and interactive design system for **Auto-City**.
 
+## 🌿 Branches & Version Links
+
+- **Version 2.0 (Active Development)**: Branch [`v2`](https://github.com/velvjus/ac-revamp/tree/v2)
+- **Version 1.0 (Archived Snapshot)**: Branch [`v1-backup`](https://github.com/velvjus/ac-revamp/tree/v1-backup) & Tag [`v1.0.0`](https://github.com/velvjus/ac-revamp/releases/tag/v1.0.0)
+- **Main Branch**: [`main`](https://github.com/velvjus/ac-revamp/tree/main)
+
 ## 🌟 Key Portals & Entry Points
 
 - **[Showcase & Review Portal](index.html)**: Central hub previewing all revamped templates, landing pages, and interactive features.
