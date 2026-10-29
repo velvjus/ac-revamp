@@ -40,6 +40,9 @@ Auto-City/
 - Keep `.agents/skills/brand-revamp/SKILL.md` updated as new design conventions and section patterns emerge.
 - Install and configure new skills immediately when requested.
 
+### F. Mandatory Response Convention (Version Links)
+- At the end of every response, always provide quick links to both **Version 1** (v1-backup / tag v1.0.0) and **Version 2** (active v2 branch / local server links) for clear comparison.
+
 ## 3. Prototype-First Directives (Mandatory)
 
 This project is strictly a **high-fidelity front-end prototype**. All future coding and design iterations must adhere to these directives:
