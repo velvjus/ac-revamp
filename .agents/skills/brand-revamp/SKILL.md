@@ -70,13 +70,37 @@ This skill guides the design, development, and maintenance of the Auto-City fron
   - Scrolled contraction: `1260px` -> `1070px` numeric `max-width` with GPU layer promotion (`transform: translate3d(0, 0, 0);`), centering all 3 islands with exact balanced 12px gaps.
   - Scroll hysteresis buffer: trigger closed at `scrollY > 45px`, expand at `scrollY < 15px`.
 
-### 5. Editorial Statement & Inline Capsule Pills (Habitline Reference)
-- **Typographic Scale**: Fluid display heading in `Plus Jakarta Sans` (`font-weight: 600`, `clamp(2rem, 3.6vw, 3.125rem)`), `line-height: 1.32`, `letter-spacing: -0.025em`, zero monospace.
-- **Capsule Anatomy**:
-  - Avatar Pill: `clamp(66px, 6.2vw, 82px)` width, `clamp(34px, 3.2vw, 42px)` height, `border-radius: 9999px`, `vertical-align: -0.22em`, smooth image crossfading stack.
-  - Weather Pill: `clamp(54px, 5vw, 68px)` width, `#e0f2fe` sky tint, 3D sun/cloud vector, playful spring hover tilt.
-- **Supporting Narrative**: Secondary subtitle (`Switzer`, `clamp(1.05rem, 1.4vw, 1.25rem)`), accompanied by interactive hashtag pill chips (`#Founders`, `#ThemeParkRides`, etc.).
-- **Dual Mode**: Light mode `#ffffff` / `#131515`, Dark mode `#090d16` / `#f8fafc`.
+### 5. Version 2 Sequence Flow Standards (Mandatory Architecture)
+The Version 2 homepage (`pages/home.html`) strictly follows this 7-section narrative flow:
+
+1. **Section 1: Hero Video Showcase & Discovery Chips** (`#heroSection`)
+   - Title: `RIVERPARK AUTO-CITY` (Creato Display Medium/Bold, uppercase).
+   - Subtitle: `Eco Tourism Lifestyle Destination` (Switzer Medium, sentence case, smaller font size).
+   - 5 Category Stadium Pills (Lucide icons): `Attractions & Tours` (`#mustTry`), `Activities & Experiences` (`#activities`), `50+ Dining Hotspots` (`#dining`), `30+ Auto Brands` (`#automotive`), `Event & Promotions` (`#events`).
+   - Body lead description and search capsule bar removed.
+2. **Section 2: Must Try** (`#mustTry`)
+   - 3 signature destination cards (Theme Park, Nadi Glamping, River Cruise).
+   - Inset photography with 16px all-around padding (zero edge bleed), subtle hover lift, rAF scroll parallax + 3D mouse tilt.
+3. **Section 3: What's On** (`#whatsOn`)
+   - 4-card festival & event highlight grid with inset padding.
+   - Replaces old Upcoming Events & Deals. Category tags removed; keeps strictly Title, Description, and Event Date.
+   - **Mobile Optimization Note**: Sections 2 & 3 are engineered as horizontal snap carousels (cards ~240px wide) allowing both sections to fit simultaneously on a single smartphone viewport (~625px total height).
+4. **Section 4: Parallax Activity Highlight** (`#activitiesParallaxSection`)
+   - Interactive full-viewport dual-plane Swiper parallax slider highlighting: Mini Zoo, River Cruise, Fun Fair, Mangrove Eco Boardwalk, and Pickleball Sports Club.
+5. **Section 5: Discover our spaces and services.** (`#moreThingsToDo`)
+   - Temlis Acelia tabbed interactive split showcase with horizontal curtain reveal transitions.
+   - Title: `Discover our spaces and services.`
+   - 4 Core Offerings: `Team Building`, `Event Spaces`, `Accomodation`, and `Hubbiz - Office Space`.
+6. **Section 6: Directory ("World-Class Brands at Auto-City")** (`#brandsShowcase`)
+   - Westfield London-inspired continuous marquee carousel with Set A & Set B tracks for 60fps infinite loop.
+   - Dual-edge progressive blur curtains and centered "Browse Directory" CTA button (`#browseDirectoryBtn`).
+7. **Section 7: App Download CTA** (`#appDownload`)
+   - Friendly 3-column layout: light atmospheric sky backdrop, 3D CSS iPhone 16 Pro hardware chassis with 100% live HTML/CSS Auto-City app screen, real-time mouse parallax 3D tilt, and high-contrast QR app store download card.
+8. **Footer: Enclosed Island Footer** (`#siteFooter`)
+   - Orchid Security-inspired floating 32px rounded enclosure, official brandmark, destination navigation columns, 3x2 authentic government & tourism accreditation badge grid, and legal links.
+
+*Pruned Sections*: "Join in the fun" (social reels), the Habitline quote section, and the Level.ai 4 pillars accordion have been fully retired from the homepage.
+
 ### 6. Prototype-First Principles (Core Mandate)
 - **Scope Restriction**: This codebase is exclusively a visual and interactive front-end prototype.
 - **Do Not Over-Engineer**: Avoid diving deep into back-end architectures, complex mock API layers, or deep business logic abstractions.
@@ -84,38 +108,3 @@ This skill guides the design, development, and maintenance of the Auto-City fron
   1. **Visual Design**: High-end craft, crisp typography, clean token adherence, pixel-perfect alignment.
   2. **Animation & Motion**: Fluid micro-interactions, responsive hover/active tactile states, smooth scroll dynamics.
   3. **Layout & Cleanliness**: Resilient responsive layouts (mobile to desktop), neat modular components, and immediate presentation-readiness.
-
-### 7. Social Video & Reels Carousel Standards ("Join in the fun")
-- **Layout & Visual Canvas**:
-  - Dark blueprint background (`#07090e`) with subtle linear grid pattern (`rgba(255, 255, 255, 0.035)`), cyan radial glow accents, and wide container padding.
-  - Section title: "JOIN IN THE FUN", subtitle: "Explore viral bites, festival highlights, and live nightlife moments straight from our Penang community."
-- **Reel Card Specs**:
-  - 9:16 portrait ratio (`aspect-ratio: 9/16`), default width `290px`, `border-radius: 20px`, dark glass overlay.
-  - Floating top category tag (vivid neon pills: `STREET BITES`, `ENTERTAINMENT`, `NIGHT FESTIVAL`, `CARNIVAL`, `CULINARY`, `HOTPOT DINING`, `PENANG FLAVORS`, `VIRAL GUIDE`).
-  - View count indicator with Lucide eye icon and bottom overlay title.
-  - Frosted glass play circle button centered (`backdrop-filter: blur(10px)`).
-- **Video & Autoplay Engine**:
-  - Authentic 4-second seamless looping MP4 video clips (`assets/videos/reels/*.mp4`) paired with fallback JPG posters (`assets/images/reels/*.jpg`).
-  - `IntersectionObserver` autoplay controller: plays muted video on viewport entry, pauses when scrolled away to conserve battery and CPU.
-  - Interactive track: drag-to-scroll cursor, tactile hover lifts (`translateY(-6px)`), and carousel arrow buttons with auto boundary disabling.
-
-### 8. Enclosed Island Footer Standards (Orchid Security Reference)
-- **Architecture & Canvas**:
-  - Enclosed floating island card (`.ac-footer-shell`) with large `32px` rounded curvature (`border-radius: clamp(24px, 3.2vw, 36px)`), resting on a subtle cool ground (`#f8fafc` to `#f1f5f9`).
-  - Elevated card surface (`#ffffff`) with subtle 1px border (`rgba(226, 232, 240, 0.95)`), inner white glow, and soft multi-tier drop shadows (`0 24px 60px -12px rgba(15, 23, 42, 0.06)`).
-- **Brand & Social Geometry**:
-  - Left column features official vector brandmark, township description, and 38px circular full-radius social buttons (LinkedIn, Facebook, X, YouTube, Instagram, TikTok) with 2.5px spring hover lift and Cobalt Blue glow.
-- **Structured Destination Navigation**:
-  - Headings in `Creato Display` (Bold 700 max), links in `Switzer` with 3px horizontal glide on hover (`color: #1d4ed8`).
-- **3x2 Authentic Brand Badge Grid (Frameless & Static)**:
-  - Six authentic brand marks sourced directly from Wikipedia/Wikimedia Commons and official government portals (stored in `Graphic/badges/`):
-    1. Tourism Malaysia (*Malaysia Truly Asia* vector, Wikimedia Commons)
-    2. Penang State Government (*Coat of Arms of Penang* vector, Wikimedia Commons)
-    3. Penang Global Tourism (*PGT* official state logo, `mypenang.gov.my`)
-    4. Tripadvisor (*Tripadvisor* stacked owl mark, Wikimedia Commons)
-    5. Halal Malaysia (*MS 1500* official certification seal, `halal.gov.my`)
-    6. Majlis Bandaraya Seberang Perai (*MBSP* municipal council crest, Wikimedia Commons)
-  - Presented frameless (no container boxes, no borders, no drop shadows) directly on the white footer surface with zero hover shifts.
-- **Hairline Divider & Legal Strip**:
-  - Subtle gradient divider spanning 100% width, followed by copyright statement and legal policy links separated by bullets (`•`).
-

@@ -95,6 +95,14 @@ function createStaticServer(rootDir, port, label) {
     }
   });
 
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.log(`[${label}] Port ${port} is already in use (e.g., live-server active). Serving continues.`);
+    } else {
+      console.error(`[${label}] Server error:`, err);
+    }
+  });
+
   server.listen(port, () => {
     console.log(`[${label}] Running at http://localhost:${port}/`);
   });

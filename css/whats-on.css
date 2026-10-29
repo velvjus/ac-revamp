@@ -1,0 +1,341 @@
+/* ==========================================================================
+   Auto-City — Section 3: "What's On" Events Architecture
+   4-Card Layout, Inset Photo Frame with All-Around Padding & Parallax Physics
+   ========================================================================== */
+
+.whats-on-section {
+  position: relative;
+  background-color: var(--bg-canvas, #ffffff);
+  color: var(--text-primary, #0f172a);
+  padding: 4.5rem 1.5rem 6rem;
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.whats-on-container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* Section Header */
+.whats-on-header {
+  margin-bottom: 2.5rem;
+}
+
+.whats-on-title {
+  font-family: var(--font-display, 'Creato Display', sans-serif);
+  font-size: clamp(2.25rem, 4.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--text-primary, #0f172a);
+  margin: 0;
+}
+
+/* 4-Card Responsive Grid */
+.whats-on-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+/* Card Outer Container */
+.whats-on-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  transition: 
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+  will-change: transform, box-shadow;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.whats-on-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(29, 78, 216, 0.22);
+  box-shadow: 
+    0 24px 48px -12px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(29, 78, 216, 0.12);
+}
+
+/* Inset Media Frame — Padding All Around the Image */
+.whats-on-media-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10.5;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f1f5f9;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.whats-on-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: translateY(var(--scroll-parallax, 0px)) scale(1.08);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.whats-on-card:hover .whats-on-image {
+  transform: translateY(var(--scroll-parallax, 0px)) scale(1.15);
+}
+
+/* Card Body */
+.whats-on-body {
+  padding: 1.15rem 0.35rem 0.85rem 0.35rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.whats-on-card-title {
+  font-family: var(--font-display, 'Creato Display', sans-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0f172a;
+  margin: 0 0 0.55rem;
+  letter-spacing: -0.015em;
+  transition: color 0.25s ease;
+}
+
+.whats-on-card:hover .whats-on-card-title {
+  color: var(--color-brand-blue, #1d4ed8);
+}
+
+.whats-on-card-desc {
+  font-family: var(--font-body, 'Switzer', sans-serif);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0 0 1.15rem;
+  flex: 1;
+}
+
+/* Card Footer with Event Date */
+.whats-on-footer {
+  border-top: 1px solid #f1f5f9;
+  padding: 0.95rem 0.35rem 0.25rem 0.35rem;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.whats-on-date-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body, 'Switzer', sans-serif);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #1e293b;
+  letter-spacing: 0.025em;
+  transition: color 0.25s ease;
+}
+
+.whats-on-calendar-icon {
+  width: 15px;
+  height: 15px;
+  stroke: #64748b;
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+  transition: stroke 0.25s ease;
+}
+
+.whats-on-card:hover .whats-on-calendar-icon {
+  stroke: var(--color-brand-blue, #1d4ed8);
+}
+
+.whats-on-card:hover .whats-on-date-wrap {
+  color: var(--color-brand-blue, #1d4ed8);
+}
+
+/* ==========================================================================
+   Dark Theme Adjustments
+   ========================================================================== */
+
+[data-theme="dark"] .whats-on-section {
+  background-color: #07090e;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .whats-on-title {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .whats-on-card {
+  background: #0d1322;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .whats-on-card:hover {
+  border-color: rgba(29, 78, 216, 0.45);
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(29, 78, 216, 0.35);
+}
+
+[data-theme="dark"] .whats-on-media-frame {
+  background: #131c31;
+}
+
+[data-theme="dark"] .whats-on-card-title {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .whats-on-card:hover .whats-on-card-title {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .whats-on-card-desc {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .whats-on-footer {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .whats-on-date-wrap {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .whats-on-calendar-icon {
+  stroke: #94a3b8;
+}
+
+[data-theme="dark"] .whats-on-card:hover .whats-on-calendar-icon,
+[data-theme="dark"] .whats-on-card:hover .whats-on-date-wrap {
+  color: #60a5fa;
+  stroke: #60a5fa;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .whats-on-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .whats-on-section {
+    padding: 0.75rem 0 2rem;
+  }
+
+  .whats-on-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .whats-on-header {
+    padding: 0 1.25rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .whats-on-title {
+    font-size: clamp(1.3rem, 5vw, 1.55rem);
+    letter-spacing: -0.02em;
+  }
+
+  /* Horizontal swipe row on mobile so Section 2 & 3 fit on the same screen */
+  .whats-on-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 1.25rem;
+    padding: 0.25rem 1.25rem 0.65rem;
+    gap: 0.85rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+  }
+
+  .whats-on-grid.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+  }
+
+  .whats-on-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .whats-on-card {
+    flex: 0 0 clamp(220px, 64vw, 250px);
+    scroll-snap-align: start;
+    padding: 0.75rem;
+    border-radius: 18px;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+    transform: none !important;
+  }
+
+  .whats-on-card:hover {
+    transform: none !important;
+  }
+
+  .whats-on-media-frame {
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+  }
+
+  .whats-on-body {
+    padding: 0.6rem 0.2rem 0.35rem;
+  }
+
+  .whats-on-card-title {
+    font-size: 1.025rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .whats-on-card-desc {
+    font-size: 0.775rem;
+    line-height: 1.38;
+    margin-bottom: 0.45rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .whats-on-footer {
+    padding: 0.5rem 0.2rem 0.1rem;
+  }
+
+  .whats-on-date-wrap {
+    font-size: 0.75rem;
+    gap: 0.35rem;
+  }
+
+  .whats-on-calendar-icon {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .whats-on-card,
+  .whats-on-image {
+    transition: none !important;
+    transform: none !important;
+  }
+}

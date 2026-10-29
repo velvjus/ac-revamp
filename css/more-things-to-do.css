@@ -245,18 +245,21 @@
 }
 
 /* Distinct color accents per card */
+.tab-team-building .more-things-pill,
 .tab-nadi .more-things-pill {
   background: rgba(180, 83, 9, 0.08);
   color: #92400e;
   border-color: rgba(180, 83, 9, 0.18);
 }
 
+.tab-event-spaces .more-things-pill,
 .tab-lavenda .more-things-pill {
   background: rgba(139, 92, 246, 0.08);
   color: #6d28d9;
   border-color: rgba(139, 92, 246, 0.18);
 }
 
+.tab-accommodation .more-things-pill,
 .tab-events .more-things-pill {
   background: rgba(29, 78, 216, 0.08);
   color: #1d4ed8;

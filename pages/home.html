@@ -13,414 +13,38 @@
   <link rel="stylesheet" href="../css/brand-tokens.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/quote.css">
+  <link rel="stylesheet" href="../css/must-try.css">
+  <link rel="stylesheet" href="../css/whats-on.css">
   <link rel="stylesheet" href="../css/brands-carousel.css">
   <link rel="stylesheet" href="../css/swiper-bundle.min.css">
   <link rel="stylesheet" href="../css/activities-parallax.css">
-  <link rel="stylesheet" href="../css/reels-social.css">
   <link rel="stylesheet" href="../css/more-things-to-do.css">
-  <link rel="stylesheet" href="../css/upcoming-events.css">
   <link rel="stylesheet" href="../css/footer.css">
 
   <style>
-    /* ========================================================================
-       4. Editorial Four Precincts / 4 Core Pillars (Gallery Monograph Reference)
-       Direct Translation: Dark Gallery Canvas, Split Micro-Header, 1:1 Imagery
-       ======================================================================== */
-    /* ========================================================================
-       4. Level.ai Signature Expanding Horizontal Accordion Gallery
-       Direct Translation: https://thelevel.ai/ Reference
-       Interactive Pill Headline, Flex Expanding Panels, Bottom Quote Layout
-       ======================================================================== */
-    .destinations-preview-section {
-      background: var(--bg-canvas, #ffffff);
-      color: var(--text-primary, #0f172a);
-      padding: 5.5rem 0 6.5rem;
-      position: relative;
-      z-index: 5;
-      overflow: hidden;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .destinations-preview-section .container-fluid {
-      max-width: 1480px;
-      margin: 0 auto;
-      padding: 0 2.5rem;
-    }
-
-    /* Level.ai Headline & Pill Capsule */
-    .level-header-wrap {
-      margin-bottom: 2.75rem;
-    }
-
-    .level-section-title {
-      font-family: var(--font-display) !important;
-      font-size: clamp(2.25rem, 4vw, 3.25rem);
-      font-weight: 500 !important;
-      color: var(--text-primary, #0a1f44);
-      letter-spacing: -0.025em;
-      line-height: 1.18;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.65rem 0.85rem;
-      margin: 0;
-    }
-
-    .level-title-lead {
-      font-weight: 500 !important;
-      color: var(--text-primary, #0a1f44);
-      letter-spacing: -0.015em;
-    }
-
-    .level-pill-badge {
-      display: inline-flex;
-      align-items: center;
-      background: #f1f3f5;
-      color: #0f172a;
-      font-size: 0.85em;
-      font-weight: 600;
-      padding: 0.2rem 0.85rem;
-      border-radius: 8px;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-      cursor: default;
-    }
-
-    /* Flex Expanding Accordion Container */
-    .level-accordion-container {
-      display: flex;
-      gap: 14px;
-      height: 520px;
-      width: 100%;
-      position: relative;
-    }
-
-    /* Individual Panel */
-    .level-panel {
-      position: relative;
-      flex: 0.65;
-      height: 100%;
-      border-radius: 18px;
-      overflow: hidden;
-      cursor: pointer;
-      background: #000000;
-      transition: flex 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease;
-      user-select: none;
-    }
-
-    .level-panel.active {
-      flex: 3.8;
-      cursor: default;
-    }
-
-    /* Panel Image */
-    .level-panel-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: brightness(0.92);
-      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
-    }
-
-    .level-panel.active .level-panel-img {
-      filter: brightness(1);
-    }
-
-    .level-panel:not(.active):hover .level-panel-img {
-      transform: scale(1.06);
-      filter: brightness(1);
-    }
-
-    /* Gradient Scrim Overlay (Lightened for vibrant, luminous photography) */
-    .level-panel-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.12) 60%, rgba(0, 0, 0, 0.55) 100%);
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-
-    .level-panel:not(.active) .level-panel-overlay {
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0.45) 100%);
-    }
-
-    /* Collapsed Vertical Title on Inactive Panels */
-    .level-collapsed-label {
-      position: absolute;
-      bottom: 3.25rem;
-      left: 50%;
-      transform-origin: 0 50%;
-      transform: rotate(-90deg);
-      white-space: nowrap;
-      width: max-content;
-      font-family: var(--font-display) !important;
-      font-size: 0.95rem;
-      font-weight: 700 !important;
-      color: rgba(255, 255, 255, 0.92);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      opacity: 1;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-      z-index: 2;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
-    }
-
-    .level-panel.active .level-collapsed-label {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    /* Expanded Content in Active Panel */
-    .level-expanded-content {
-      position: absolute;
-      inset: 0;
-      padding: 2.25rem 2.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.45s ease 0.15s;
-      z-index: 2;
-    }
-
-    .level-panel.active .level-expanded-content {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* Top Brand / Title */
-    .level-panel-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .level-brand-logo {
-      font-family: var(--font-display) !important;
-      font-size: 1.85rem;
-      font-weight: 700 !important;
-      color: #ffffff;
-      letter-spacing: -0.02em;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    }
-
-    .level-brand-tag {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.9);
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    /* Bottom Description Box (Subtle idle opacity, reveals upon hovering near) */
-    .level-quote-box {
-      max-width: 640px;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      opacity: 0.68;
-      transform: translateY(4px);
-      padding-top: 2.5rem;
-      margin-top: -2.5rem;
-      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .level-quote-box:hover,
-    .level-quote-box:focus-within {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .level-quote-text {
-      font-family: var(--font-body);
-      font-size: clamp(0.875rem, 1.05vw, 1rem);
-      color: rgba(255, 255, 255, 0.92);
-      line-height: 1.6;
-      font-weight: 400;
-      margin: 0;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    }
-
-    .level-panel-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 0.55rem 1.15rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      text-decoration: none;
-      width: fit-content;
-      transition: all 0.25s var(--ease-spring);
-    }
-
-    .level-panel-cta-btn:hover {
-      background: var(--color-accent-red, #e10021);
-      border-color: var(--color-accent-red, #e10021);
-      color: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(225, 0, 33, 0.45);
-    }
-
-    .level-panel-cta-btn svg {
-      width: 14px;
-      height: 14px;
-      transition: transform 0.25s var(--ease-spring);
-    }
-
-    .level-panel-cta-btn:hover svg {
-      transform: translateX(4px);
-    }
-
-    /* Level.ai Bottom Right Action Link */
-    .level-footer-action {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 1.5rem;
-    }
-
-    .level-explore-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-primary, #0f172a);
-      text-decoration: none;
-      transition: all 0.2s var(--ease-spring);
-    }
-
-    .level-explore-link svg {
-      width: 15px;
-      height: 15px;
-      transition: transform 0.2s var(--ease-spring);
-    }
-
-    .level-explore-link:hover {
-      color: var(--color-blue-600, #1d4ed8);
-    }
-
-    .level-explore-link:hover svg {
-      transform: translateX(4px);
-    }
-
-    /* Dark Mode Adaptations */
-    html[data-theme="dark"] .destinations-preview-section {
-      background: #061226;
-      color: #ffffff;
-    }
-    html[data-theme="dark"] .level-pill-badge {
-      background: rgba(255, 255, 255, 0.1);
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-    html[data-theme="dark"] .level-section-title,
-    html[data-theme="dark"] .level-title-lead {
-      color: #ffffff;
-    }
-    html[data-theme="dark"] .level-explore-link {
-      color: #94b9ff;
-    }
-    html[data-theme="dark"] .level-explore-link:hover {
-      color: #ffffff;
-    }
-
-    /* Mobile / Tablet Viewport Handling */
-    @media (max-width: 900px) {
-      .level-accordion-container {
-        height: 480px;
-        gap: 10px;
-      }
-      .level-expanded-content {
-        padding: 1.5rem 1.75rem;
-      }
-      .level-brand-logo {
-        font-size: 1.45rem;
-      }
-      .level-panel.active {
-        flex: 5;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .destinations-preview-section .container-fluid {
-        padding: 0 1.25rem;
-      }
-      .level-accordion-container {
-        flex-direction: column;
-        height: auto;
-        gap: 12px;
-      }
-      .level-panel {
-        flex: none;
-        height: 120px;
-        width: 100%;
-        border-radius: 14px;
-        transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .level-panel.active {
-        height: 390px;
-      }
-      .level-collapsed-label {
-        transform: none;
-        transform-origin: initial;
-        left: 1.5rem;
-        bottom: 1.5rem;
-      }
-      .level-expanded-content {
-        padding: 1.25rem 1.5rem;
-      }
-      .level-quote-box {
-        opacity: 1;
-        transform: none;
-        padding-top: 0;
-        margin-top: 0;
-      }
-    }
-
-    /* Back to Showcase Floating Capsule - Hidden by default, reveals on hovering that corner */
+    /* Showcase Portal Return Zone */
     .portal-back-zone {
       position: fixed;
-      bottom: 1.25rem;
-      left: 1.25rem;
-      z-index: 1000;
-      padding: 0.75rem 1rem;
-      pointer-events: auto;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 9999;
     }
 
     .portal-back-capsule {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.55rem 1.15rem;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      padding: 0.6rem 1.1rem;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #ffffff;
       border-radius: 9999px;
-      box-shadow: 0px 8px 24px 0px rgba(19, 21, 21, 0.12);
-      color: #131515;
-      font-family: var(--font-body);
-      font-size: 0.825rem;
+      font-size: 0.8125rem;
       font-weight: 600;
       text-decoration: none;
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       opacity: 0;
       visibility: hidden;
       transform: translateY(8px) scale(0.96);
@@ -899,6 +523,9 @@
   </div>
 
   <!-- ========================================================================
+       Section 1: Hero Video Showcase & Quick Discovery Chips
+       ======================================================================== -->
+<!-- ========================================================================
        2. Hero Section with Cinematic Night Traffic Video Background
        ======================================================================== -->
   <section class="hero-video-section" id="heroSection">
@@ -931,47 +558,28 @@
     <div class="hero-video-content">
       
       <h1 class="hero-main-title">
-        Penang’s Premier Open-Air City of Automotive, Dining & Celebration.
+        <span class="hero-title-main">RIVERPARK AUTO-CITY</span>
+        <span class="hero-title-sub">Eco Tourism Lifestyle Destination</span>
       </h1>
-
-      <p class="hero-lead-text">
-        From lively open-air dining streets and weekend carnivals to premier automotive showrooms, discover 100 acres of everyday energy in the heart of Juru.
-      </p>
-
-      <!-- Explore Search Capsule -->
-      <form class="hero-explore-capsule" onsubmit="event.preventDefault(); (document.getElementById('activitiesParallaxSection') || document.getElementById('destinationsSection')).scrollIntoView({ behavior: 'smooth' });">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" style="flex-shrink: 0;">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input 
-          type="text" 
-          class="hero-explore-input" 
-          placeholder="Search dining, rides, showrooms, events..."
-          aria-label="Search attractions, dining, or automotive">
-        <button type="submit" class="hero-explore-btn">
-          <span>Explore</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </form>
 
       <!-- Quick Category Pills (Lucide Icons in Pure White) -->
       <div class="hero-categories-row">
         <a href="#attractions" class="hero-category-chip">
           <svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="2"></circle>
-            <path d="M12 2v4"></path>
-            <path d="m6.8 15-3.5 2"></path>
-            <path d="m20.7 7-3.5 2"></path>
-            <path d="M6.8 9 3.3 7"></path>
-            <path d="m20.7 17-3.5-2"></path>
-            <path d="m9 22 3-8 3 8"></path>
-            <path d="M8 22h8"></path>
             <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
           </svg>
-          <span>Theme Park & Rides</span>
+          <span>Attractions &amp; Tours</span>
+        </a>
+        <a href="#activities" class="hero-category-chip">
+          <svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+            <path d="M5 3v4"></path>
+            <path d="M19 17v4"></path>
+            <path d="M3 5h4"></path>
+            <path d="M17 19h4"></path>
+          </svg>
+          <span>Activities &amp; Experiences</span>
         </a>
         <a href="#dining" class="hero-category-chip">
           <svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -992,19 +600,12 @@
         </a>
         <a href="#events" class="hero-category-chip">
           <svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path>
-            <path d="M20 2v4"></path>
-            <path d="M22 4h-4"></path>
-            <circle cx="4" cy="20" r="2"></circle>
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+            <line x1="16" x2="16" y1="2" y2="6"></line>
+            <line x1="8" x2="8" y1="2" y2="6"></line>
+            <line x1="3" x2="21" y1="10" y2="10"></line>
           </svg>
-          <span>Weekend Carnivals</span>
-        </a>
-        <a href="#guide" class="hero-category-chip">
-          <svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          <span>Interactive Map</span>
+          <span>Event &amp; Promotions</span>
         </a>
       </div>
 
@@ -1013,79 +614,743 @@
   </section>
 
   <!-- ========================================================================
-       3. Editorial Quote Statement Section (Under Hero Section)
-       Habitline Framework Tailored to Auto-City · Minimalist & Focused
+       Section 2: Must Try (Signature Attractions)
        ======================================================================== -->
-  <section class="quote-statement-section" id="quoteStatement" aria-label="Auto-City Brand Statement">
-    <div class="quote-statement-inner">
+<!-- ========================================================================
+     Section 2: Must Try Experiences Architecture
+     Features: Inset Photo Frame with Padding All Around, 3D Parallax & Subtle Hover
+     ======================================================================== -->
+<section class="must-try-section" id="mustTry" aria-label="Must Try Experiences at Auto-City">
+  <div class="must-try-container">
+    
+    <!-- Section Heading -->
+    <div class="must-try-header">
+      <h2 class="must-try-title">Must Try</h2>
+    </div>
 
-      <!-- Main Typographic Headline with Inline Pill Capsules (Direct Text Masking) -->
-      <h2 class="quote-statement-title" id="quoteStatementTitle">
-        <span class="quote-line">
-          Where great drives 
-          <span class="quote-inline-pill-wheel" id="quoteWheelPill" title="Click to steer!" aria-label="Auto-City sports steering wheel badge">
-            <img src="../assets/images/quote-steering-wheel.svg" alt="Steering wheel" class="quote-pill-icon quote-wheel-icon">
-          </span>
-          connect with
-        </span>
-        <span class="quote-line">
-          open-air dining, culinary flavors,
-        </span>
-        <span class="quote-line">
-          and vibrant 
-          <span class="quote-inline-pill-anchor">
-            <span class="quote-confetti-stage" id="quoteConfettiStage" aria-hidden="true"></span>
-            <span class="quote-inline-pill-weather quote-inline-pill-spark" id="quoteWeatherPill" title="Click to celebrate!" aria-label="Celebration spark illustration capsule">
-              <img src="../assets/images/quote-celebration-spark.svg" alt="Celebration energy" class="quote-pill-icon">
-            </span>
-          </span>
-          night celebrations.
-        </span>
-      </h2>
+    <!-- 3-Column Experience Cards Grid -->
+    <div class="must-try-grid">
+      
+      <!-- Card 1: Theme Park -->
+      <article class="must-try-card" tabindex="0">
+        <!-- Inset Image Frame with Padding All Around -->
+        <div class="must-try-media-frame">
+          <img 
+            src="../assets/images/more-things-to-do/lavenda-fun-park.jpg" 
+            alt="Theme Park at Auto-City" 
+            class="must-try-image" 
+            loading="lazy">
+        </div>
 
-      <!-- Experience AutoCity Video Trigger Button -->
-      <div class="quote-cta-wrap">
-        <button type="button" class="quote-experience-btn" id="openExperienceVideoBtn" aria-haspopup="dialog" aria-controls="experienceVideoModal" aria-label="Experience AutoCity Video">
-          <span class="quote-experience-btn-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z"/>
-            </svg>
-          </span>
-          <span class="quote-experience-btn-text">Experience AutoCity</span>
-        </button>
-      </div>
+        <div class="must-try-body">
+          <h3 class="must-try-card-title">Theme Park</h3>
+          <p class="must-try-card-desc">
+            Enjoy exciting rides, fun attractions and unforgettable moments for all ages. The perfect place for family and friends to create lasting memories.
+          </p>
+
+          <div class="must-try-meta-wrap">
+            <div class="must-try-rating-row">
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span class="must-try-rating-score">4.6</span>
+            </div>
+
+            <div class="must-try-location-row">
+              <svg class="must-try-loc-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Penang</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="must-try-footer">
+          <div class="must-try-price-col">
+            <span class="must-try-price-label">From</span>
+            <span class="must-try-price-amount">RM50.00</span>
+          </div>
+          <a href="#book" class="must-try-book-btn">BOOK HERE</a>
+        </div>
+      </article>
+
+      <!-- Card 2: Nadi Glamping -->
+      <article class="must-try-card" tabindex="0">
+        <!-- Inset Image Frame with Padding All Around -->
+        <div class="must-try-media-frame">
+          <img 
+            src="../assets/images/more-things-to-do/nadi-glamping-suites.jpg" 
+            alt="Nadi Glamping at Auto-City" 
+            class="must-try-image" 
+            loading="lazy">
+        </div>
+
+        <div class="must-try-body">
+          <h3 class="must-try-card-title">Nadi Glamping</h3>
+          <p class="must-try-card-desc">
+            Escape to nature and enjoy a unique glamping experience. Relax in stylish tents with modern comforts, surrounded by lush greenery and stunning views.
+          </p>
+
+          <div class="must-try-meta-wrap">
+            <div class="must-try-rating-row">
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span class="must-try-rating-score">4.8</span>
+            </div>
+
+            <div class="must-try-location-row">
+              <svg class="must-try-loc-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Penang</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="must-try-footer">
+          <div class="must-try-price-col">
+            <span class="must-try-price-label">From</span>
+            <span class="must-try-price-amount">RM200.00</span>
+          </div>
+          <a href="#book" class="must-try-book-btn">BOOK HERE</a>
+        </div>
+      </article>
+
+      <!-- Card 3: River Cruise -->
+      <article class="must-try-card" tabindex="0">
+        <!-- Inset Image Frame with Padding All Around -->
+        <div class="must-try-media-frame">
+          <img 
+            src="../assets/images/activities/river-cruise.jpg" 
+            alt="River Cruise at Auto-City" 
+            class="must-try-image" 
+            loading="lazy">
+        </div>
+
+        <div class="must-try-body">
+          <h3 class="must-try-card-title">River Cruise</h3>
+          <p class="must-try-card-desc">
+            Sit back, relax and take in the beautiful scenery on a scenic river cruise. Discover the natural beauty, local wildlife and unique waterfront sights.
+          </p>
+
+          <div class="must-try-meta-wrap">
+            <div class="must-try-rating-row">
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="must-try-star-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span class="must-try-rating-score">4.7</span>
+            </div>
+
+            <div class="must-try-location-row">
+              <svg class="must-try-loc-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Penang</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="must-try-footer">
+          <div class="must-try-price-col">
+            <span class="must-try-price-label">From</span>
+            <span class="must-try-price-amount">RM80.00</span>
+          </div>
+          <a href="#book" class="must-try-book-btn">BOOK HERE</a>
+        </div>
+      </article>
 
     </div>
 
-    <!-- Experience Auto-City Video Pop-up Modal -->
-    <div class="experience-video-modal" id="experienceVideoModal" role="dialog" aria-modal="true" aria-label="Experience Auto-City" aria-hidden="true">
-      <div class="experience-video-backdrop" id="experienceVideoBackdrop" title="Click to close video"></div>
-      <div class="experience-video-container">
-        <button type="button" class="experience-video-close-btn" id="closeExperienceVideoBtn" aria-label="Close video modal" title="Close video (Esc)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-        <div class="experience-video-frame-wrap">
-          <iframe
-            id="experienceVideoIframe"
-            src=""
-            title="Experience AutoCity Video"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+  </div>
+</section>
+
+  <!-- ========================================================================
+       Section 3: What's On (Upcoming Events & Festival Highlights)
+       ======================================================================== -->
+<!-- ========================================================================
+     Section 3: What's On (Events & Happenings Architecture)
+     Features: 4-Card Grid, Inset Photo Frame with All-Around Padding, Parallax & Hover
+     ======================================================================== -->
+<section class="whats-on-section" id="whatsOn" aria-label="What's On at Auto-City">
+  <!-- Anchor alias for Hero Pill navigation (#events) -->
+  <span id="events" class="section-anchor" style="position: absolute; top: -80px; left: 0;" aria-hidden="true"></span>
+
+  <div class="whats-on-container">
+    
+    <!-- Section Heading -->
+    <div class="whats-on-header">
+      <h2 class="whats-on-title">What's On</h2>
+    </div>
+
+    <!-- 4-Column Experience Cards Grid -->
+    <div class="whats-on-grid">
+      
+      <!-- Card 1: One Better River Festival -->
+      <article class="whats-on-card" tabindex="0">
+        <!-- Inset Image Frame with Padding All Around -->
+        <div class="whats-on-media-frame">
+          <img 
+            src="../assets/images/events/river-festival.jpg" 
+            alt="One Better River Festival at Auto-City" 
+            class="whats-on-image" 
+            loading="lazy">
+        </div>
+
+        <div class="whats-on-body">
+          <h3 class="whats-on-card-title">One Better River Festival</h3>
+          <p class="whats-on-card-desc">
+            Wala Wala x Penang One Better pop-up market, bridge food stalls, live acoustic music, and riverside carnival.
+          </p>
+        </div>
+
+        <div class="whats-on-footer">
+          <div class="whats-on-date-wrap">
+            <svg class="whats-on-calendar-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+              <line x1="16" x2="16" y1="2" y2="6"></line>
+              <line x1="8" x2="8" y1="2" y2="6"></line>
+              <line x1="3" x2="21" y1="10" y2="10"></line>
+            </svg>
+            <span class="whats-on-date-text">3 &ndash; 5 JUL 2026</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Premium Car Exhibition -->
+      <article class="whats-on-card" tabindex="0">
+        <!-- Inset Image Frame with Padding All Around -->
+        <div class="whats-on-media-frame">
+          <img 
+            src="../assets/images/events/premium-car-exhibition.jpg" 
+            alt="Premium Car Exhibition at Auto-City" 
+            class="whats-on-image" 
+            loading="lazy">
+        </div>
+
+        <div class="whats-on-body">
+          <h3 class="whats-on-card-title">Premium Car Exhibition</h3>
+          <p class="whats-on-card-desc">
+            Latest supercar models, premium marques display, and exclusive manufacturer promotions at Concept Hall.
+          </p>
+        </div>
+
+        <div class="whats-on-footer">
+          <div class="whats-on-date-wrap">
+            <svg class="whats-on-calendar-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+              <line x1="16" x2="16" y1="2" y2="6"></line>
+              <line x1="8" x2="8" y1="2" y2="6"></line>
+              <line x1="3" x2="21" y1="10" y2="10"></line>
+            </svg>
+            <span class="whats-on-date-text">10 &ndash; 12 JUL 2026</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Meow & Woof Fashion Show -->
+      <article class="whats-on-card" tabindex="0">
+        <!-- Inset Image Frame with Padding All Around -->
+        <div class="whats-on-media-frame">
+          <img 
+            src="../assets/images/events/pet-carnival-fashion-show.jpg" 
+            alt="Meow & Woof Fashion Show at Auto-City" 
+            class="whats-on-image" 
+            loading="lazy">
+        </div>
+
+        <div class="whats-on-body">
+          <h3 class="whats-on-card-title">Meow &amp; Woof Fashion Show</h3>
+          <p class="whats-on-card-desc">
+            Celebrate Malaysia with adorable cats and dogs dressed in traditional national costumes on the grand runway.
+          </p>
+        </div>
+
+        <div class="whats-on-footer">
+          <div class="whats-on-date-wrap">
+            <svg class="whats-on-calendar-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+              <line x1="16" x2="16" y1="2" y2="6"></line>
+              <line x1="8" x2="8" y1="2" y2="6"></line>
+              <line x1="3" x2="21" y1="10" y2="10"></line>
+            </svg>
+            <span class="whats-on-date-text">18 &ndash; 20 SEP 2026</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Chinese Culture Dance -->
+      <article class="whats-on-card" tabindex="0">
+        <!-- Inset Image Frame with Padding All Around -->
+        <div class="whats-on-media-frame">
+          <img 
+            src="../assets/images/events/dance-championship.jpg" 
+            alt="Chinese Culture Dance Championship at Auto-City" 
+            class="whats-on-image" 
+            loading="lazy">
+        </div>
+
+        <div class="whats-on-body">
+          <h3 class="whats-on-card-title">Chinese Culture Dance</h3>
+          <p class="whats-on-card-desc">
+            Auto-City Dance Championship featuring primary school cultural performers and traditional fan choreography.
+          </p>
+        </div>
+
+        <div class="whats-on-footer">
+          <div class="whats-on-date-wrap">
+            <svg class="whats-on-calendar-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+              <line x1="16" x2="16" y1="2" y2="6"></line>
+              <line x1="8" x2="8" y1="2" y2="6"></line>
+              <line x1="3" x2="21" y1="10" y2="10"></line>
+            </svg>
+            <span class="whats-on-date-text">4 DEC (FRI)</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+  <!-- ========================================================================
+       Section 4: Parallax Activity Highlight Experience
+       ======================================================================== -->
+<!-- ========================================================================
+       5. Activities Parallax Experience (dsgninterior.se Reference)
+       Interactive full-viewport dual-plane parallax slider highlighting:
+       Mini Zoo, River Cruise, Fun Fair, Mangrove, and Pickleball
+       ======================================================================== -->
+  <!-- Anchor for Hero Pill (#activities) -->
+  <span id="activities" class="section-anchor" style="position: absolute; top: -80px; left: 0;" aria-hidden="true"></span>
+  <section class="activities-parallax-section" id="activitiesParallaxSection" aria-label="Auto-City Highlighted Activities Experience">
+    
+    <div class="activities-sticky-viewport">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+        
+        <!-- Slide 1: Mini Zoo -->
+        <article class="banner swiper-slide" id="bannerMiniZoo">
+          <div class="work-banner" data-swiper-parallax="60%">
+            <img src="../assets/images/activities/mini-zoo.jpg" alt="Alpaca and Capybara at Auto-City Mini Zoo" loading="eager">
+          </div>
+
+          <h2 class="banner-title" data-swiper-parallax="100%">
+            <span class="split" data-swiper-parallax="-60">
+              Alpaca &amp; Friends Mini Zoo
+            </span>
+          </h2>
+        </article>
+
+        <!-- Slide 2: River Cruise -->
+        <article class="banner swiper-slide" id="bannerRiverCruise">
+          <div class="work-banner" data-swiper-parallax="60%">
+            <img src="../assets/images/activities/river-cruise.jpg" alt="Penang River Cruise on Sungai Juru at Sunset" loading="lazy">
+          </div>
+
+          <h2 class="banner-title" data-swiper-parallax="100%">
+            <span class="split" data-swiper-parallax="-60">
+              Penang River Sunset Cruise
+            </span>
+          </h2>
+        </article>
+
+        <!-- Slide 3: Fun Fair -->
+        <article class="banner swiper-slide" id="bannerFunFair">
+          <div class="work-banner" data-swiper-parallax="60%">
+            <img src="../assets/images/activities/fun-fair.jpg" alt="Illuminated Ferris Wheel and Fun Fair Carnival at Auto-City" loading="lazy">
+          </div>
+
+          <h2 class="banner-title" data-swiper-parallax="100%">
+            <span class="split" data-swiper-parallax="-60">
+              Illuminated Carnival &amp; Fair
+            </span>
+          </h2>
+        </article>
+
+        <!-- Slide 4: Mangrove -->
+        <article class="banner swiper-slide" id="bannerMangrove">
+          <div class="work-banner" data-swiper-parallax="60%">
+            <img src="../assets/images/activities/mangrove.jpg" alt="Sunlight filtering through Mangrove Boardwalk at Auto-City River Park" loading="lazy">
+          </div>
+
+          <h2 class="banner-title" data-swiper-parallax="100%">
+            <span class="split" data-swiper-parallax="-60">
+              Mangrove Eco Boardwalk
+            </span>
+          </h2>
+        </article>
+
+        <!-- Slide 5: Pickleball -->
+        <article class="banner swiper-slide" id="bannerPickleball">
+          <div class="work-banner" data-swiper-parallax="60%">
+            <img src="../assets/images/activities/pickleball.jpg" alt="Modern Pickleball Courts at Auto-City Club" loading="lazy">
+          </div>
+
+          <h2 class="banner-title" data-swiper-parallax="100%">
+            <span class="split" data-swiper-parallax="-60">
+              Pickleball Sports Club
+            </span>
+          </h2>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Persistent Floating Bottom Bar: Fixed to section viewport, body text & CTA button fade seamlessly between slides -->
+    <div class="banner-bottom-bar" id="activitiesBottomBar" aria-live="polite">
+      
+      <!-- Slide 1 Content -->
+      <div class="banner-bottom-item active" data-slide-index="0">
+        <div class="banner-synopsis">
+          <div class="banner-synopsis-category">Interactive Sanctuary</div>
+          <p class="banner-synopsis-text">
+            Northern Malaysia’s premier petting sanctuary housing over 60 exotic species. Walk alongside gentle alpacas, friendly capybaras, and miniature ponies in a clean botanical setting.
+          </p>
+        </div>
+        <div class="banner-cta-group">
+          <a href="#explore-mini-zoo" class="banner-cta-btn">
+            <span>Explore Mini Zoo</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
         </div>
       </div>
+
+      <!-- Slide 2 Content -->
+      <div class="banner-bottom-item" data-slide-index="1">
+        <div class="banner-synopsis">
+          <div class="banner-synopsis-category">Sungai Juru Eco-Excursion</div>
+          <p class="banner-synopsis-text">
+            Depart directly from River Park Jetty along Sungai Juru on a 15km scenic voyage. Experience mirror-like tidal reflections at golden hour, silvered leaf monkeys, and dramatic sunset horizons.
+          </p>
+        </div>
+        <div class="banner-cta-group">
+          <a href="#explore-river-cruise" class="banner-cta-btn">
+            <span>Book River Cruise</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 3 Content -->
+      <div class="banner-bottom-item" data-slide-index="2">
+        <div class="banner-synopsis">
+          <div class="banner-synopsis-category">Twilight Entertainment Plaza</div>
+          <p class="banner-synopsis-text">
+            Auto-City’s signature night festival grounds featuring a towering illuminated Ferris wheel, vintage carousel, drift karts, seasonal night markets, and authentic street delicacies.
+          </p>
+        </div>
+        <div class="banner-cta-group">
+          <a href="#explore-fun-fair" class="banner-cta-btn">
+            <span>View Carnival</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 4 Content -->
+      <div class="banner-bottom-item" data-slide-index="3">
+        <div class="banner-synopsis">
+          <div class="banner-synopsis-category">Wetland Nature Reserve</div>
+          <p class="banner-synopsis-text">
+            Stroll along an elevated architectural timber boardwalk meandering through restored wetland habitats, dramatic stilt root networks, and tranquil tidal riverbanks.
+          </p>
+        </div>
+        <div class="banner-cta-group">
+          <a href="#explore-mangrove" class="banner-cta-btn">
+            <span>Discover Sanctuary</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 5 Content -->
+      <div class="banner-bottom-item" data-slide-index="4">
+        <div class="banner-synopsis">
+          <div class="banner-synopsis-category">Championship Athletics</div>
+          <p class="banner-synopsis-text">
+            Northern Malaysia’s premier dedicated pickleball facility. State-of-the-art cushioned multi-color courts, tournament-grade LED illumination, community open play, and clubhouse gear hire.
+          </p>
+        </div>
+        <div class="banner-cta-group">
+          <a href="#explore-pickleball" class="banner-cta-btn">
+            <span>Reserve a Court</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
     </div>
+
+    </div> <!-- /.activities-sticky-viewport -->
+
   </section>
 
   <!-- ========================================================================
+       Section 5: Discover our spaces and services.
+       ======================================================================== -->
+<!-- ========================================================================
+     Section 5: Discover our spaces and services.
+     Design Reference: Temlis Acelia - Tabbed Services with Image Reveal
+     Light Mode Canvas · Curtain Reveal Image Transitions
+     Featuring: Team Building, Event Spaces, Accomodation, Hubbiz - Office Space
+     ======================================================================== -->
+<section class="more-things-section" id="moreThingsToDo" aria-label="Discover our spaces and services.">
+  <!-- Anchor alias for Navigation (#spaces) -->
+  <span id="spaces" class="section-anchor" style="position: absolute; top: -80px; left: 0;" aria-hidden="true"></span>
+
+  <div class="more-things-container">
+    
+    <!-- Section Header -->
+    <header class="more-things-header">
+      <h2 class="more-things-title">Discover our spaces and services.</h2>
+      <p class="more-things-subtitle">
+        From high-impact team retreats and versatile convention halls to tranquil riverfront accommodations and contemporary co-working suites—explore the dynamic spaces shaping Auto-City.
+      </p>
+    </header>
+
+    <!-- Two-Column Tabbed Services & Image Reveal Grid -->
+    <div class="more-things-grid">
+      
+      <!-- Left Column: Interactive Tab List -->
+      <div class="more-things-tabs" role="tablist" aria-label="AutoCity Featured Offerings">
+
+        <!-- 01. Team Building -->
+        <article 
+          class="more-things-tab-item tab-team-building active" 
+          id="tab-team-building" 
+          role="tab" 
+          aria-selected="true" 
+          aria-controls="panel-team-building" 
+          tabindex="0">
+          <div class="more-things-tab-header">
+            <div class="more-things-tab-title-group">
+              <span class="more-things-tab-num">01</span>
+              <h3 class="more-things-tab-title">Team Building</h3>
+            </div>
+            <div class="more-things-tab-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="more-things-tab-body">
+            <div class="more-things-tab-inner">
+              <!-- Mobile Inline Image Preview -->
+              <div class="more-things-mobile-img">
+                <img src="../assets/images/more-things-to-do/team-building.jpg" alt="Team Building at Auto-City" loading="lazy">
+              </div>
+
+              <p class="more-things-tab-desc">
+                Engage your team with high-impact outdoor leadership retreats, cooperative challenge courses, and energetic group bonding activities across Auto-City's expansive parklands and event grounds.
+              </p>
+              <a href="#team-building-inquiry" class="more-things-action-btn">
+                <span>Explore Team Building</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02. Event Spaces -->
+        <article 
+          class="more-things-tab-item tab-event-spaces" 
+          id="tab-event-spaces" 
+          role="tab" 
+          aria-selected="false" 
+          aria-controls="panel-event-spaces" 
+          tabindex="-1">
+          <div class="more-things-tab-header">
+            <div class="more-things-tab-title-group">
+              <span class="more-things-tab-num">02</span>
+              <h3 class="more-things-tab-title">Event Spaces</h3>
+            </div>
+            <div class="more-things-tab-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="more-things-tab-body">
+            <div class="more-things-tab-inner">
+              <!-- Mobile Inline Image Preview -->
+              <div class="more-things-mobile-img">
+                <img src="../assets/images/more-things-to-do/event-spaces.jpg" alt="Event Spaces at Auto-City" loading="lazy">
+              </div>
+
+              <p class="more-things-tab-desc">
+                Over 10,000 sq. ft. of versatile multi-purpose event venues including Concept Hall and Sky TV Stage. Ideal for corporate galas, product launches, conventions, and private celebrations accommodating up to 800 guests.
+              </p>
+              <a href="#event-inquiry" class="more-things-action-btn">
+                <span>Inquire Event Venues</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03. Accomodation -->
+        <article 
+          class="more-things-tab-item tab-accommodation" 
+          id="tab-accommodation" 
+          role="tab" 
+          aria-selected="false" 
+          aria-controls="panel-accommodation" 
+          tabindex="-1">
+          <div class="more-things-tab-header">
+            <div class="more-things-tab-title-group">
+              <span class="more-things-tab-num">03</span>
+              <h3 class="more-things-tab-title">Accomodation</h3>
+            </div>
+            <div class="more-things-tab-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="more-things-tab-body">
+            <div class="more-things-tab-inner">
+              <!-- Mobile Inline Image Preview -->
+              <div class="more-things-mobile-img">
+                <img src="../assets/images/more-things-to-do/accommodation.jpg" alt="Accomodation at Auto-City Riverpark" loading="lazy">
+              </div>
+
+              <p class="more-things-tab-desc">
+                Luxurious riverfront sanctuary nestled within Auto-City Riverpark. Relax in air-conditioned timber cabins or romantic safari tents equipped with luxury King Koil beds, private en-suites, and starlit evening campfires along the tranquil riverbank.
+              </p>
+              <a href="#accommodation-booking" class="more-things-action-btn">
+                <span>Discover Accommodations</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04. Hubbiz - Office Space -->
+        <article 
+          class="more-things-tab-item tab-hubbiz" 
+          id="tab-hubbiz" 
+          role="tab" 
+          aria-selected="false" 
+          aria-controls="panel-hubbiz" 
+          tabindex="-1">
+          <div class="more-things-tab-header">
+            <div class="more-things-tab-title-group">
+              <span class="more-things-tab-num">04</span>
+              <h3 class="more-things-tab-title">Hubbiz - Office Space</h3>
+            </div>
+            <div class="more-things-tab-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="more-things-tab-body">
+            <div class="more-things-tab-inner">
+              <!-- Mobile Inline Image Preview -->
+              <div class="more-things-mobile-img">
+                <img src="../assets/images/more-things-to-do/hubbiz-commercial-office.jpg" alt="Hubbiz Commercial Office Space at Auto-City" loading="lazy">
+              </div>
+
+              <p class="more-things-tab-desc">
+                Contemporary turnkey commercial office suites, collaborative co-working lounges, and high-tech corporate meeting boardrooms at Auto-City. Features 24/7 direct secured access, high-speed fiber connectivity, flexible month-to-month contracts, and ample free parking.
+              </p>
+              <a href="#hubbiz-suites" class="more-things-action-btn">
+                <span>Explore Hubbiz Suites</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Right Column: Large Stage Viewport with Signature Curtain Reveal -->
+      <div class="more-things-stage-wrap" aria-hidden="true">
+        <div class="more-things-stage">
+
+          <!-- Panel 1: Team Building -->
+          <div class="more-things-panel active curtain-reveal" id="panel-team-building">
+            <img src="../assets/images/more-things-to-do/team-building.jpg" alt="Team Building at Auto-City" class="more-things-panel-img">
+          </div>
+
+          <!-- Panel 2: Event Spaces -->
+          <div class="more-things-panel" id="panel-event-spaces">
+            <img src="../assets/images/more-things-to-do/event-spaces.jpg" alt="Event Spaces at Auto-City" class="more-things-panel-img">
+          </div>
+
+          <!-- Panel 3: Accomodation -->
+          <div class="more-things-panel" id="panel-accommodation">
+            <img src="../assets/images/more-things-to-do/accommodation.jpg" alt="Accomodation at Auto-City Riverpark" class="more-things-panel-img">
+          </div>
+
+          <!-- Panel 4: Hubbiz - Office Space -->
+          <div class="more-things-panel" id="panel-hubbiz">
+            <img src="../assets/images/more-things-to-do/hubbiz-commercial-office.jpg" alt="Hubbiz Commercial Office Space" class="more-things-panel-img">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <!-- ========================================================================
+       Section 6: World-Class Brands at Auto-City (Directory Marquee)
+       ======================================================================== -->
+<!-- ========================================================================
        4. Brands Showcase Carousel (Westfield London Inspiration)
        Infinite moving carousel with blurred/feathered edges, centered bold typography,
        and centered "Browse Directory" CTA button.
        ======================================================================== -->
+  <!-- Anchors for Hero Pills & Nav (#dining, #automotive, #directory) -->
+  <span id="dining" class="section-anchor" style="position: absolute; top: -80px; left: 0;" aria-hidden="true"></span>
+  <span id="automotive" class="section-anchor" style="position: absolute; top: -80px; left: 0;" aria-hidden="true"></span>
+  <span id="directory" class="section-anchor" style="position: absolute; top: -80px; left: 0;" aria-hidden="true"></span>
   <section class="brands-carousel-section" id="brandsShowcase" aria-label="Marquee Brands at Auto-City">
     
     <!-- Optical Full-Height Pure White Progressive Blur & Fade Curtains (100% at edge -> 0% inward, zero cuts) -->
@@ -1404,953 +1669,6 @@
 
   </section>
 
-  <!-- ========================================================================
-       4. Subsequent Section Transition Preview (Shows layout continuity)
-       ======================================================================== -->
-  <!-- ========================================================================
-       4. Level.ai Signature Expanding Horizontal Accordion Gallery
-       (Temporarily hidden per request - ready to restore or relocate)
-       ======================================================================== -->
-  <section class="destinations-preview-section" id="destinationsSection" aria-label="Auto-City Four Core Pillars" style="display: none;" aria-hidden="true">
-    <div class="container-fluid">
-      
-      <!-- Level.ai Signature Headline with Interactive Pill -->
-      <div class="level-header-wrap">
-        <h2 class="level-section-title">
-          <span class="level-title-lead">Discover Auto-City’s</span>
-          <span class="level-pill-badge" id="levelActivePill">Automotive Enclave</span>
-        </h2>
-      </div>
-
-      <!-- Level.ai Expanding Horizontal Accordion -->
-      <div class="level-accordion-container" id="levelAccordion" role="region" aria-label="Precincts Showcase Accordion">
-        
-        <!-- Panel 1: Automotive (Active by default) -->
-        <article class="level-panel active" id="automotive" data-pill="Automotive Enclave" tabindex="0" role="button" aria-expanded="true">
-          <img src="../assets/images/pillars/pillar-automotive.jpg" alt="The Automotive Collection at Auto-City" class="level-panel-img" loading="lazy">
-          <div class="level-panel-overlay" aria-hidden="true"></div>
-          
-          <div class="level-collapsed-label" aria-hidden="true">Automotive</div>
-
-          <div class="level-expanded-content">
-            <div class="level-panel-top">
-              <div class="level-brand-logo">The Automotive Collection</div>
-              <span class="level-brand-tag">30+ Marques</span>
-            </div>
-            <div class="level-quote-box">
-              <p class="level-quote-text">
-                Northern Malaysia’s premier automotive enclave with 30+ global marques, flagship 4S sales, EV charging superchargers, and high-performance test tracks.
-              </p>
-              <a href="#explore-auto" class="level-panel-cta-btn">
-                <span>Discover Showrooms</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Panel 2: Culinary -->
-        <article class="level-panel" id="dining" data-pill="Culinary Promenade" tabindex="0" role="button" aria-expanded="false">
-          <img src="../assets/images/pillars/pillar-culinary.jpg" alt="The Culinary Promenade at Auto-City" class="level-panel-img" loading="lazy">
-          <div class="level-panel-overlay" aria-hidden="true"></div>
-          
-          <div class="level-collapsed-label" aria-hidden="true">Dining & Cafes</div>
-
-          <div class="level-expanded-content">
-            <div class="level-panel-top">
-              <div class="level-brand-logo">The Culinary Promenade</div>
-              <span class="level-brand-tag">60+ Bistros</span>
-            </div>
-            <div class="level-quote-box">
-              <p class="level-quote-text">
-                Over sixty independent eateries, open-air alfresco bistros, authentic Penang street cuisine, and vibrant evening cocktail lounges that come alive under the evening lights.
-              </p>
-              <a href="#explore-dining" class="level-panel-cta-btn">
-                <span>Explore Dining</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Panel 3: Arena -->
-        <article class="level-panel" id="events" data-pill="What’s On Arena" tabindex="0" role="button" aria-expanded="false">
-          <img src="../assets/images/pillars/pillar-arena.jpg" alt="The Arena at Auto-City" class="level-panel-img" loading="lazy">
-          <div class="level-panel-overlay" aria-hidden="true"></div>
-          
-          <div class="level-collapsed-label" aria-hidden="true">The Arena</div>
-
-          <div class="level-expanded-content">
-            <div class="level-panel-top">
-              <div class="level-brand-logo">The Arena</div>
-              <span class="level-brand-tag">100+ Events</span>
-            </div>
-            <div class="level-quote-box">
-              <p class="level-quote-text">
-                A multi-acre open-air plaza hosting international motor showcases, live concerts, seasonal festive extravaganzas, and weekend community night markets.
-              </p>
-              <a href="#explore-events" class="level-panel-cta-btn">
-                <span>View Calendar</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Panel 4: Promenade & Leisure -->
-        <article class="level-panel" id="attractions" data-pill="Everyday Promenade" tabindex="0" role="button" aria-expanded="false">
-          <img src="../assets/images/pillars/pillar-promenade.jpg" alt="The Promenade & Leisure at Auto-City" class="level-panel-img" loading="lazy">
-          <div class="level-panel-overlay" aria-hidden="true"></div>
-          
-          <div class="level-collapsed-label" aria-hidden="true">Promenade</div>
-
-          <div class="level-expanded-content">
-            <div class="level-panel-top">
-              <div class="level-brand-logo">The Promenade & Leisure</div>
-              <span class="level-brand-tag">50+ Venues</span>
-            </div>
-            <div class="level-quote-box">
-              <p class="level-quote-text">
-                Boutique retail, wellness centers, and family-friendly open spaces under illuminated evening ferris wheels curated to make every visit effortless and complete.
-              </p>
-              <a href="#explore-guide" class="level-panel-cta-btn">
-                <span>View Directory</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- Level.ai Bottom Right Action Link (Direct match to reference screenshot) -->
-      <div class="level-footer-action">
-        <a href="#guide" class="level-explore-link">
-          <span>Explore all precincts</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       5. Activities Parallax Experience (dsgninterior.se Reference)
-       Interactive full-viewport dual-plane parallax slider highlighting:
-       Mini Zoo, River Cruise, Fun Fair, Mangrove, and Pickleball
-       ======================================================================== -->
-  <section class="activities-parallax-section" id="activitiesParallaxSection" aria-label="Auto-City Highlighted Activities Experience">
-    
-    <div class="activities-sticky-viewport">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-        
-        <!-- Slide 1: Mini Zoo -->
-        <article class="banner swiper-slide" id="bannerMiniZoo">
-          <div class="work-banner" data-swiper-parallax="60%">
-            <img src="../assets/images/activities/mini-zoo.jpg" alt="Alpaca and Capybara at Auto-City Mini Zoo" loading="eager">
-          </div>
-
-          <h2 class="banner-title" data-swiper-parallax="100%">
-            <span class="split" data-swiper-parallax="-60">
-              Alpaca &amp; Friends Mini Zoo
-            </span>
-          </h2>
-        </article>
-
-        <!-- Slide 2: River Cruise -->
-        <article class="banner swiper-slide" id="bannerRiverCruise">
-          <div class="work-banner" data-swiper-parallax="60%">
-            <img src="../assets/images/activities/river-cruise.jpg" alt="Penang River Cruise on Sungai Juru at Sunset" loading="lazy">
-          </div>
-
-          <h2 class="banner-title" data-swiper-parallax="100%">
-            <span class="split" data-swiper-parallax="-60">
-              Penang River Sunset Cruise
-            </span>
-          </h2>
-        </article>
-
-        <!-- Slide 3: Fun Fair -->
-        <article class="banner swiper-slide" id="bannerFunFair">
-          <div class="work-banner" data-swiper-parallax="60%">
-            <img src="../assets/images/activities/fun-fair.jpg" alt="Illuminated Ferris Wheel and Fun Fair Carnival at Auto-City" loading="lazy">
-          </div>
-
-          <h2 class="banner-title" data-swiper-parallax="100%">
-            <span class="split" data-swiper-parallax="-60">
-              Illuminated Carnival &amp; Fair
-            </span>
-          </h2>
-        </article>
-
-        <!-- Slide 4: Mangrove -->
-        <article class="banner swiper-slide" id="bannerMangrove">
-          <div class="work-banner" data-swiper-parallax="60%">
-            <img src="../assets/images/activities/mangrove.jpg" alt="Sunlight filtering through Mangrove Boardwalk at Auto-City River Park" loading="lazy">
-          </div>
-
-          <h2 class="banner-title" data-swiper-parallax="100%">
-            <span class="split" data-swiper-parallax="-60">
-              Mangrove Eco Boardwalk
-            </span>
-          </h2>
-        </article>
-
-        <!-- Slide 5: Pickleball -->
-        <article class="banner swiper-slide" id="bannerPickleball">
-          <div class="work-banner" data-swiper-parallax="60%">
-            <img src="../assets/images/activities/pickleball.jpg" alt="Modern Pickleball Courts at Auto-City Club" loading="lazy">
-          </div>
-
-          <h2 class="banner-title" data-swiper-parallax="100%">
-            <span class="split" data-swiper-parallax="-60">
-              Pickleball Sports Club
-            </span>
-          </h2>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- Persistent Floating Bottom Bar: Fixed to section viewport, body text & CTA button fade seamlessly between slides -->
-    <div class="banner-bottom-bar" id="activitiesBottomBar" aria-live="polite">
-      
-      <!-- Slide 1 Content -->
-      <div class="banner-bottom-item active" data-slide-index="0">
-        <div class="banner-synopsis">
-          <div class="banner-synopsis-category">Interactive Sanctuary</div>
-          <p class="banner-synopsis-text">
-            Northern Malaysia’s premier petting sanctuary housing over 60 exotic species. Walk alongside gentle alpacas, friendly capybaras, and miniature ponies in a clean botanical setting.
-          </p>
-        </div>
-        <div class="banner-cta-group">
-          <a href="#explore-mini-zoo" class="banner-cta-btn">
-            <span>Explore Mini Zoo</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Slide 2 Content -->
-      <div class="banner-bottom-item" data-slide-index="1">
-        <div class="banner-synopsis">
-          <div class="banner-synopsis-category">Sungai Juru Eco-Excursion</div>
-          <p class="banner-synopsis-text">
-            Depart directly from River Park Jetty along Sungai Juru on a 15km scenic voyage. Experience mirror-like tidal reflections at golden hour, silvered leaf monkeys, and dramatic sunset horizons.
-          </p>
-        </div>
-        <div class="banner-cta-group">
-          <a href="#explore-river-cruise" class="banner-cta-btn">
-            <span>Book River Cruise</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Slide 3 Content -->
-      <div class="banner-bottom-item" data-slide-index="2">
-        <div class="banner-synopsis">
-          <div class="banner-synopsis-category">Twilight Entertainment Plaza</div>
-          <p class="banner-synopsis-text">
-            Auto-City’s signature night festival grounds featuring a towering illuminated Ferris wheel, vintage carousel, drift karts, seasonal night markets, and authentic street delicacies.
-          </p>
-        </div>
-        <div class="banner-cta-group">
-          <a href="#explore-fun-fair" class="banner-cta-btn">
-            <span>View Carnival</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Slide 4 Content -->
-      <div class="banner-bottom-item" data-slide-index="3">
-        <div class="banner-synopsis">
-          <div class="banner-synopsis-category">Wetland Nature Reserve</div>
-          <p class="banner-synopsis-text">
-            Stroll along an elevated architectural timber boardwalk meandering through restored wetland habitats, dramatic stilt root networks, and tranquil tidal riverbanks.
-          </p>
-        </div>
-        <div class="banner-cta-group">
-          <a href="#explore-mangrove" class="banner-cta-btn">
-            <span>Discover Sanctuary</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Slide 5 Content -->
-      <div class="banner-bottom-item" data-slide-index="4">
-        <div class="banner-synopsis">
-          <div class="banner-synopsis-category">Championship Athletics</div>
-          <p class="banner-synopsis-text">
-            Northern Malaysia’s premier dedicated pickleball facility. State-of-the-art cushioned multi-color courts, tournament-grade LED illumination, community open play, and clubhouse gear hire.
-          </p>
-        </div>
-        <div class="banner-cta-group">
-          <a href="#explore-pickleball" class="banner-cta-btn">
-            <span>Reserve a Court</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    </div> <!-- /.activities-sticky-viewport -->
-
-  </section>
-
-  <!-- ========================================================================
-       6. Join in the Fun : Social Media Vertical Content (Instagram Reels)
-       Dark background showcase featuring vertical 9:16 looping video previews
-       Direct translation from Auto-City Penang Instagram @autocity_penang
-       ======================================================================== -->
-  <section class="reels-social-section" id="joinInTheFun" aria-label="Join in the fun: Auto-City Instagram Reels">
-    <!-- Looping Ambient Red Gradient & Grid Layers (Dim & Slow Moving with 20% Mouse Pressure) -->
-    <div class="reels-ambient-glow" aria-hidden="true">
-      <div class="reels-glow-orb reels-orb-1"></div>
-      <div class="reels-glow-orb reels-orb-2"></div>
-      <div class="reels-mouse-spotlight"></div>
-    </div>
-    <div class="reels-grid-pattern" aria-hidden="true"></div>
-    <div class="reels-container">
-      
-      <!-- Section Header -->
-      <div class="reels-header">
-        <h2 class="reels-title">Join in the Fun</h2>
-        <p class="reels-subtitle">
-          Real moments, reels &amp; viral energy from <strong>@autocity_penang</strong>. Experience the food, festivals, night markets, and creators live in action.
-        </p>
-        <!-- Social Media Platform Logos / Channels -->
-        <div class="reels-social-channels" aria-label="Official Social Media Channels">
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/autocity_penang/" target="_blank" rel="noopener noreferrer" class="reels-social-channel-btn" aria-label="Instagram @autocity_penang" title="Instagram @autocity_penang">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <!-- TikTok -->
-          <a href="https://www.tiktok.com/@autocitypenang" target="_blank" rel="noopener noreferrer" class="reels-social-channel-btn" aria-label="TikTok @autocitypenang" title="TikTok @autocitypenang">
-            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.59-1.01V15c0 1.91-.6 3.84-1.85 5.28-1.43 1.67-3.6 2.62-5.78 2.5-2.48-.12-4.78-1.55-5.96-3.73-1.19-2.18-1.09-4.94.27-7.03 1.34-2.07 3.75-3.32 6.22-3.15.11 0 .22.01.33.02v4.06c-.57-.12-1.18-.08-1.72.13-1.12.42-1.92 1.48-2.04 2.68-.14 1.32.55 2.63 1.72 3.25.96.52 2.15.48 3.09-.1.88-.54 1.41-1.52 1.41-2.55V.02h-1.55z"/></svg>
-          </a>
-          <!-- Xiaohongshu (REDnote) -->
-          <a href="https://www.xiaohongshu.com/search_result?keyword=Auto-City%20Penang" target="_blank" rel="noopener noreferrer" class="reels-social-channel-btn" aria-label="Xiaohongshu / REDnote Auto-City Penang" title="Xiaohongshu / REDnote">
-            <svg viewBox="0 0 24 24"><path d="M22.405 9.879c.002.016.01.02.07.019h.725a.797.797 0 0 0 .78-.972.794.794 0 0 0-.884-.618.795.795 0 0 0-.692.794c0 .101-.002.666.001.777zm-11.509 4.808c-.203.001-1.353.004-1.685.003a2.528 2.528 0 0 1-.766-.126.025.025 0 0 0-.03.014L7.7 16.127a.025.025 0 0 0 .01.032c.111.06.336.124.495.124.66.01 1.32.002 1.981 0 .01 0 .02-.006.023-.015l.712-1.545a.025.025 0 0 0-.024-.036zM.477 9.91c-.071 0-.076.002-.076.01a.834.834 0 0 0-.01.08c-.027.397-.038.495-.234 3.06-.012.24-.034.389-.135.607-.026.057-.033.042.003.112.046.092.681 1.523.787 1.74.008.015.011.02.017.02.008 0 .033-.026.047-.044.147-.187.268-.391.371-.606.306-.635.44-1.325.486-1.706.014-.11.021-.22.03-.33l.204-2.616.022-.293c.003-.029 0-.033-.03-.034zm7.203 3.757a1.427 1.427 0 0 1-.135-.607c-.004-.084-.031-.39-.235-3.06a.443.443 0 0 0-.01-.082c-.004-.011-.052-.008-.076-.008h-1.48c-.03.001-.034.005-.03.034l.021.293c.076.982.153 1.964.233 2.946.05.4.186 1.085.487 1.706.103.215.223.419.37.606.015.018.037.051.048.049.02-.003.742-1.642.804-1.765.036-.07.03-.055.003-.112zm3.861-.913h-.872a.126.126 0 0 1-.116-.178l1.178-2.625a.025.025 0 0 0-.023-.035l-1.318-.003a.148.148 0 0 1-.135-.21l.876-1.954a.025.025 0 0 0-.023-.035h-1.56c-.01 0-.02.006-.024.015l-.926 2.068c-.085.169-.314.634-.399.938a.534.534 0 0 0-.02.191.46.46 0 0 0 .23.378.981.981 0 0 0 .46.119h.59c.041 0-.688 1.482-.834 1.972a.53.53 0 0 0-.023.172.465.465 0 0 0 .23.398c.15.092.342.12.475.12l1.66-.001c.01 0 .02-.006.023-.015l.575-1.28a.025.025 0 0 0-.024-.035zm-6.93-4.937H3.1a.032.032 0 0 0-.034.033c0 1.048-.01 2.795-.01 6.829 0 .288-.269.262-.28.262h-.74c-.04.001-.044.004-.04.047.001.037.465 1.064.555 1.263.01.02.03.033.051.033.157.003.767.009.938-.014.153-.02.3-.06.438-.132.3-.156.49-.419.595-.765.052-.172.075-.353.075-.533.002-2.33 0-4.66-.007-6.991a.032.032 0 0 0-.032-.032zm11.784 6.896c0-.014-.01-.021-.024-.022h-1.465c-.048-.001-.049-.002-.05-.049v-4.66c0-.072-.005-.07.07-.07h.863c.08 0 .075.004.075-.074V8.393c0-.082.006-.076-.08-.076h-3.5c-.064 0-.075-.006-.075.073v1.445c0 .083-.006.077.08.077h.854c.075 0 .07-.004.07.07v4.624c0 .095.008.084-.085.084-.37 0-1.11-.002-1.304 0-.048.001-.06.03-.06.03l-.697 1.519s-.014.025-.008.036c.006.01.013.008.058.008 1.748.003 3.495.002 5.243.002.03-.001.034-.006.035-.033v-1.539zm4.177-3.43c0 .013-.007.023-.02.024-.346.006-.692.004-1.037.004-.014-.002-.022-.01-.022-.024-.005-.434-.007-.869-.01-1.303 0-.072-.006-.071.07-.07l.733-.003c.041 0 .081.002.12.015.093.025.16.107.165.204.006.431.002 1.153.001 1.153zm2.67.244a1.953 1.953 0 0 0-.883-.222h-.18c-.04-.001-.04-.003-.042-.04V10.21c0-.132-.007-.263-.025-.394a1.823 1.823 0 0 0-.153-.53 1.533 1.533 0 0 0-.677-.71 2.167 2.167 0 0 0-1-.258c-.153-.003-.567 0-.72 0-.07 0-.068.004-.068-.065V7.76c0-.031-.01-.041-.046-.039H17.93s-.016 0-.023.007c-.006.006-.008.012-.008.023v.546c-.008.036-.057.015-.082.022h-.95c-.022.002-.028.008-.03.032v1.481c0 .09-.004.082.082.082h.913c.082 0 .072.128.072.128V11.19s.003.117-.06.117h-1.482c-.068 0-.06.082-.06.082v1.445s-.01.068.064.068h1.457c.082 0 .076-.006.076.079v3.225c0 .088-.007.081.082.081h1.43c.09 0 .082.007.082-.08v-3.27c0-.029.006-.035.033-.035l2.323-.003c.098 0 .191.02.28.061a.46.46 0 0 1 .274.407c.008.395.003.79.003 1.185 0 .259-.107.367-.33.367h-1.218c-.023.002-.029.008-.028.033.184.437.374.871.57 1.303a.045.045 0 0 0 .04.026c.17.005.34.002.51.003.15-.002.517.004.666-.01a2.03 2.03 0 0 0 .408-.075c.59-.18.975-.698.976-1.313v-1.981c0-.128-.01-.254-.034-.38 0 .078-.029-.641-.724-.998z"/></svg>
-          </a>
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/autocitypenang" target="_blank" rel="noopener noreferrer" class="reels-social-channel-btn" aria-label="Facebook @autocitypenang" title="Facebook @autocitypenang">
-            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <!-- YouTube -->
-          <a href="https://www.youtube.com/@autocitypenang" target="_blank" rel="noopener noreferrer" class="reels-social-channel-btn" aria-label="YouTube @autocitypenang" title="YouTube @autocitypenang">
-            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </a>
-          <!-- X (Twitter) -->
-          <a href="https://x.com/autocitypenang" target="_blank" rel="noopener noreferrer" class="reels-social-channel-btn" aria-label="X @autocitypenang" title="X @autocitypenang">
-            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Reels Carousel Wrapper -->
-      <div class="reels-carousel-wrapper">
-        
-        <!-- Navigation Buttons -->
-        <button class="reels-nav-btn prev" id="reelsPrevBtn" aria-label="Previous reels">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-
-        <button class="reels-nav-btn next" id="reelsNextBtn" aria-label="Next reels">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-
-        <!-- Scrollable Track Container -->
-        <div class="reels-track-container" id="reelsTrackContainer" tabindex="0" role="region" aria-label="Instagram Reels Carousel">
-          <div class="reels-track">
-
-            <!-- Card 1: Moon Fest by Hunza (24.1K Views) -->
-            <article class="reel-card" data-reel-id="reel-3-moon-fest">
-              <div class="reel-media-wrap">
-                <video class="reel-video" autoplay loop muted playsinline preload="metadata" poster="../assets/images/reels/reel-3-moon-fest.jpg">
-                  <source src="../assets/videos/reels/reel-3-moon-fest.mp4" type="video/mp4">
-                </video>
-                <img src="../assets/images/reels/reel-3-moon-fest.jpg" alt="Moon Fest by Hunza at Auto-City" class="reel-poster" loading="lazy">
-                <div class="reel-overlay" aria-hidden="true"></div>
-              </div>
-              <div class="reel-play-indicator" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <div class="reel-content-drawer">
-                <h3 class="reel-caption-title">Moon Fest By Hunza 中秋园游会</h3>
-                <p class="reel-caption-desc">Lantern festival &amp; dazzling night parade</p>
-                <div class="reel-meta-row">
-                  <span class="reel-views-count">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span>24.1K views</span>
-                  </span>
-                  </div>
-              </div>
-            </article>
-
-            <!-- Card 2: BM Local Guide (30.7K Views) -->
-            <article class="reel-card" data-reel-id="reel-9-bm-local-guide">
-              <div class="reel-media-wrap">
-                <video class="reel-video" autoplay loop muted playsinline preload="metadata" poster="../assets/images/reels/reel-9-bm-local-guide.jpg">
-                  <source src="../assets/videos/reels/reel-9-bm-local-guide.mp4" type="video/mp4">
-                </video>
-                <img src="../assets/images/reels/reel-9-bm-local-guide.jpg" alt="大山脚 Local 带路 爆款美食" class="reel-poster" loading="lazy">
-                <div class="reel-overlay" aria-hidden="true"></div>
-              </div>
-              <div class="reel-play-indicator" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <div class="reel-content-drawer">
-                <h3 class="reel-caption-title">大山脚 Local 带路 爆款美食</h3>
-                <p class="reel-caption-desc">Bukit Mertajam food guide visiting 3 hotspots</p>
-                <div class="reel-meta-row">
-                  <span class="reel-views-count">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span>30.7K views</span>
-                  </span>
-                  </div>
-              </div>
-            </article>
-
-            <!-- Card 3: De Zhuang Hotpot Feast (2.0K Views) -->
-            <article class="reel-card" data-reel-id="reel-7-de-zhuang-hotpot">
-              <div class="reel-media-wrap">
-                <video class="reel-video" autoplay loop muted playsinline preload="metadata" poster="../assets/images/reels/reel-7-de-zhuang-hotpot.jpg">
-                  <source src="../assets/videos/reels/reel-7-de-zhuang-hotpot.mp4" type="video/mp4">
-                </video>
-                <img src="../assets/images/reels/reel-7-de-zhuang-hotpot.jpg" alt="De Zhuang Hotpot Feast at Auto-City" class="reel-poster" loading="lazy">
-                <div class="reel-overlay" aria-hidden="true"></div>
-              </div>
-              <div class="reel-play-indicator" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <div class="reel-content-drawer">
-                <h3 class="reel-caption-title">De Zhuang Hotpot Feast 火锅套餐</h3>
-                <p class="reel-caption-desc">Premium bubbling broth &amp; banquet dining</p>
-                <div class="reel-meta-row">
-                  <span class="reel-views-count">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span>2.0K views</span>
-                  </span>
-                  </div>
-              </div>
-            </article>
-
-            <!-- Card 4: Madam Karen VS Timmy The Thief (7.5K Views) -->
-            <article class="reel-card" data-reel-id="reel-2-comedy-drama">
-              <div class="reel-media-wrap">
-                <video class="reel-video" autoplay loop muted playsinline preload="metadata" poster="../assets/images/reels/reel-2-comedy-drama.jpg">
-                  <source src="../assets/videos/reels/reel-2-comedy-drama.mp4" type="video/mp4">
-                </video>
-                <img src="../assets/images/reels/reel-2-comedy-drama.jpg" alt="Madam Karen VS Timmy The Thief comedy sketch" class="reel-poster" loading="lazy">
-                <div class="reel-overlay" aria-hidden="true"></div>
-              </div>
-              <div class="reel-play-indicator" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <div class="reel-content-drawer">
-                <h3 class="reel-caption-title">Madam Karen VS Timmy The Thief</h3>
-                <p class="reel-caption-desc">Viral comedy sketch filmed at Auto-City</p>
-                <div class="reel-meta-row">
-                  <span class="reel-views-count">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span>7.5K views</span>
-                  </span>
-                  </div>
-              </div>
-            </article>
-
-            <!-- Card 5: Kim Garden Food Court (1.3K Views) -->
-            <article class="reel-card" data-reel-id="reel-1-food-court">
-              <div class="reel-media-wrap">
-                <video class="reel-video" autoplay loop muted playsinline preload="metadata" poster="../assets/images/reels/reel-1-food-court.jpg">
-                  <source src="../assets/videos/reels/reel-1-food-court.mp4" type="video/mp4">
-                </video>
-                <img src="../assets/images/reels/reel-1-food-court.jpg" alt="Kim Garden Food Court at Auto-City" class="reel-poster" loading="lazy">
-                <div class="reel-overlay" aria-hidden="true"></div>
-              </div>
-              <div class="reel-play-indicator" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <div class="reel-content-drawer">
-                <h3 class="reel-caption-title">Kim Garden Food Court 盛满园</h3>
-                <p class="reel-caption-desc">Apple Delicious Station &amp; local hawker specialties</p>
-                <div class="reel-meta-row">
-                  <span class="reel-views-count">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span>1.3K views</span>
-                  </span>
-                  </div>
-              </div>
-            </article>
-
-            <!-- Card 6: Love Baba Nyonya (1.0K Views) -->
-            <article class="reel-card" data-reel-id="reel-8-love-baba-nyonya">
-              <div class="reel-media-wrap">
-                <video class="reel-video" autoplay loop muted playsinline preload="metadata" poster="../assets/images/reels/reel-8-love-baba-nyonya.jpg">
-                  <source src="../assets/videos/reels/reel-8-love-baba-nyonya.mp4" type="video/mp4">
-                </video>
-                <img src="../assets/images/reels/reel-8-love-baba-nyonya.jpg" alt="Love Baba Nyonya at Auto-City" class="reel-poster" loading="lazy">
-                <div class="reel-overlay" aria-hidden="true"></div>
-              </div>
-              <div class="reel-play-indicator" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <div class="reel-content-drawer">
-                <h3 class="reel-caption-title">Love Baba Nyonya Curry Stingray</h3>
-                <p class="reel-caption-desc">Heritage Peranakan culinary specialties</p>
-                <div class="reel-meta-row">
-                  <span class="reel-views-count">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span>1.0K views</span>
-                  </span>
-                  </div>
-              </div>
-            </article>
-
-            <!-- Card 7: Colour Hunting Auto-City (1.3K Views) -->
-            <article class="reel-card" data-reel-id="reel-4-colour-hunting">
-              <div class="reel-media-wrap">
-                <video class="reel-video" autoplay loop muted playsinline preload="metadata" poster="../assets/images/reels/reel-4-colour-hunting.jpg">
-                  <source src="../assets/videos/reels/reel-4-colour-hunting.mp4" type="video/mp4">
-                </video>
-                <img src="../assets/images/reels/reel-4-colour-hunting.jpg" alt="Colour Hunting Auto-City" class="reel-poster" loading="lazy">
-                <div class="reel-overlay" aria-hidden="true"></div>
-              </div>
-              <div class="reel-play-indicator" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <div class="reel-content-drawer">
-                <h3 class="reel-caption-title">Colour Hunting Auto-City</h3>
-                <p class="reel-caption-desc">Ecotourism lifestyle spots &amp; photo walks</p>
-                <div class="reel-meta-row">
-                  <span class="reel-views-count">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span>1.3K views</span>
-                  </span>
-                  </div>
-              </div>
-            </article>
-
-            <!-- Card 8: Mala Tang (1.5K Views) -->
-            <article class="reel-card" data-reel-id="reel-6-mala-hotpot">
-              <div class="reel-media-wrap">
-                <video class="reel-video" autoplay loop muted playsinline preload="metadata" poster="../assets/images/reels/reel-6-mala-hotpot.jpg">
-                  <source src="../assets/videos/reels/reel-6-mala-hotpot.mp4" type="video/mp4">
-                </video>
-                <img src="../assets/images/reels/reel-6-mala-hotpot.jpg" alt="蒜香嫩鸡片麻辣烫 Mala Tang" class="reel-poster" loading="lazy">
-                <div class="reel-overlay" aria-hidden="true"></div>
-              </div>
-              <div class="reel-play-indicator" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <div class="reel-content-drawer">
-                <h3 class="reel-caption-title">蒜香嫩鸡片麻辣烫 Mala Tang</h3>
-                <p class="reel-caption-desc">Authentic Sichuan spicy hotpot delicacy</p>
-                <div class="reel-meta-row">
-                  <span class="reel-views-count">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span>1.5K views</span>
-                  </span>
-                  </div>
-              </div>
-            </article>
-
-            <!-- Card 9: Merdeka Celebration (2.2K Views) -->
-            <article class="reel-card" data-reel-id="reel-5-merdeka-celebration">
-              <div class="reel-media-wrap">
-                <video class="reel-video" autoplay loop muted playsinline preload="metadata" poster="../assets/images/reels/reel-5-merdeka-celebration.jpg">
-                  <source src="../assets/videos/reels/reel-5-merdeka-celebration.mp4" type="video/mp4">
-                </video>
-                <img src="../assets/images/reels/reel-5-merdeka-celebration.jpg" alt="Selamat Hari Merdeka Celebration" class="reel-poster" loading="lazy">
-                <div class="reel-overlay" aria-hidden="true"></div>
-              </div>
-              <div class="reel-play-indicator" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <div class="reel-content-drawer">
-                <h3 class="reel-caption-title">Selamat Hari Merdeka Celebration</h3>
-                <p class="reel-caption-desc">Patriotic celebrations and fireworks night</p>
-                <div class="reel-meta-row">
-                  <span class="reel-views-count">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span>2.2K views</span>
-                  </span>
-                  </div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Follow on Instagram CTA Capsule -->
-      <div class="reels-footer-action">
-        <a href="https://www.instagram.com/autocity_penang/" target="_blank" rel="noopener noreferrer" class="reels-follow-btn">
-          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          <span>Watch more videos on Instagram</span>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       7. Upcoming Events : Daytime Fairground Transition & Creative Pinboard
-       Transition from dark mode to lightmode with FunFairBG.png as backdrop
-       Pastel cards (#fff1d7, #c5d7ff, #ffe0f8, #d8f4e5) stacked with playful angles
-       ======================================================================== -->
-  <section class="upcoming-events-section" id="events" aria-label="Upcoming Events at Auto-City">
-    <div class="upcoming-events-container">
-      
-      <!-- Section Header (Pure White Title & Subtitle, No Eyebrow) -->
-      <div class="events-header">
-        <h2 class="events-title">Upcoming Events &amp; Deals</h2>
-        <p class="events-subtitle">
-          From supercar carnivals and lantern night parades to live street food music fests, discover what's happening across 100 acres.
-        </p>
-      </div>
-
-      <!-- Creative Pinboard Stacked Deck Row (4 Pastel Cards) -->
-      <div class="events-deck-wrapper" role="region" aria-label="Upcoming Events Showcase">
-        <div class="events-deck-row">
-
-          <!-- Card 1: #fff1d7 (One Better River Festival) -->
-          <article class="event-card event-card-color-1" tabindex="0">
-            <div class="event-card-media">
-              <img src="../assets/images/events/river-festival.jpg" alt="One Better River Festival at Auto-City" class="event-card-img" style="object-position: center top;" loading="lazy">
-              <span class="event-media-tag">3 &ndash; 5 JUL 2026</span>
-            </div>
-            <div class="event-card-body">
-              <span class="event-category-pill">River Festival</span>
-              <h3 class="event-card-title">One Better River Festival</h3>
-              <p class="event-card-desc">
-                Wala Wala x Penang One Better pop-up market, bridge food stalls, live acoustic music, and riverside carnival.
-              </p>
-            </div>
-          </article>
-
-          <!-- Card 2: #c5d7ff (Premium Car Exhibition) -->
-          <article class="event-card event-card-color-2" tabindex="0">
-            <div class="event-card-media">
-              <img src="../assets/images/events/premium-car-exhibition.jpg" alt="Auto-City Carnival Premium Car Exhibition" class="event-card-img" style="object-position: center center;" loading="lazy">
-              <span class="event-media-tag">10 &ndash; 12 JUL 2026</span>
-            </div>
-            <div class="event-card-body">
-              <span class="event-category-pill">Auto Carnival</span>
-              <h3 class="event-card-title">Premium Car Exhibition</h3>
-              <p class="event-card-desc">
-                Latest supercar models, premium marques display, and exclusive manufacturer promotions at Concept Hall.
-              </p>
-            </div>
-          </article>
-
-          <!-- Card 3: #ffe0f8 (Meow & Woof Fashion Show) -->
-          <article class="event-card event-card-color-3" tabindex="0">
-            <div class="event-card-media">
-              <img src="../assets/images/events/pet-carnival-fashion-show.jpg" alt="Pet Carnival Spetcial Meow & Woof Fashion Show" class="event-card-img" style="object-position: center 30%;" loading="lazy">
-              <span class="event-media-tag">18 &ndash; 20 SEP 2026</span>
-            </div>
-            <div class="event-card-body">
-              <span class="event-category-pill">Pet Carnival</span>
-              <h3 class="event-card-title">Meow &amp; Woof Fashion Show</h3>
-              <p class="event-card-desc">
-                Celebrate Malaysia with adorable cats and dogs dressed in traditional national costumes on the grand runway.
-              </p>
-            </div>
-          </article>
-
-          <!-- Card 4: #d8f4e5 (Chinese Culture Dance) -->
-          <article class="event-card event-card-color-4" tabindex="0">
-            <div class="event-card-media">
-              <img src="../assets/images/events/dance-championship.jpg" alt="Auto-City Dance Championship Chinese Culture Dance" class="event-card-img" style="object-position: center center;" loading="lazy">
-              <span class="event-media-tag">4 DEC (FRI)</span>
-            </div>
-            <div class="event-card-body">
-              <span class="event-category-pill">Dance Championship</span>
-              <h3 class="event-card-title">Chinese Culture Dance</h3>
-              <p class="event-card-desc">
-                Auto-City Dance Championship featuring primary school cultural performers and traditional fan choreography.
-              </p>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-      <!-- See All Events CTA Button -->
-      <div class="events-footer-cta">
-        <a href="#events" class="events-all-btn" aria-label="See all events happening at Auto-City">
-          <span>See all events</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       8. A place for family, corporate, and beyond.
-       Design Reference: Temlis Acelia - Tabbed Services with Image Reveal
-       Light Mode Canvas · Curtain Reveal Image Transitions
-       Featuring: Nadi Glamping Suites, Lavenda Fun Park, Event Space & Team Building, Hubbiz
-       ======================================================================== -->
-  <section class="more-things-section" id="moreThingsToDo" aria-label="Find your suite. Family, friends, beyond.">
-    <div class="more-things-container">
-      
-      <!-- Section Header -->
-      <header class="more-things-header">
-        <h2 class="more-things-title">Find your suite.<br>Family, friends, beyond.</h2>
-        <p class="more-things-subtitle">
-          From tranquil riverfront glamping retreats and dynamic non-powered family parks to premier convention venues and executive co-working suites—uncover the multifaceted destinations shaping Auto-City.
-        </p>
-      </header>
-
-      <!-- Two-Column Tabbed Services & Image Reveal Grid -->
-      <div class="more-things-grid">
-        
-        <!-- Left Column: Interactive Tab List -->
-        <div class="more-things-tabs" role="tablist" aria-label="AutoCity Featured Offerings">
-
-          <!-- 01. Nadi Glamping Suites -->
-          <article 
-            class="more-things-tab-item tab-nadi active" 
-            id="tab-nadi" 
-            role="tab" 
-            aria-selected="true" 
-            aria-controls="panel-nadi" 
-            tabindex="0">
-            <div class="more-things-tab-header">
-              <div class="more-things-tab-title-group">
-                <span class="more-things-tab-num">01</span>
-                <h3 class="more-things-tab-title">Nadi Glamping Suites</h3>
-              </div>
-              <div class="more-things-tab-arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </div>
-            </div>
-
-            <div class="more-things-tab-body">
-              <div class="more-things-tab-inner">
-                <!-- Mobile Inline Image Preview -->
-                <div class="more-things-mobile-img">
-                  <img src="../assets/images/more-things-to-do/nadi-glamping-suites.jpg" alt="Nadi Glamping Suites at Auto-City Riverpark" loading="lazy">
-                </div>
-
-                <p class="more-things-tab-desc">
-                  Penang's premier riverfront eco-glamping sanctuary nestled within Auto-City Riverpark. Unwind in air-conditioned timber cabins or romantic safari tents equipped with luxury King Koil beds, private en-suites, and starlit evening campfires along the tranquil riverbank.
-                </p>
-                <a href="#nadi-booking" class="more-things-action-btn">
-                  <span>Explore Glamping Suites</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 02. Lavenda Fun Park -->
-          <article 
-            class="more-things-tab-item tab-lavenda" 
-            id="tab-lavenda" 
-            role="tab" 
-            aria-selected="false" 
-            aria-controls="panel-lavenda" 
-            tabindex="-1">
-            <div class="more-things-tab-header">
-              <div class="more-things-tab-title-group">
-                <span class="more-things-tab-num">02</span>
-                <h3 class="more-things-tab-title">Lavenda Fun Park</h3>
-              </div>
-              <div class="more-things-tab-arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </div>
-            </div>
-
-            <div class="more-things-tab-body">
-              <div class="more-things-tab-inner">
-                <!-- Mobile Inline Image Preview -->
-                <div class="more-things-mobile-img">
-                  <img src="../assets/images/more-things-to-do/lavenda-fun-park.jpg" alt="Lavenda Fun Park at Auto-City Phase 2" loading="lazy">
-                </div>
-
-                <p class="more-things-tab-desc">
-                  Penang's first non-powered outdoor adventure park spanning expansive green landscapes at Auto-City Phase 2. Experience zero-electricity kinetic thrills with massive multi-lane rainbow hill slides, sculptural lavender climbing towers, sky rope bridges, and joyful active family play.
-                </p>
-                <a href="#lavenda-park" class="more-things-action-btn">
-                  <span>Discover Lavenda Park</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 03. Event space rental and team building -->
-          <article 
-            class="more-things-tab-item tab-events" 
-            id="tab-events" 
-            role="tab" 
-            aria-selected="false" 
-            aria-controls="panel-events" 
-            tabindex="-1">
-            <div class="more-things-tab-header">
-              <div class="more-things-tab-title-group">
-                <span class="more-things-tab-num">03</span>
-                <h3 class="more-things-tab-title">Event space rental &amp; team building</h3>
-              </div>
-              <div class="more-things-tab-arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </div>
-            </div>
-
-            <div class="more-things-tab-body">
-              <div class="more-things-tab-inner">
-                <!-- Mobile Inline Image Preview -->
-                <div class="more-things-mobile-img">
-                  <img src="../assets/images/more-things-to-do/event-space-team-building.jpg" alt="Event space rental and team building at Auto-City" loading="lazy">
-                </div>
-
-                <p class="more-things-tab-desc">
-                  Over 10,000 sq. ft. of versatile multi-purpose indoor and semi-outdoor event halls (Concept Hall &amp; Sky TV Stage) accommodating up to 800 guests. Complete your corporate retreat with adrenaline-fueled group bonding, from Wild Kart off-road racing to RaceRoom simulators and tournament pickleball.
-                </p>
-                <a href="#event-inquiry" class="more-things-action-btn">
-                  <span>Inquire Event Venues</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 04. Hubbiz - Commercial Office Space -->
-          <article 
-            class="more-things-tab-item tab-hubbiz" 
-            id="tab-hubbiz" 
-            role="tab" 
-            aria-selected="false" 
-            aria-controls="panel-hubbiz" 
-            tabindex="-1">
-            <div class="more-things-tab-header">
-              <div class="more-things-tab-title-group">
-                <span class="more-things-tab-num">04</span>
-                <h3 class="more-things-tab-title">Hubbiz - Commercial Office Space</h3>
-              </div>
-              <div class="more-things-tab-arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </div>
-            </div>
-
-            <div class="more-things-tab-body">
-              <div class="more-things-tab-inner">
-                <!-- Mobile Inline Image Preview -->
-                <div class="more-things-mobile-img">
-                  <img src="../assets/images/more-things-to-do/hubbiz-commercial-office.jpg" alt="Hubbiz Commercial Office Space at Auto-City" loading="lazy">
-                </div>
-
-                <p class="more-things-tab-desc">
-                  Contemporary turnkey commercial office suites, collaborative co-working lounges, and high-tech corporate meeting boardrooms at Auto-City. Features 24/7 direct secured access, high-speed fiber connectivity, flexible month-to-month contracts, and ample free parking right in the city's commercial core.
-                </p>
-                <a href="#hubbiz-suites" class="more-things-action-btn">
-                  <span>Explore Hubbiz Suites</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-        <!-- Right Column: Large Stage Viewport with Signature Curtain Reveal -->
-        <div class="more-things-stage-wrap" aria-hidden="true">
-          <div class="more-things-stage">
-
-            <!-- Panel 1: Nadi Glamping Suites -->
-            <div class="more-things-panel active curtain-reveal" id="panel-nadi">
-              <img src="../assets/images/more-things-to-do/nadi-glamping-suites.jpg" alt="Nadi Glamping Suites" class="more-things-panel-img">
-            </div>
-
-            <!-- Panel 2: Lavenda Fun Park -->
-            <div class="more-things-panel" id="panel-lavenda">
-              <img src="../assets/images/more-things-to-do/lavenda-fun-park.jpg" alt="Lavenda Fun Park" class="more-things-panel-img">
-            </div>
-
-            <!-- Panel 3: Event space rental & team building -->
-            <div class="more-things-panel" id="panel-events">
-              <img src="../assets/images/more-things-to-do/event-space-team-building.jpg" alt="Event space rental and team building" class="more-things-panel-img">
-            </div>
-
-            <!-- Panel 4: Hubbiz - Commercial Office Space -->
-            <div class="more-things-panel" id="panel-hubbiz">
-              <img src="../assets/images/more-things-to-do/hubbiz-commercial-office.jpg" alt="Hubbiz Commercial Office Space" class="more-things-panel-img">
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
 
   <!-- Hidden Floating Showcase Portal Return Zone (Reveals on hover) -->
   <div class="portal-back-zone" aria-label="Showcase Portal trigger zone">
@@ -2363,9 +1681,8 @@
     </a>
   </div>
 
-  <!-- ========================================================================
-       Interactivity Script (Habitline Exact Inward-Closing Scroll Engine)
-       ======================================================================== -->
+
+  <!-- Header Scroll & Navigation Interactivity Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Dynamic Inward-Closing Scroll Effect (Habitline Signature Motion)
@@ -2376,7 +1693,6 @@
         if (!ticking) {
           window.requestAnimationFrame(() => {
             const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            // Smooth hysteresis buffer: close inward once past 45px, reopen above 15px
             if (scrollY > 45) {
               header.classList.add('scrolled');
             } else if (scrollY < 15) {
@@ -2389,18 +1705,18 @@
       };
 
       window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll(); // Initial check
+      handleScroll();
 
       // 2. Active nav link indicator on click
       const navLinks = document.querySelectorAll('.island-nav-link, .island-dropdown-link');
       navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
+        link.addEventListener('click', () => {
           navLinks.forEach(l => l.classList.remove('active'));
           link.classList.add('active');
         });
       });
 
-      // 3. Mobile/Tablet Dropdown Toggle (Habitline Interaction)
+      // 3. Mobile/Tablet Dropdown Toggle
       const mobileToggle = document.getElementById('islandMobileToggle');
       const mobileCard = document.getElementById('islandMobileCard');
       const mobileOverlay = document.getElementById('islandMobileOverlay');
@@ -2428,55 +1744,14 @@
           }
         });
       }
-
-      // 4. Level.ai Signature Accordion Controller
-      const accordion = document.getElementById('levelAccordion');
-      const pillBadge = document.getElementById('levelActivePill');
-      if (accordion && pillBadge) {
-        const panels = accordion.querySelectorAll('.level-panel');
-        
-        const setActivePanel = (panel) => {
-          if (panel.classList.contains('active')) return;
-          
-          panels.forEach(p => {
-            p.classList.remove('active');
-            p.setAttribute('aria-expanded', 'false');
-          });
-          panel.classList.add('active');
-          panel.setAttribute('aria-expanded', 'true');
-          
-          const pillText = panel.getAttribute('data-pill');
-          if (pillText) {
-            pillBadge.style.opacity = '0.3';
-            pillBadge.style.transform = 'scale(0.96)';
-            setTimeout(() => {
-              pillBadge.textContent = pillText;
-              pillBadge.style.opacity = '1';
-              pillBadge.style.transform = 'scale(1)';
-            }, 120);
-          }
-        };
-
-        panels.forEach(panel => {
-          // Responsive: smooth hover on desktop, click/tap on touch
-          panel.addEventListener('mouseenter', () => {
-            if (window.innerWidth > 640) {
-              setActivePanel(panel);
-            }
-          });
-          panel.addEventListener('click', () => setActivePanel(panel));
-          panel.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              setActivePanel(panel);
-            }
-          });
-        });
-      }
     });
   </script>
 
-  <!-- ============================================================
+
+  <!-- ========================================================================
+       Section 7: Auto-City App Download CTA — 3D Parallax Showcase
+       ======================================================================== -->
+<!-- ============================================================
        AUTO-CITY APP DOWNLOAD CTA — FRIENDLY 3D PARALLAX SHOWCASE
        Layout: 3-Column — Left Friendly Copy / Center 3D Interactive Phone / Right QR Card
        Aesthetic: Clean light sky, soft clouds, compact Apple-inspired UI, mouse parallax
@@ -3687,7 +2962,7 @@
     </div>
   </section>
 
-  <!-- ── HABITLINE LIGHT MODE CTA STYLES ──────────────────────── -->
+<!-- ── HABITLINE LIGHT MODE CTA STYLES ──────────────────────── -->
   <style>
   .hl-app-section {
     position: relative;
@@ -4852,7 +4127,8 @@
   <!-- ========================================================================
        AUTO-CITY ENCLOSED ISLAND FOOTER (ORCHID SECURITY REFERENCE — LIGHT MODE)
        ======================================================================== -->
-  <footer class="ac-footer-section" id="siteFooter" role="contentinfo" aria-label="Auto-City Site Footer">
+
+<footer class="ac-footer-section" id="siteFooter" role="contentinfo" aria-label="Auto-City Site Footer">
     <div class="ac-footer-shell">
 
       <!-- ── 1. Top Content Grid ── -->
@@ -5007,16 +4283,14 @@
     </div>
   </footer>
 
-  <!-- Habitline Quote Script -->
-  <script src="../js/quote.js"></script>
+  
   <script src="../js/lucide.min.js"></script>
   <script src="../js/swiper-bundle.min.js"></script>
   <script src="../js/activities-parallax.js"></script>
-  <script src="../js/reels-social.js"></script>
   <script src="../js/more-things-to-do.js"></script>
   <script src="../js/brands-carousel.js"></script>
+  <script src="../js/must-try.js"></script>
   <script src="../js/main.js"></script>
-  <script src="../js/quote.js"></script>
   <!-- Hero Video Rotator — A/B Crossfade (5 Videos, 5.5s per Video with 1s Fade-in & 1s Fade-out) -->
   <script>
   (function () {
